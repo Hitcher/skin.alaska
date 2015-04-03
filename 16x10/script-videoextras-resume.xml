@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="buttonMenu">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<onload>Control.Message(7000,close,videolibrary)</onload>
+	<coordinates>
+		<origin x="0" y="0"/>
+	</coordinates>
+
+	<controls>
+
+		<!-- Default controls (hidden) -->
+
+		<control type="grouplist" id="9000">
+			<include>HiddenControl</include>
+			<control type="button" id="2">
+				<include>HiddenControl</include>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+			</control>
+			<control type="button" id="40">
+				<include>HiddenControl</include>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+			</control>
+		</control>
+
+		<!-- Filter -->
+
+		<include>Global_DialogFilter</include>
+
+		<!-- Menu -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+
+			<control type="grouplist">
+				<left>160</left>
+				<top>466</top>
+				<width>1600</width>
+				<height>836</height>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
+		<animation effect="slide" end="0,0" time="200" condition="ControlGroup(9000).HasFocus(2)">Conditional</animation>
+		<animation effect="slide" end="0,-76" time="200" condition="ControlGroup(9000).HasFocus(40)">Conditional</animation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<control type="label">
+					<include>ContextMenuValue</include>
+					<label>$ADDON[script.videoextras 32104]$INFO[Control.GetLabel(2)]</label>
+					<animation type="conditional" condition="!ControlGroup(9000).HasFocus(2)">
+						<effect type="zoom" center="auto" start="100" end="70" time="200" tween="cubic" easing="in" />
+						<effect type="fade" start="100" end="50" time="200" />
+					</animation>
+				</control>
+				<control type="label">
+					<include>ContextMenuValue</include>
+					<label>$ADDON[script.videoextras 32105]</label>
+					<animation type="conditional" condition="!ControlGroup(9000).HasFocus(40)">
+						<effect type="zoom" center="auto" start="100" end="70" time="200" tween="cubic" easing="in" />
+						<effect type="fade" start="100" end="50" time="200" />
+					</animation>
+				</control>
+			</control>
+
+		</control>
+
+		<!-- Filter -->
+
+		<control type="group">
+			<include>Animation_CommonFade</include>
+			<include>List_Filter</include>
+		</control>
+
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<texture fallback="special://skin/extras/backgrounds/SKINDEFAULT/background.png">$VAR[Background_Image]</texture>
+			<visible>Window.IsActive(shutdownmenu) | Window.IsActive(FileBrowser) | Window.IsActive(progressdialog) | Window.IsActive(okdialog)</visible>
+			<colordiffuse>FilterDiffuse</colordiffuse>
+			<animation effect="fade" end="100" start="0" time="200">Visible</animation>
+			<animation effect="fade" end="0" start="100" time="400">Hidden</animation>
+		</control>
+
+	</controls>
+
+</window>

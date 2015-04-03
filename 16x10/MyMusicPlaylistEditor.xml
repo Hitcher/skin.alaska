@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="503">
+	<defaultcontrol allways="true">6</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>10503</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+		</control>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<include>Animation_ZoomInZoomOut</include>
+
+			<!-- Left group -->
+
+			<control type="group">
+				<left>80</left>
+				<top>162</top>
+
+				<!-- Heading -->
+
+				<control type="label">
+					<width>680</width>
+					<textcolor>MedLight</textcolor>
+					<font>Font_Reg_Bold_44</font>
+					<label>31171</label>
+				</control>
+
+				<!-- Left list -->
+
+				<control type="list" id="50">
+					<top>66</top>
+					<width>680</width>
+					<height>726</height>
+					<onleft>noop</onleft>
+					<onright>9000</onright>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<viewtype label="">list</viewtype>
+					<scrolltime>200</scrolltime>
+
+					<itemlayout height="66" width="680">
+
+						<control type="label">
+							<left>20</left>
+							<width>640</width>
+							<font>Font_Reg_44</font>
+							<textcolor>Light</textcolor>
+							<info>ListItem.Label</info>
+						</control>
+
+						<control type="label">
+							<left>660</left>
+							<width>640</width>
+							<align>right</align>
+							<font>Font_Reg_44</font>
+							<textcolor>Light</textcolor>
+							<info>ListItem.Label2</info>
+						</control>
+
+					</itemlayout>
+
+					<focusedlayout height="66" width="680">
+
+						<control type="image">
+							<width>680</width>
+							<height>66</height>
+							<texture>common/Button_FO.png</texture>
+							<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+
+						<control type="label">
+							<left>20</left>
+							<width>640</width>
+							<font>Font_Reg_44</font>
+							<textcolor>ButtonLabel</textcolor>
+							<info>ListItem.Label</info>
+						</control>
+
+						<control type="label">
+							<left>660</left>
+							<width>640</width>
+							<align>right</align>
+							<font>Font_Reg_44</font>
+							<textcolor>ButtonLabel</textcolor>
+							<info>ListItem.Label2</info>
+						</control>
+
+					</focusedlayout>
+
+				</control>
+
+				<!-- Number label -->
+
+				<control type="label" id="12">
+					<top>792</top>
+					<width>680</width>
+					<align>right</align>
+					<textcolor>MedLight</textcolor>
+					<font>Font_Reg_44</font>
+				</control>
+
+			</control>
+
+			<!-- Middle Panel -->
+
+			<control type="group">
+				<left>780</left>
+				<top>162</top>
+
+				<!-- Heading -->
+
+				<control type="label">
+					<width>360</width>
+					<textcolor>MedLight</textcolor>
+					<font>Font_Reg_Bold_44</font>
+					<label>31170</label>
+				</control>
+
+				<control type="group">
+					<visible>Control.HasFocus(50)</visible>
+
+					<!-- Image -->
+
+					<control type="image">
+						<left>30</left>
+						<top>80</top>
+						<width>300</width>
+						<height>300</height>
+						<texture fallback="DefaultAddonMusic.png">$INFO[Container(50).ListItem.Icon]</texture>
+						<aspectratio aligny="top">scale</aspectratio>
+						<bordertexture border="16">common/Now_Playing_Border.png</bordertexture>
+						<bordersize>16</bordersize>
+					</control>
+
+					<!-- Details -->
+
+					<control type="textbox">
+						<left>20</left>
+						<top>390</top>
+						<width>320</width>
+						<font>Font_Reg_36</font>
+						<label>$INFO[Container(50).ListItem.Artist,[COLOR=SelectedColour]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(50).ListItem.Album,[COLOR=SelectedColour]$LOCALIZE[558]: [/COLOR]]</label>
+					</control>
+
+				</control>
+
+				<control type="group">
+					<visible>Control.HasFocus(100)</visible>
+
+					<!-- Image -->
+
+					<control type="image">
+						<left>30</left>
+						<top>80</top>
+						<width>300</width>
+						<height>300</height>
+						<texture fallback="DefaultAddonMusic.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<aspectratio aligny="top">scale</aspectratio>
+						<bordertexture border="16">common/Now_Playing_Border.png</bordertexture>
+						<bordersize>16</bordersize>
+					</control>
+
+					<!-- Details -->
+
+					<control type="textbox">
+						<left>20</left>
+						<top>390</top>
+						<width>320</width>
+						<height>330</height>
+						<font>Font_Reg_36</font>
+						<label>$INFO[Container(100).ListItem.Artist,[COLOR=SelectedColour]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(100).ListItem.Album,[COLOR=SelectedColour]$LOCALIZE[558]: [/COLOR]]</label>
+					</control>
+
+				</control>
+
+				<!-- Middle grouplist -->
+
+				<control type="grouplist" id="9000">
+					<top>594</top>
+					<width>360</width>
+					<height>462</height>
+					<itemgap>0</itemgap>
+					<onleft>50</onleft>
+					<onright>100</onright>
+					<onup>noop</onup>
+					<ondown>noop</ondown>
+					<orientation>vertical</orientation>
+
+					<!-- Open Button -->
+					<control type="button" id="6">
+						<label>31019</label>
+						<width>360</width>
+					</control>
+
+					<!-- Save Button -->
+					<control type="button" id="7">
+						<label>31020</label>
+						<width>360</width>
+					</control>
+
+					<!-- Clear Button -->
+					<control type="button" id="8">
+						<label>31021</label>
+						<width>360</width>
+					</control>
+
+				</control>
+
+			</control>
+
+			<!-- Right Panel -->
+
+			<control type="group">
+				<left>1160</left>
+				<top>162</top>
+
+				<!-- Heading -->
+
+				<control type="label">
+					<width>680</width>
+					<textcolor>MedLight</textcolor>
+					<font>Font_Reg_Bold_44</font>
+					<label>31172</label>
+				</control>
+
+				<!-- Right list -->
+
+				<control type="list" id="100">
+					<top>66</top>
+					<width>680</width>
+					<height>726</height>
+					<onleft>9000</onleft>
+					<onright>noop</onright>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<viewtype label="">list</viewtype>
+					<scrolltime>200</scrolltime>
+
+					<itemlayout height="66" width="680">
+
+						<control type="label">
+							<left>20</left>
+							<width>640</width>
+							<font>Font_Reg_44</font>
+							<textcolor>Light</textcolor>
+							<info>ListItem.Label</info>
+						</control>
+
+						<control type="label">
+							<left>660</left>
+							<width>640</width>
+							<align>right</align>
+							<font>Font_Reg_44</font>
+							<textcolor>Light</textcolor>
+							<info>ListItem.Label2</info>
+						</control>
+
+					</itemlayout>
+
+					<focusedlayout height="66" width="680">
+
+						<control type="image">
+							<width>680</width>
+							<height>66</height>
+							<texture>common/Button_FO.png</texture>
+							<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(100)">Conditional</animation>
+						</control>
+
+						<control type="label">
+							<left>20</left>
+							<width>640</width>
+							<font>Font_Reg_44</font>
+							<textcolor>ButtonLabel</textcolor>
+							<info>ListItem.Label</info>
+						</control>
+
+						<control type="label">
+							<left>660</left>
+							<width>640</width>
+							<align>right</align>
+							<font>Font_Reg_44</font>
+							<textcolor>ButtonLabel</textcolor>
+							<info>ListItem.Label2</info>
+						</control>
+
+					</focusedlayout>
+
+				</control>
+
+				<!-- Number label -->
+
+				<control type="label" id="101">
+					<top>792</top>
+					<width>680</width>
+					<align>right</align>
+					<textcolor>MedLight</textcolor>
+					<font>Font_Reg_44</font>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

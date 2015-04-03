@@ -1,0 +1,1829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<!-- Main menu -->
+
+	<include name="HomeDefault">
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<visible>!Window.IsVisible(favourites)</visible>
+			<animation type="Visible">
+				<effect type="zoom" time="400" center="1920,540" start="180" end="100" tween="cubic" easing="out" delay="600" />
+				<effect type="fade" time="400" center="1920,540" start="0" end="100" delay="600" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="zoom" time="400" center="1920,540" start="100" end="180" tween="cubic" easing="in" />
+				<effect type="fade" time="400" center="1920,540" start="100" end="0" />
+			</animation>
+
+			<control type="grouplist">
+				<left>670</left>
+				<top>250</top>
+				<width>7920</width>
+				<height>480</height>
+				<itemgap>30</itemgap>
+				<orientation>horizontal</orientation>
+				<include>Animation_HomeSlide</include>
+				<animation type="WindowOpen">
+					<effect type="zoom" time="400" center="1920,540" start="180" end="100" tween="cubic" easing="out" />
+					<effect type="fade" time="400" center="1920,540" start="0" end="100" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="zoom" time="400" center="1920,540" start="100" end="180" tween="cubic" easing="in" />
+					<effect type="fade" time="400" center="1920,540" start="100" end="0" />
+				</animation>
+
+				<!-- Group 1 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel1))</visible>
+					<animation type="conditional" condition="!Container(300).Position(0)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart1)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(0)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel1)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(0)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(0)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(0)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 2 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel2))</visible>
+					<animation type="conditional" condition="!Container(300).Position(1)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart2)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(1)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel2)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(1)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(1)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(1)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 3 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel3))</visible>
+					<animation type="conditional" condition="!Container(300).Position(2)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart3)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(2)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel3)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(2)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(2)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(2)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 4 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel4))</visible>
+					<animation type="conditional" condition="!Container(300).Position(3)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart4)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(3)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel4)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(3)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(3)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(3)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 5 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel5))</visible>
+					<animation type="conditional" condition="!Container(300).Position(4)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart5)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(4)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel5)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(4)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(4)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(4)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 6 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel6))</visible>
+					<animation type="conditional" condition="!Container(300).Position(5)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart6)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(5)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel6)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(5)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(5)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(5)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 7 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel7))</visible>
+					<animation type="conditional" condition="!Container(300).Position(6)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart7)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(6)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel7)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(6)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(6)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(6)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 8 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel8))</visible>
+					<animation type="conditional" condition="!Container(300).Position(7)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart8)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(7)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel8)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(7)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(7)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(7)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 9 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel9))</visible>
+					<animation type="conditional" condition="!Container(300).Position(8)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart9)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(8)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel9)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(8)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(8)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(8)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 10 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel10))</visible>
+					<animation type="conditional" condition="!Container(300).Position(9)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart10)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(9)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel10)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(9)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(9)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(9)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 11 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel11))</visible>
+					<animation type="conditional" condition="!Container(300).Position(10)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart11)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(10)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel11)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(10)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(10)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(10)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 12 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel12))</visible>
+					<animation type="conditional" condition="!Container(300).Position(11)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart12)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(11)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel12)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(11)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(11)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(11)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 13 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel13))</visible>
+					<animation type="conditional" condition="!Container(300).Position(12)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart13)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(12)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel13)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(12)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(12)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(12)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 14 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel14))</visible>
+					<animation type="conditional" condition="!Container(300).Position(13)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart14)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(13)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel14)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(13)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(13)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(13)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 15 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel15))</visible>
+					<animation type="conditional" condition="!Container(300).Position(14)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart15)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(14)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel15)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(14)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(14)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(14)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 16 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel16))</visible>
+					<animation type="conditional" condition="!Container(300).Position(15)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart16)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(15)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel16)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(15)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(15)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(15)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 17 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel17))</visible>
+					<animation type="conditional" condition="!Container(300).Position(16)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart17)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(16)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel17)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(16)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(16)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(16)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 18 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel18))</visible>
+					<animation type="conditional" condition="!Container(300).Position(17)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart18)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(17)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel18)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(17)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(17)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(17)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 19 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel19))</visible>
+					<animation type="conditional" condition="!Container(300).Position(18)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart19)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(18)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel19)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(18)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(18)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(18)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+				<!-- Group 20 -->
+
+				<control type="group">
+					<width>498</width>
+					<height>480</height>
+					<visible>!IsEmpty(Window(home).Property(GroupLabel20))</visible>
+					<animation type="conditional" condition="!Container(300).Position(19)">
+						<effect type="zoom" center="288,240" tween="cubic" easing="in" time="200" start="100" end="84" />
+					</animation>
+					<control type="multiimage">
+						<include>Object_MainMenuIconF</include>
+						<imagepath diffuse="home/Matte.png" background="true">$INFO[Window(home).Property(GroupFanart20)]</imagepath>
+					</control>
+					<control type="image">
+						<include>Object_WidgetIconF</include>
+						<texture diffuse="home/Matte.png" background="true">$INFO[Container(302).ListItem.Icon]</texture>
+						<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+						<visible>Control.HasFocus(302) + Container(300).Position(19)</visible>
+					</control>
+					<include>Object_MainMenuFrame</include>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Window(home).Property(GroupLabel20)]</label>
+						<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(301) | Control.HasFocus(302)] + Container(300).Position(19)">Conditional</animation>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(301).ListItem.Label]</label>
+						<visible>Control.HasFocus(301) + Container(300).Position(19)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>Object_MainMenuLabel</include>
+						<label>$INFO[Container(302).ListItem.Label]</label>
+						<visible>Control.HasFocus(302) + Container(300).Position(19)</visible>
+					</control>
+					<include>Object_MainMenuShade</include>
+				</control>
+
+			</control>
+
+			<!-- Hidden main menu -->
+
+			<control type="panel" id="300">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>30</width>
+				<onup condition="!StringCompare(Container(300).ListItem.Property(widget),Favourites)">302</onup>
+				<onup condition="StringCompare(Container(300).ListItem.Property(widget),Favourites)">noop</onup>
+				<ondown condition="!StringCompare(Container(300).ListItem.Property(widget),Favourites)">301</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(widget),Favourites)">302</ondown>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>horizontal</orientation>
+				<defaultcontrol>3</defaultcontrol>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<include>skinshortcuts-mainmenu</include>
+				</content>
+			</control>
+
+			<!-- Hidden sub menu -->
+
+			<control type="list" id="301">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">1</defaultcontrol>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<include>skinshortcuts-submenu</include>
+				</content>
+			</control>
+
+			<!-- Hidden widget menus -->
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RecentMovies)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<icon>$INFO[Window.Property(RecentMovie.10.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.10.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.10.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.10.Title))</visible>
+					</item>
+					<item id="2">
+						<icon>$INFO[Window.Property(RecentMovie.9.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.9.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.9.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.9.Title))</visible>
+					</item>
+					<item id="3">
+						<icon>$INFO[Window.Property(RecentMovie.8.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.8.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.8.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.8.Title))</visible>
+					</item>
+					<item id="4">
+						<icon>$INFO[Window.Property(RecentMovie.7.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.7.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.7.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.7.Title))</visible>
+					</item>
+					<item id="5">
+						<icon>$INFO[Window.Property(RecentMovie.6.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.6.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.6.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.6.Title))</visible>
+					</item>
+					<item id="6">
+						<icon>$INFO[Window.Property(RecentMovie.5.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.5.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.5.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.5.Title))</visible>
+					</item>
+					<item id="7">
+						<icon>$INFO[Window.Property(RecentMovie.4.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.4.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.4.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.4.Title))</visible>
+					</item>
+					<item id="8">
+						<icon>$INFO[Window.Property(RecentMovie.3.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.3.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.3.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.3.Title))</visible>
+					</item>
+					<item id="9">
+						<icon>$INFO[Window.Property(RecentMovie.2.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.2.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.2.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.2.Title))</visible>
+					</item>
+					<item id="10">
+						<icon>$INFO[Window.Property(RecentMovie.1.Art(fanart))]</icon>
+						<label>$INFO[Window.Property(RecentMovie.1.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.1.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentMovie.1.Title))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RecommendedMovies)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>$INFO[Window.Property(RecommendedMovie.10.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.10.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.10.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.10.Title))</visible>
+					</item>
+					<item id="2">
+						<label>$INFO[Window.Property(RecommendedMovie.9.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.9.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.9.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.9.Title))</visible>
+					</item>
+					<item id="3">
+						<label>$INFO[Window.Property(RecommendedMovie.8.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.8.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.8.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.8.Title))</visible>
+					</item>
+					<item id="4">
+						<label>$INFO[Window.Property(RecommendedMovie.7.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.7.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.7.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.7.Title))</visible>
+					</item>
+					<item id="5">
+						<label>$INFO[Window.Property(RecommendedMovie.6.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.6.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.6.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.6.Title))</visible>
+					</item>
+					<item id="6">
+						<label>$INFO[Window.Property(RecommendedMovie.5.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.5.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.5.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.5.Title))</visible>
+					</item>
+					<item id="7">
+						<label>$INFO[Window.Property(RecommendedMovie.4.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.4.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.4.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.4.Title))</visible>
+					</item>
+					<item id="8">
+						<label>$INFO[Window.Property(RecommendedMovie.3.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.3.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.3.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.3.Title))</visible>
+					</item>
+					<item id="9">
+						<label>$INFO[Window.Property(RecommendedMovie.2.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.2.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.2.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.2.Title))</visible>
+					</item>
+					<item id="10">
+						<label>$INFO[Window.Property(RecommendedMovie.1.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedMovie.1.File)])</onclick>
+						<icon>$INFO[Window.Property(RecommendedMovie.1.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RecommendedMovie.1.Title))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RandomMovies)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>$INFO[Window.Property(RandomMovie.10.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.10.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.10.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.10.Title))</visible>
+					</item>
+					<item id="2">
+						<label>$INFO[Window.Property(RandomMovie.9.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.9.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.9.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.9.Title))</visible>
+					</item>
+					<item id="3">
+						<label>$INFO[Window.Property(RandomMovie.8.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.8.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.8.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.8.Title))</visible>
+					</item>
+					<item id="4">
+						<label>$INFO[Window.Property(RandomMovie.7.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.7.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.7.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.7.Title))</visible>
+					</item>
+					<item id="5">
+						<label>$INFO[Window.Property(RandomMovie.6.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.6.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.6.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.6.Title))</visible>
+					</item>
+					<item id="6">
+						<label>$INFO[Window.Property(RandomMovie.5.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.5.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.5.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.5.Title))</visible>
+					</item>
+					<item id="7">
+						<label>$INFO[Window.Property(RandomMovie.4.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.4.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.4.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.4.Title))</visible>
+					</item>
+					<item id="8">
+						<label>$INFO[Window.Property(RandomMovie.3.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.3.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.3.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.3.Title))</visible>
+					</item>
+					<item id="9">
+						<label>$INFO[Window.Property(RandomMovie.2.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.2.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.2.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.2.Title))</visible>
+					</item>
+					<item id="10">
+						<label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomMovie.1.File)])</onclick>
+						<icon>$INFO[Window.Property(RandomMovie.1.Art(fanart))]</icon>
+						<visible>!IsEmpty(Window.Property(RandomMovie.1.Title))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RecentEpisodes)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<icon>$INFO[Window.Property(RecentEpisode.10.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.10.TVshowTitle)]$INFO[Window.Property(RecentEpisode.10.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.10.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.10.TVshowTitle))</visible>
+					</item>
+					<item id="2">
+						<icon>$INFO[Window.Property(RecentEpisode.9.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.9.TVshowTitle)]$INFO[Window.Property(RecentEpisode.9.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.9.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.9.TVshowTitle))</visible>
+					</item>
+					<item id="3">
+						<icon>$INFO[Window.Property(RecentEpisode.8.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.8.TVshowTitle)]$INFO[Window.Property(RecentEpisode.8.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.8.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.8.TVshowTitle))</visible>
+					</item>
+					<item id="4">
+						<icon>$INFO[Window.Property(RecentEpisode.7.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.7.TVshowTitle)]$INFO[Window.Property(RecentEpisode.7.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.7.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.7.TVshowTitle))</visible>
+					</item>
+					<item id="5">
+						<icon>$INFO[Window.Property(RecentEpisode.6.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.6.TVshowTitle)]$INFO[Window.Property(RecentEpisode.6.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.6.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.6.TVshowTitle))</visible>
+					</item>
+					<item id="6">
+						<icon>$INFO[Window.Property(RecentEpisode.5.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.5.TVshowTitle)]$INFO[Window.Property(RecentEpisode.5.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.5.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.5.TVshowTitle))</visible>
+					</item>
+					<item id="7">
+						<icon>$INFO[Window.Property(RecentEpisode.4.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.4.TVshowTitle)]$INFO[Window.Property(RecentEpisode.4.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.4.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.4.TVshowTitle))</visible>
+					</item>
+					<item id="8">
+						<icon>$INFO[Window.Property(RecentEpisode.3.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.3.TVshowTitle)]$INFO[Window.Property(RecentEpisode.3.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.3.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.3.TVshowTitle))</visible>
+					</item>
+					<item id="9">
+						<icon>$INFO[Window.Property(RecentEpisode.2.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.2.TVshowTitle)]$INFO[Window.Property(RecentEpisode.2.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.2.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.2.TVshowTitle))</visible>
+					</item>
+					<item id="10">
+						<icon>$INFO[Window.Property(RecentEpisode.1.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecentEpisode.1.TVshowTitle)]$INFO[Window.Property(RecentEpisode.1.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.1.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecentEpisode.1.TVshowTitle))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RecommendedEpisodes)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<icon>$INFO[Window.Property(RecommendedEpisode.10.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.10.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.10.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.10.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.10.TVshowTitle))</visible>
+					</item>
+					<item id="2">
+						<icon>$INFO[Window.Property(RecommendedEpisode.9.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.9.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.9.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.9.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.9.TVshowTitle))</visible>
+					</item>
+					<item id="3">
+						<icon>$INFO[Window.Property(RecommendedEpisode.8.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.8.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.8.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.8.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.8.TVshowTitle))</visible>
+					</item>
+					<item id="4">
+						<icon>$INFO[Window.Property(RecommendedEpisode.7.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.7.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.7.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.7.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.7.TVshowTitle))</visible>
+					</item>
+					<item id="5">
+						<icon>$INFO[Window.Property(RecommendedEpisode.6.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.6.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.6.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.6.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.6.TVshowTitle))</visible>
+					</item>
+					<item id="6">
+						<icon>$INFO[Window.Property(RecommendedEpisode.5.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.5.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.5.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.5.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.5.TVshowTitle))</visible>
+					</item>
+					<item id="7">
+						<icon>$INFO[Window.Property(RecommendedEpisode.4.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.4.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.4.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.4.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.4.TVshowTitle))</visible>
+					</item>
+					<item id="8">
+						<icon>$INFO[Window.Property(RecommendedEpisode.3.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.3.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.3.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.3.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.3.TVshowTitle))</visible>
+					</item>
+					<item id="9">
+						<icon>$INFO[Window.Property(RecommendedEpisode.2.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.2.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.2.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.2.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.2.TVshowTitle))</visible>
+					</item>
+					<item id="10">
+						<icon>$INFO[Window.Property(RecommendedEpisode.1.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RecommendedEpisode.1.TVshowTitle)]$INFO[Window.Property(RecommendedEpisode.1.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RecommendedEpisode.1.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedEpisode.1.TVshowTitle))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RandomEpisodes)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<icon>$INFO[Window.Property(RandomEpisode.10.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.10.TVshowTitle)]$INFO[Window.Property(RandomEpisode.10.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.10.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.10.TVshowTitle))</visible>
+					</item>
+					<item id="2">
+						<icon>$INFO[Window.Property(RandomEpisode.9.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.9.TVshowTitle)]$INFO[Window.Property(RandomEpisode.9.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.9.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.9.TVshowTitle))</visible>
+					</item>
+					<item id="3">
+						<icon>$INFO[Window.Property(RandomEpisode.8.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.8.TVshowTitle)]$INFO[Window.Property(RandomEpisode.8.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.8.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.8.TVshowTitle))</visible>
+					</item>
+					<item id="4">
+						<icon>$INFO[Window.Property(RandomEpisode.7.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.7.TVshowTitle)]$INFO[Window.Property(RandomEpisode.7.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.7.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.7.TVshowTitle))</visible>
+					</item>
+					<item id="5">
+						<icon>$INFO[Window.Property(RandomEpisode.6.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.6.TVshowTitle)]$INFO[Window.Property(RandomEpisode.6.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.6.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.6.TVshowTitle))</visible>
+					</item>
+					<item id="6">
+						<icon>$INFO[Window.Property(RandomEpisode.5.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.5.TVshowTitle)]$INFO[Window.Property(RandomEpisode.5.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.5.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.5.TVshowTitle))</visible>
+					</item>
+					<item id="7">
+						<icon>$INFO[Window.Property(RandomEpisode.4.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.4.TVshowTitle)]$INFO[Window.Property(RandomEpisode.4.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.4.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.4.TVshowTitle))</visible>
+					</item>
+					<item id="8">
+						<icon>$INFO[Window.Property(RandomEpisode.3.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.3.TVshowTitle)]$INFO[Window.Property(RandomEpisode.3.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.3.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.3.TVshowTitle))</visible>
+					</item>
+					<item id="9">
+						<icon>$INFO[Window.Property(RandomEpisode.2.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.2.TVshowTitle)]$INFO[Window.Property(RandomEpisode.2.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.2.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.2.TVshowTitle))</visible>
+					</item>
+					<item id="10">
+						<icon>$INFO[Window.Property(RandomEpisode.1.Art(tvshow.fanart))]</icon>
+						<label>$INFO[Window.Property(RandomEpisode.1.TVshowTitle)]$INFO[Window.Property(RandomEpisode.1.Episode), • EP]</label>
+						<onclick>PlayMedia($ESCINFO[Window.Property(RandomEpisode.1.File)])</onclick>
+						<visible>!IsEmpty(Window.Property(RandomEpisode.1.TVshowTitle))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RecentAlbums)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<icon>$INFO[Window.Property(RecentAlbum.10.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.10.Title),, • ]$INFO[Window.Property(RecentAlbum.10.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.10.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.10.Label))</visible>
+					</item>
+					<item id="2">
+						<icon>$INFO[Window.Property(RecentAlbum.9.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.9.Title),, • ]$INFO[Window.Property(RecentAlbum.9.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.9.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.9.Label))</visible>
+					</item>
+					<item id="3">
+						<icon>$INFO[Window.Property(RecentAlbum.8.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.8.Title),, • ]$INFO[Window.Property(RecentAlbum.8.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.8.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.8.Label))</visible>
+					</item>
+					<item id="4">
+						<icon>$INFO[Window.Property(RecentAlbum.7.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.7.Title),, • ]$INFO[Window.Property(RecentAlbum.7.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.7.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.7.Label))</visible>
+					</item>
+					<item id="5">
+						<icon>$INFO[Window.Property(RecentAlbum.6.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.6.Title),, • ]$INFO[Window.Property(RecentAlbum.6.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.6.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.6.Label))</visible>
+					</item>
+					<item id="6">
+						<icon>$INFO[Window.Property(RecentAlbum.5.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.5.Title),, • ]$INFO[Window.Property(RecentAlbum.5.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.5.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.5.Label))</visible>
+					</item>
+					<item id="7">
+						<icon>$INFO[Window.Property(RecentAlbum.4.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.4.Title),, • ]$INFO[Window.Property(RecentAlbum.4.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.4.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.4.Label))</visible>
+					</item>
+					<item id="8">
+						<icon>$INFO[Window.Property(RecentAlbum.3.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.3.Title),, • ]$INFO[Window.Property(RecentAlbum.3.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.3.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.3.Label))</visible>
+					</item>
+					<item id="9">
+						<icon>$INFO[Window.Property(RecentAlbum.2.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.2.Title),, • ]$INFO[Window.Property(RecentAlbum.2.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.2.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.2.Label))</visible>
+					</item>
+					<item id="10">
+						<icon>$INFO[Window.Property(RecentAlbum.1.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecentAlbum.1.Title),, • ]$INFO[Window.Property(RecentAlbum.1.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecentAlbum.1.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecentAlbum.1.Label))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RecommendedAlbums)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<icon>$INFO[Window.Property(RecommendedAlbum.10.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.10.Title),, • ]$INFO[Window.Property(RecommendedAlbum.10.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.10.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.10.Label))</visible>
+					</item>
+					<item id="2">
+						<icon>$INFO[Window.Property(RecommendedAlbum.9.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.9.Title),, • ]$INFO[Window.Property(RecommendedAlbum.9.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.9.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.9.Label))</visible>
+					</item>
+					<item id="3">
+						<icon>$INFO[Window.Property(RecommendedAlbum.8.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.8.Title),, • ]$INFO[Window.Property(RecommendedAlbum.8.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.8.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.8.Label))</visible>
+					</item>
+					<item id="4">
+						<icon>$INFO[Window.Property(RecommendedAlbum.7.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.7.Title),, • ]$INFO[Window.Property(RecommendedAlbum.7.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.7.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.7.Label))</visible>
+					</item>
+					<item id="5">
+						<icon>$INFO[Window.Property(RecommendedAlbum.6.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.6.Title),, • ]$INFO[Window.Property(RecommendedAlbum.6.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.6.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.6.Label))</visible>
+					</item>
+					<item id="6">
+						<icon>$INFO[Window.Property(RecommendedAlbum.5.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.5.Title),, • ]$INFO[Window.Property(RecommendedAlbum.5.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.5.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.5.Label))</visible>
+					</item>
+					<item id="7">
+						<icon>$INFO[Window.Property(RecommendedAlbum.4.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.4.Title),, • ]$INFO[Window.Property(RecommendedAlbum.4.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.4.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.4.Label))</visible>
+					</item>
+					<item id="8">
+						<icon>$INFO[Window.Property(RecommendedAlbum.3.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.3.Title),, • ]$INFO[Window.Property(RecommendedAlbum.3.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.3.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.3.Label))</visible>
+					</item>
+					<item id="9">
+						<icon>$INFO[Window.Property(RecommendedAlbum.2.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.2.Title),, • ]$INFO[Window.Property(RecommendedAlbum.2.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.2.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.2.Label))</visible>
+					</item>
+					<item id="10">
+						<icon>$INFO[Window.Property(RecommendedAlbum.1.Thumb)]</icon>
+						<label>$INFO[Window.Property(RecommendedAlbum.1.Title),, • ]$INFO[Window.Property(RecommendedAlbum.1.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RecommendedAlbum.1.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RecommendedAlbum.1.Label))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">10</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<icon>$INFO[Window.Property(RandomAddon.10.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.10.Title),, • ]$INFO[Window.Property(RandomAddon.10.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.10.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.10.Label))</visible>
+					</item>
+					<item id="2">
+						<icon>$INFO[Window.Property(RandomAddon.9.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.9.Title),, • ]$INFO[Window.Property(RandomAddon.9.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.9.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.9.Label))</visible>
+					</item>
+					<item id="3">
+						<icon>$INFO[Window.Property(RandomAddon.8.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.8.Title),, • ]$INFO[Window.Property(RandomAddon.8.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.8.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.8.Label))</visible>
+					</item>
+					<item id="4">
+						<icon>$INFO[Window.Property(RandomAddon.7.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.7.Title),, • ]$INFO[Window.Property(RandomAddon.7.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.7.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.7.Label))</visible>
+					</item>
+					<item id="5">
+						<icon>$INFO[Window.Property(RandomAddon.6.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.6.Title),, • ]$INFO[Window.Property(RandomAddon.6.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.6.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.6.Label))</visible>
+					</item>
+					<item id="6">
+						<icon>$INFO[Window.Property(RandomAddon.5.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.5.Title),, • ]$INFO[Window.Property(RandomAddon.5.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.5.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.5.Label))</visible>
+					</item>
+					<item id="7">
+						<icon>$INFO[Window.Property(RandomAddon.4.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.4.Title),, • ]$INFO[Window.Property(RandomAddon.4.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.4.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.4.Label))</visible>
+					</item>
+					<item id="8">
+						<icon>$INFO[Window.Property(RandomAddon.3.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.3.Title),, • ]$INFO[Window.Property(RandomAddon.3.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.3.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.3.Label))</visible>
+					</item>
+					<item id="9">
+						<icon>$INFO[Window.Property(RandomAddon.2.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.2.Title),, • ]$INFO[Window.Property(RandomAddon.2.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.2.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.2.Label))</visible>
+					</item>
+					<item id="10">
+						<icon>$INFO[Window.Property(RandomAddon.1.Thumb)]</icon>
+						<label>$INFO[Window.Property(RandomAddon.1.Title),, • ]$INFO[Window.Property(RandomAddon.1.Artist)]</label>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>$INFO[Window.Property(RandomAddon.1.Play)]</onclick>
+						<visible>!IsEmpty(Window.Property(RandomAddon.1.Label))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>noop</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">7</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<icon>$INFO[Window(Weather).Property(Day6.FanartCode),special://skin/extras/weather/,/weather.jpg]</icon>
+						<label>$INFO[Window(Weather).Property(Day6.Title),, • ]$INFO[Window(Weather).Property(Day6.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<onclick>ActivateWindow(weather)</onclick>
+						<visible>!IsEmpty(Window(Weather).Property(Day6.Title))</visible>
+					</item>
+					<item id="2">
+						<icon>$INFO[Window(Weather).Property(Day5.FanartCode),special://skin/extras/weather/,/weather.jpg]</icon>
+						<label>$INFO[Window(Weather).Property(Day5.Title),, • ]$INFO[Window(Weather).Property(Day5.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<onclick>ActivateWindow(weather)</onclick>
+						<visible>!IsEmpty(Window(Weather).Property(Day5.Title))</visible>
+					</item>
+					<item id="3">
+						<icon>$INFO[Window(Weather).Property(Day4.FanartCode),special://skin/extras/weather/,/weather.jpg]</icon>
+						<label>$INFO[Window(Weather).Property(Day4.Title),, • ]$INFO[Window(Weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<onclick>ActivateWindow(weather)</onclick>
+						<visible>!IsEmpty(Window(Weather).Property(Day4.Title))</visible>
+					</item>
+					<item id="4">
+						<icon>$INFO[Window(Weather).Property(Day3.FanartCode),special://skin/extras/weather/,/weather.jpg]</icon>
+						<label>$INFO[Window(Weather).Property(Day3.Title),, • ]$INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<onclick>ActivateWindow(weather)</onclick>
+						<visible>!IsEmpty(Window(Weather).Property(Day3.Title))</visible>
+					</item>
+					<item id="5">
+						<icon>$INFO[Window(Weather).Property(Day2.FanartCode),special://skin/extras/weather/,/weather.jpg]</icon>
+						<label>$INFO[Window(Weather).Property(Day2.Title),, • ]$INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<onclick>ActivateWindow(weather)</onclick>
+						<visible>!IsEmpty(Window(Weather).Property(Day2.Title))</visible>
+					</item>
+					<item id="6">
+						<icon>$INFO[Window(Weather).Property(Day1.FanartCode),special://skin/extras/weather/,/weather.jpg]</icon>
+						<label>$LOCALIZE[33007] • $INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<onclick>ActivateWindow(weather)</onclick>
+						<visible>!IsEmpty(Window(Weather).Property(Day1.Title))</visible>
+					</item>
+					<item id="7">
+						<icon>$INFO[Window(Weather).Property(Day0.FanartCode),special://skin/extras/weather/,/weather.jpg]</icon>
+						<label>$LOCALIZE[33006] • $INFO[Window(Weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<onclick>ActivateWindow(weather)</onclick>
+						<visible>!IsEmpty(Window(Weather).Property(Day0.Title))</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="list" id="302">
+				<left>0</left>
+				<top>0</top>
+				<height>1</height>
+				<width>1</width>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<defaultcontrol always="true">1</defaultcontrol>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>$INFO[Window(home).Property(favourite.1.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.1.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.1.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.1.name))</visible>
+					</item>
+					<item id="2">
+						<label>$INFO[Window(home).Property(favourite.2.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.2.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.2.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.2.name))</visible>
+					</item>
+					<item id="3">
+						<label>$INFO[Window(home).Property(favourite.3.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.3.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.3.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.3.name))</visible>
+					</item>
+					<item id="4">
+						<label>$INFO[Window(home).Property(favourite.4.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.4.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.4.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.4.name))</visible>
+					</item>
+					<item id="5">
+						<label>$INFO[Window(home).Property(favourite.5.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.5.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.5.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.5.name))</visible>
+					</item>
+					<item id="6">
+						<label>$INFO[Window(home).Property(favourite.6.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.6.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.6.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.6.name))</visible>
+					</item>
+					<item id="7">
+						<label>$INFO[Window(home).Property(favourite.7.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.7.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.7.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.7.name))</visible>
+					</item>
+					<item id="8">
+						<label>$INFO[Window(home).Property(favourite.8.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.8.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.8.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.8.name))</visible>
+					</item>
+					<item id="9">
+						<label>$INFO[Window(home).Property(favourite.9.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.9.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.9.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.9.name))</visible>
+					</item>
+					<item id="10">
+						<label>$INFO[Window(home).Property(favourite.10.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.10.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.10.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.10.name))</visible>
+					</item>
+					<item id="11">
+						<label>$INFO[Window(home).Property(favourite.11.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.11.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.11.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.11.name))</visible>
+					</item>
+					<item id="12">
+						<label>$INFO[Window(home).Property(favourite.12.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.12.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.12.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.12.name))</visible>
+					</item>
+					<item id="13">
+						<label>$INFO[Window(home).Property(favourite.13.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.13.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.13.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.13.name))</visible>
+					</item>
+					<item id="14">
+						<label>$INFO[Window(home).Property(favourite.14.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.14.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.14.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.14.name))</visible>
+					</item>
+					<item id="15">
+						<label>$INFO[Window(home).Property(favourite.15.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.15.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.15.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.15.name))</visible>
+					</item>
+					<item id="16">
+						<label>$INFO[Window(home).Property(favourite.16.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.16.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.16.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.16.name))</visible>
+					</item>
+					<item id="17">
+						<label>$INFO[Window(home).Property(favourite.17.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.17.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.17.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.17.name))</visible>
+					</item>
+					<item id="18">
+						<label>$INFO[Window(home).Property(favourite.18.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.18.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.18.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.18.name))</visible>
+					</item>
+					<item id="19">
+						<label>$INFO[Window(home).Property(favourite.19.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.19.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.19.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.19.name))</visible>
+					</item>
+					<item id="20">
+						<label>$INFO[Window(home).Property(favourite.20.name)]</label>
+						<icon>$INFO[Window(home).Property(favourite.20.thumb)]</icon>
+						<onclick>$INFO[Window(home).Property(favourite.20.path)]</onclick>
+						<visible>!IsEmpty(Window(home).Property(favourite.20.name))</visible>
+					</item>
+				</content>
+			</control>
+
+		</control>
+
+	</include>
+
+</includes>

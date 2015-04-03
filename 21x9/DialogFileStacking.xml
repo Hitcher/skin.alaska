@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="2008">
+	<defaultcontrol always="true">450</defaultcontrol>
+	<zorder>2</zorder>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<include>Animation_ZoomInZoomOut</include>
+
+			<!-- Heading label -->
+
+			<control type="label" id="1">
+				<left>544</left>
+				<top>154</top>
+				<width>1254</width>
+				<height>44</height>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>Medium</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+			<!-- List -->
+
+			<control type="list" id="450">
+				<left>544</left>
+				<top>228</top>
+				<width>839</width>
+				<height>594</height>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="839" height="66">
+					<control type="label">
+						<left>25</left>
+						<width>789</width>
+						<height>66</height>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="839" height="66">
+					<control type="image">
+						<width>839</width>
+						<height>66</height>
+						<texture>common/Button_FO.png</texture>
+					</control>
+					<control type="label">
+						<left>25</left>
+						<width>789</width>
+						<height>66</height>
+						<scroll>true</scroll>
+						<aligny>center</aligny>
+						<textcolor>ButtonLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

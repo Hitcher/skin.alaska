@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="144">
+
+	<controls>
+
+		<!-- Filter -->
+
+		<include>Global_DialogFilter</include>
+
+		<!-- Details -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+			<animation type="Conditional" condition="Window.IsActive(shutdownmenu) | Window.IsActive(DialogYesNo.xml) | Window.IsActive(progressdialog)">
+				<effect type="zoom" time="600" center="CenterX,CenterY" start="100" end="76" tween="cubic" easing="inout" />
+			</animation>
+
+			<control type="grouplist">
+				<left>260</left>
+				<top>340</top>
+				<width>1400</width>
+				<height>400</height>
+				<itemgap>8</itemgap>
+				<align>center</align>
+				<orientation>vertical</orientation>
+
+				<!-- Heading -->
+
+				<control type="label" id="1">
+					<width>1400</width>
+					<height>42</height>
+					<align>center</align>
+					<font>Font_Black_Caps_42</font>
+					<textcolor>$VAR[DialogHeadingValue]</textcolor>
+					<label>31031</label>
+				</control>
+
+				<control type="label">
+					<!-- Spacer -->
+					<width>1400</width>
+					<height>8</height>
+				</control>
+				
+				<!-- Song Number Label -->
+
+				<control type="label" id="401">
+					<width>1400</width>
+					<height>44</height>
+					<align>center</align>
+					<scroll>true</scroll>
+					<font>Font_Light_Caps_36</font>
+					<textcolor>Medium</textcolor>
+				</control>
+
+				<control type="label">
+					<!-- Spacer -->
+					<width>1400</width>
+					<height>8</height>
+				</control>
+				
+				<!-- Song Name Label -->
+
+				<control type="label" id="402">
+					<width>1400</width>
+					<height>44</height>
+					<align>center</align>
+					<scroll>true</scroll>
+					<font>Font_Light_Caps_36</font>
+					<textcolor>Medium</textcolor>
+				</control>
+				
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

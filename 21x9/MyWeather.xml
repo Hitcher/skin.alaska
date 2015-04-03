@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="2600">
+	<backgroundcolor>0</backgroundcolor>
+	<defaultcontrol always="true">9000</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<fadetime>400</fadetime>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<texture background="true">$INFO[Window(Weather).Property(Current.FanartCode),special://skin/extras/weather/,/weather.jpg]</texture>
+			<include>Animation_CommonFade</include>
+			<visible>!Skin.HasSetting(Disable_Weather_Fanart)</visible>
+		</control>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$VAR[Global_HeadingLabels]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$VAR[Global_HeadingDetails]</label>
+				<include>Global_HeadingDetailVars</include>
+			</control>
+			<control type="label">
+				<include>Global_HeadingDetail2Vars</include>
+				<label>[B]$INFO[Window(Weather).Property(WeatherProvider)][/B]</label>
+			</control>
+		</control>
+
+		<!-- View -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<include>Animation_ZoomInZoomOut</include>
+			<visible>!StringCompare(Weather.Location,$LOCALIZE[503])</visible>
+
+			<!-- Hidden control button -->
+
+			<control type="button" id="9000">
+				<include>HiddenControl</include>
+				<onup>7000</onup>
+				<ondown>7000</ondown>
+				<onleft>7000</onleft>
+				<onright>7000</onright>
+			</control>
+
+			<control type="group">
+				<left>108</left>
+				<top>186</top>
+
+				<!-- Current -->
+
+				<control type="group">
+					<width>360</width>
+					<height>450</height>
+
+					<control type="image">
+						<width>360</width>
+						<height>360</height>
+						<texture>$INFO[Window(Weather).Property(Current.ConditionIcon)]</texture>
+					</control>
+					<control type="label">
+						<top>360</top>
+						<width>360</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_46</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Day0.HighTemp),,°] / $INFO[Window(Weather).Property(Day0.LowTemp),,°]</label>
+					</control>
+					<control type="label">
+						<top>444</top>
+						<width>360</width>
+						<height>36</height>
+						<align>center</align>
+						<scroll>true</scroll>
+						<font>Font_Reg_40</font>
+						<textcolor>MedLight</textcolor>
+						<label>$INFO[Window(Weather).Property(Current.Condition)]</label>
+					</control>
+					<control type="label">
+						<top>490</top>
+						<width>360</width>
+						<height>36</height>
+						<align>center</align>
+						<font>Font_Reg_36</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.1.ChancePrecipitation),, †]</label>
+					</control>
+
+				</control>
+
+				<!-- Day 1 -->
+
+				<control type="group">
+					<left>420</left>
+					<top>94</top>
+					<width>300</width>
+					<height>450</height>
+
+					<control type="label">
+						<width>300</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Black_Caps_35</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.2.ShortDay)] $INFO[Window(Weather).Property(Daily.2.ShortDate)]</label>
+					</control>
+					<control type="image">
+						<left>64</left>
+						<top>54</top>
+						<width>192</width>
+						<height>192</height>
+						<texture>$INFO[Window(Weather).Property(Day1.OutlookIcon)]</texture>
+					</control>
+					<control type="label">
+						<top>266</top>
+						<width>300</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_46</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Day1.HighTemp),,°] / $INFO[Window(Weather).Property(Day1.LowTemp),,°]</label>
+					</control>
+					<control type="label">
+						<top>350</top>
+						<width>300</width>
+						<height>36</height>
+						<align>center</align>
+						<scroll>true</scroll>
+						<font>Font_Reg_40</font>
+						<textcolor>MedLight</textcolor>
+						<label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
+					</control>
+					<control type="label">
+						<top>396</top>
+						<width>300</width>
+						<height>36</height>
+						<align>center</align>
+						<font>Font_Reg_36</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.2.ChancePrecipitation),, †]</label>
+					</control>
+
+				</control>
+
+				<!-- Day 2 -->
+
+				<control type="group">
+					<left>740</left>
+					<top>94</top>
+					<width>300</width>
+					<height>450</height>
+
+					<control type="label">
+						<width>300</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Black_Caps_35</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.3.ShortDay)] $INFO[Window(Weather).Property(Daily.3.ShortDate)]</label>
+					</control>
+					<control type="image">
+						<left>64</left>
+						<top>54</top>
+						<width>192</width>
+						<height>192</height>
+						<texture>$INFO[Window(Weather).Property(Day2.OutlookIcon)]</texture>
+					</control>
+					<control type="label">
+						<top>266</top>
+						<width>300</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_46</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Day2.HighTemp),,°] / $INFO[Window(Weather).Property(Day2.LowTemp),,°]</label>
+					</control>
+					<control type="label">
+						<top>350</top>
+						<width>300</width>
+						<height>36</height>
+						<align>center</align>
+						<scroll>true</scroll>
+						<font>Font_Reg_40</font>
+						<textcolor>MedLight</textcolor>
+						<label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
+					</control>
+					<control type="label">
+						<top>396</top>
+						<width>300</width>
+						<height>36</height>
+						<align>center</align>
+						<font>Font_Reg_36</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.3.ChancePrecipitation),, †]</label>
+					</control>
+
+				</control>
+
+				<!-- Day 3 -->
+
+				<control type="group">
+					<left>1060</left>
+					<top>94</top>
+					<width>300</width>
+					<height>450</height>
+
+					<control type="label">
+						<width>300</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Black_Caps_35</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.4.ShortDay)] $INFO[Window(Weather).Property(Daily.4.ShortDate)]</label>
+					</control>
+					<control type="image">
+						<left>64</left>
+						<top>54</top>
+						<width>192</width>
+						<height>192</height>
+						<texture>$INFO[Window(Weather).Property(Day3.OutlookIcon)]</texture>
+					</control>
+					<control type="label">
+						<top>266</top>
+						<width>300</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_46</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Day3.HighTemp),,°] / $INFO[Window(Weather).Property(Day3.LowTemp),,°]</label>
+					</control>
+					<control type="label">
+						<top>350</top>
+						<width>300</width>
+						<height>36</height>
+						<align>center</align>
+						<scroll>true</scroll>
+						<font>Font_Reg_40</font>
+						<textcolor>MedLight</textcolor>
+						<label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
+					</control>
+					<control type="label">
+						<top>396</top>
+						<width>300</width>
+						<height>36</height>
+						<align>center</align>
+						<font>Font_Reg_36</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.4.ChancePrecipitation),, †]</label>
+					</control>
+
+				</control>
+
+				<!-- Day 4 -->
+
+				<control type="group">
+					<left>1380</left>
+					<top>94</top>
+					<width>300</width>
+					<height>450</height>
+
+					<control type="label">
+						<width>300</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Black_Caps_35</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.5.ShortDay)] $INFO[Window(Weather).Property(Daily.5.ShortDate)]</label>
+					</control>
+					<control type="image">
+						<left>64</left>
+						<top>54</top>
+						<width>192</width>
+						<height>192</height>
+						<texture>$INFO[Window(Weather).Property(Day4.OutlookIcon)]</texture>
+					</control>
+					<control type="label">
+						<top>266</top>
+						<width>300</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_46</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Day4.HighTemp),,°] / $INFO[Window(Weather).Property(Day4.LowTemp),,°]</label>
+					</control>
+					<control type="label">
+						<top>350</top>
+						<width>300</width>
+						<height>36</height>
+						<align>center</align>
+						<scroll>true</scroll>
+						<font>Font_Reg_40</font>
+						<textcolor>MedLight</textcolor>
+						<label>$INFO[Window(Weather).Property(Day4.Outlook)]</label>
+					</control>
+					<control type="label">
+						<top>396</top>
+						<width>300</width>
+						<height>36</height>
+						<align>center</align>
+						<font>Font_Reg_36</font>
+						<textcolor>Medium</textcolor>
+						<label>$INFO[Window(Weather).Property(Daily.5.ChancePrecipitation),, †]</label>
+					</control>
+
+				</control>
+
+			</control>
+
+		</control>
+
+		<!-- Filter -->
+
+		<include>Global_ContextFilter</include>
+
+		<!-- Menu -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu7000</include>
+
+			<control type="fixedlist" id="7000">
+				<left>-480</left>
+				<top>432</top>
+				<width>3520</width>
+				<height>524</height>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<viewtype>list</viewtype>
+				<focusposition>4</focusposition>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">1</defaultcontrol>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible allowhiddenfocus="true">Control.HasFocus(7000) + !Window.IsActive(shutdownmenu) + !Window.IsActive(DialogYesNo.xml) + !Window.IsActive(progressdialog) + !Window.IsActive(okdialog)</visible>
+
+				<itemlayout width="300" height="524">
+					<control type="label">
+						<left>0</left>
+						<top>22</top>
+						<width>280</width>
+						<height>30</height>
+						<info>ListItem.Label</info>
+						<font>Font_Reg_Caps_Bold_28</font>
+						<textcolor>Light</textcolor>
+					</control>
+					<control type="textbox">
+						<left>0</left>
+						<top>40</top>
+						<width>280</width>
+						<height>108</height>
+						<info>ListItem.Label2</info>
+						<font>Font_Black_Caps_44</font>
+						<autoscroll>false</autoscroll>
+						<textcolor>Light</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="620" height="524">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="240,60" start="60" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="40" end="100" time="200" />
+						</animation>
+						<control type="label">
+							<left>240</left>
+							<width>400</width>
+							<height>44</height>
+							<align>center</align>
+							<info>ListItem.Label</info>
+							<font>Font_Reg_Caps_Bold_44</font>
+							<textcolor>MedLight</textcolor>
+						</control>
+						<control type="textbox">
+							<left>-10</left>
+							<top>32</top>
+							<width>500</width>
+							<height>188</height>
+							<align>center</align>
+							<info>ListItem.Label2</info>
+							<font>Font_Black_Caps_76</font>
+							<autoscroll>false</autoscroll>
+							<textcolor>Medium</textcolor>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<!-- Refresh -->
+					<item id="1">
+						<onclick>Up</onclick>
+						<onclick>SendClick(2)</onclick>
+						<label>184</label>
+						<label2>8</label2>
+					</item>
+					<!-- Fanart -->
+					<item id="2">
+						<onclick>Skin.ToggleSetting(Disable_Weather_Fanart)</onclick>
+						<label>20445</label>
+						<label2>351</label2>
+						<visible>Skin.HasSetting(Disable_Weather_Fanart)</visible>
+					</item>
+					<item id="2">
+						<onclick>Skin.ToggleSetting(Disable_Weather_Fanart)</onclick>
+						<label>20445</label>
+						<label2>16041</label2>
+						<visible>!Skin.HasSetting(Disable_Weather_Fanart)</visible>
+					</item>
+					<!-- Settings -->
+					<item id="3">
+						<onclick>ActivateWindow(weathersettings)</onclick>
+						<label>8</label>
+						<label2>5</label2>
+					</item>
+					<!-- Location -->
+					<item id="4">
+						<onclick>Up</onclick>
+						<onclick>Weather.LocationNext</onclick>
+						<label>31163</label>
+						<label2>35500</label2>
+					</item>
+				</content>
+			</control>
+
+		</control>
+
+		<!-- Hidden buttons for Menu -->
+
+		<control type="button" id="2">
+			<include>HiddenControl</include>
+		</control>
+
+	</controls>
+
+</window>

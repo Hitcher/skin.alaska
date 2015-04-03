@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype_513_Episode_Watchlist">
+
+		<control type="group">
+			<visible>Control.IsVisible(513)</visible>
+
+			<!-- Browser -->
+
+			<control type="group" id="5000">
+				<top>TopOffset</top>
+				<include>Animation_ZoomInZoomOut</include>
+				<include>Animation_ZoomedByMenu</include>
+				<include>Animation_HiddenByInfo</include>
+
+				<control type="fixedlist" id="513">
+					<include>Fanart_Values</include>
+					<top>352</top>
+					<height>750</height>
+					<onup>7000</onup>
+					<ondown>7000</ondown>
+					<onleft>513</onleft>
+					<onright>513</onright>
+					<pagecontrol>60</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<orientation>horizontal</orientation>
+					<viewtype label="31123">list</viewtype>
+					<scrolltime tween="sine" easing="out">280</scrolltime>
+					<visible>SubString(Container.FolderPath,recommendedepisodes)</visible>
+
+					<itemlayout width="422" height="235">
+						<control type="image">
+							<left>10</left>
+							<top>20</top>
+							<width>404</width>
+							<height>228</height>
+							<aspectratio align="center">keep</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<include>Animation_HiddenByInfo</include>
+							<visible>SubString(ListItem.Icon,Default)</visible>
+						</control>
+						<control type="group">
+							<visible>!SubString(ListItem.Icon,Default)</visible>
+							<control type="image">
+								<left>6</left>
+								<top>16</top>
+								<width>412</width>
+								<height>236</height>
+								<texture>landscape/Landscape_Frame_Shadow_NF.png</texture>
+							</control>
+							<control type="image">
+								<left>10</left>
+								<top>20</top>
+								<width>404</width>
+								<height>228</height>
+								<texture>landscape/Landscape_Matte_NF.png</texture>
+								<colordiffuse>MatteDiffuse</colordiffuse>
+							</control>
+							<control type="image">
+								<left>10</left>
+								<top>20</top>
+								<width>404</width>
+								<height>228</height>
+								<texture background="true" fallback="DefaultAddonNone.png" diffuse="landscape/Landscape_Matte_NF.png">$VAR[Watchlist_Landscape_Image]</texture>
+								<fadetime>200</fadetime>
+								<colordiffuse>LandscapeDiffuse</colordiffuse>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+							</control>
+							<control type="image">
+								<left>10</left>
+								<top>20</top>
+								<width>404</width>
+								<height>228</height>
+								<texture>landscape/Landscape_Frame_NF.png</texture>
+							</control>
+						</control>
+					</itemlayout>
+
+					<focusedlayout width="458" height="266">
+						<control type="image">
+							<left>14</left>
+							<top>12</top>
+							<width>429</width>
+							<height>242</height>
+							<fadetime>200</fadetime>
+							<aspectratio align="center">keep</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<animation type="Focus" reversible="false">
+								<effect type="zoom" center="auto" start="50" end="100" time="400" tween="back" easing="out" />
+							</animation>
+							<visible>SubString(ListItem.Icon,Default)</visible>
+						</control>
+						<control type="group">
+							<visible>!SubString(ListItem.Icon,Default)</visible>
+							<animation type="Focus" reversible="false">
+								<effect type="zoom" center="auto" start="50" end="100" time="400" tween="back" easing="out" />
+							</animation>
+							<control type="image">
+								<left>14</left>
+								<top>12</top>
+								<width>429</width>
+								<height>242</height>
+								<texture background="true" fallback="DefaultAddonNone.png" diffuse="landscape/Landscape_Matte_FO.png">$VAR[Watchlist_Landscape_Image]</texture>
+								<fadetime>200</fadetime>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+							</control>
+							<control type="image">
+								<left>2</left>
+								<top>0</top>
+								<width>453</width>
+								<height>266</height>
+								<texture>landscape/Landscape_Frame_FO.png</texture>
+							</control>
+						</control>
+					</focusedlayout>
+
+				</control>
+
+			</control>
+
+			<!-- Browser label -->
+
+			<control type="group">
+				<top>TopOffset</top>
+				<left>LeftOffset</left>
+				<include>Animation_SlideUpFadeOut</include>
+				<include>Animation_HiddenByInfo</include>
+				<include>Animation_ZoomedByMenu</include>
+
+				<control type="group">
+					<left>746</left>
+					<top>646</top>
+					<animation effect="fade" time="200" start="0" end="100">Visible</animation>
+					<visible>!SubString(ListItem.Icon,Default) + !Container(513).OnNext + !Container(513).OnPrevious</visible>
+
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>1110</width>
+						<height>48</height>
+						<aligny>center</aligny>
+						<font>Font_Reg_Caps_Bold_48</font>
+						<textcolor>Heavy</textcolor>
+						<label>$INFO[Container(513).ListItem.Label]</label>
+					</control>
+
+					<control type="grouplist">
+						<left>0</left>
+						<top>52</top>
+						<width>1110</width>
+						<height>200</height>
+						<itemgap>2</itemgap>
+
+						<control type="grouplist">
+							<width>1110</width>
+							<height>40</height>
+							<itemgap>6</itemgap>
+							<orientation>horizontal</orientation>
+							<usecontrolcoords>true</usecontrolcoords>
+							<control type="label">
+								<height>40</height>
+								<width>auto</width>
+								<aligny>bottom</aligny>
+								<font>Font_Light_Caps_36</font>
+								<textcolor>Heavy</textcolor>
+								<label>$LOCALIZE[31125]:</label>
+							</control>
+							<control type="label">
+								<height>36</height>
+								<width>auto</width>
+								<aligny>bottom</aligny>
+								<font>Font_Reg_36</font>
+								<textcolor>Heavy</textcolor>
+								<label>$INFO[Container(513).ListItem.TVShowTitle]</label>
+							</control>
+						</control>
+
+						<control type="grouplist">
+							<width>1110</width>
+							<height>40</height>
+							<itemgap>6</itemgap>
+							<orientation>horizontal</orientation>
+							<usecontrolcoords>true</usecontrolcoords>
+							<control type="label">
+								<height>40</height>
+								<width>auto</width>
+								<aligny>bottom</aligny>
+								<font>Font_Light_Caps_36</font>
+								<textcolor>Heavy</textcolor>
+								<label>$LOCALIZE[20359]:</label>
+							</control>
+							<control type="label">
+								<height>36</height>
+								<width>auto</width>
+								<aligny>bottom</aligny>
+								<font>Font_Reg_Caps_36</font>
+								<textcolor>Heavy</textcolor>
+								<label>$INFO[Container(513).ListItem.Property(EpisodeNo)]</label>
+							</control>
+						</control>
+
+					</control>
+
+				</control>
+
+			</control>
+
+		</control>
+
+	</include>
+
+</includes>
+

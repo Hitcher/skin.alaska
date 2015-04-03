@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- home -->
+	<backgroundcolor>0</backgroundcolor>
+	<onload>RunScript(script.favourites)</onload>
+	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=0)</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel1,$INFO[Container(300).ListItemNoWrap(-2).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel2,$INFO[Container(300).ListItemNoWrap(-1).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel3,$INFO[Container(300).ListItemNoWrap.Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel4,$INFO[Container(300).ListItemNoWrap(1).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel5,$INFO[Container(300).ListItemNoWrap(2).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel6,$INFO[Container(300).ListItemNoWrap(3).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel7,$INFO[Container(300).ListItemNoWrap(4).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel8,$INFO[Container(300).ListItemNoWrap(5).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel9,$INFO[Container(300).ListItemNoWrap(6).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel10,$INFO[Container(300).ListItemNoWrap(7).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel11,$INFO[Container(300).ListItemNoWrap(8).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel12,$INFO[Container(300).ListItemNoWrap(9).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel13,$INFO[Container(300).ListItemNoWrap(10).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel14,$INFO[Container(300).ListItemNoWrap(11).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel15,$INFO[Container(300).ListItemNoWrap(12).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel16,$INFO[Container(300).ListItemNoWrap(13).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel17,$INFO[Container(300).ListItemNoWrap(14).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel18,$INFO[Container(300).ListItemNoWrap(15).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel19,$INFO[Container(300).ListItemNoWrap(16).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupLabel20,$INFO[Container(300).ListItemNoWrap(17).Label])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart1,$INFO[Container(300).ListItemNoWrap(-2).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart2,$INFO[Container(300).ListItemNoWrap(-1).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart3,$INFO[Container(300).ListItemNoWrap.Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart4,$INFO[Container(300).ListItemNoWrap(1).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart5,$INFO[Container(300).ListItemNoWrap(2).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart6,$INFO[Container(300).ListItemNoWrap(3).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart7,$INFO[Container(300).ListItemNoWrap(4).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart8,$INFO[Container(300).ListItemNoWrap(5).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart9,$INFO[Container(300).ListItemNoWrap(6).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart10,$INFO[Container(300).ListItemNoWrap(7).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart11,$INFO[Container(300).ListItemNoWrap(8).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart12,$INFO[Container(300).ListItemNoWrap(9).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart13,$INFO[Container(300).ListItemNoWrap(10).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart14,$INFO[Container(300).ListItemNoWrap(11).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart15,$INFO[Container(300).ListItemNoWrap(12).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart16,$INFO[Container(300).ListItemNoWrap(13).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart17,$INFO[Container(300).ListItemNoWrap(14).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart18,$INFO[Container(300).ListItemNoWrap(15).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart19,$INFO[Container(300).ListItemNoWrap(16).Property(Background)])</onload>
+	<onload condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)] + Window.Previous(startup)">SetProperty(GroupFanart20,$INFO[Container(300).ListItemNoWrap(17).Property(Background)])</onload>
+	<defaultcontrol always="true">300</defaultcontrol>
+
+	<controls>
+
+		<!-- Hidden control to load weather conditions -->
+
+		<control type="label">
+			<font>-</font>
+			<label>$INFO[Weather.Conditions]</label>
+		</control>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Home layouts -->
+
+		<include condition="![Skin.HasSetting(HomeIcon) | Skin.HasSetting(HomeHorizontal)]">HomeDefault</include>
+		<include condition="Skin.HasSetting(HomeIcon)">HomeIcon</include>
+		<include condition="Skin.HasSetting(HomeHorizontal)">HomeList</include>
+
+	</controls>
+
+</window>

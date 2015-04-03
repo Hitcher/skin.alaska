@@ -1,0 +1,117 @@
+<includes>
+
+	<constant name="FullWidth">1920</constant>
+
+	<constant name="TopOffset">60</constant>
+
+	<constant name="LeftOffset">0</constant>
+
+	<constant name="CenterX">960</constant>
+
+	<constant name="CenterY">600</constant>
+
+	<include name="Dimensions_Fullscreen">
+		<left>0</left>
+		<top>0</top>
+		<width>FullWidth</width>
+		<height>1200</height>
+		<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+	</include>
+
+	<include name="Poster_Values">
+		<left>-41</left>
+		<width>2009</width>
+		<focusposition>3</focusposition>
+	</include>
+
+	<include name="Fanart_Values">
+		<left>-112</left>
+		<width>2146</width>
+		<focusposition>2</focusposition>
+	</include>
+
+	<include name="Music_Wall_Values">
+		<left>-47</left>
+		<width>2014</width>
+	</include>
+
+	<include name="Bookmark_Values">
+		<left>-90</left>
+		<width>2100</width>
+		<focusposition>3</focusposition>
+	</include>
+
+	<include name="Home_Icon_Diffuse">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<texture diffuse="special://skin/extras/backgrounds/filters/Home_Icon_Filter_1200.png">$VAR[Background_Image]</texture>
+		</control>
+	</include>
+
+	<include name="Home_List_Diffuse">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<colordiffuse>ccffffff</colordiffuse>
+			<texture diffuse="special://skin/extras/backgrounds/filters/Home_Icon_Filter_1200.png">$VAR[Background_Image]</texture>
+		</control>
+	</include>
+
+	<include name="List_Filter">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<texture diffuse="special://skin/backgrounds/filters/List_Filter_1200.png">$VAR[Background_Image]</texture>
+		</control>
+	</include>
+
+	<include name="Music_Watchlist_Fanart_Diffuse">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<fadetime>400</fadetime>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<texture background="true" diffuse="special://skin/backgrounds/filters/List_Filter_1200.png">$INFO[Container(51).ListItem.Property(Fanart)]</texture>
+			<include>Animation_CommonFade</include>
+		</control>
+	</include>
+
+	<include name="List_Fanart_Diffuse">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<fadetime>400</fadetime>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<texture background="true" diffuse="special://skin/backgrounds/filters/List_Filter_1200.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>Animation_CommonFade</include>
+		</control>
+	</include>
+
+	<include name="List_Pictures_Diffuse">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<fadetime>400</fadetime>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<texture background="true" diffuse="special://skin/backgrounds/filters/List_Filter_1200.png">$INFO[ListItem.FileNameAndPath]</texture>
+			<include>Animation_CommonFade</include>
+		</control>
+	</include>
+
+	<include name="Video_List_Filter">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<texture diffuse="special://skin/backgrounds/filters/Video_List_Filter_1200.png">$VAR[Background_Image]</texture>
+		</control>
+	</include>
+
+	<include name="Wall_Filter">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<texture diffuse="special://skin/backgrounds/filters/Wall_Filter_1200.png">$VAR[Background_Image]</texture>
+		</control>
+	</include>
+
+	<include name="Settings_Filter">
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<texture diffuse="special://skin/backgrounds/filters/Settings_Filter_1200.png">$VAR[Background_Image]</texture>
+		</control>
+	</include>
+
+</includes>

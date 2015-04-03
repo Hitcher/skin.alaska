@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype_509_Picture_Grid_7x1">
+
+		<control type="group">
+
+			<visible>Control.IsVisible(509)</visible>
+
+			<!-- Browser -->
+
+			<control type="group" id="5000">
+				<top>TopOffset</top>
+				<right>243</right>
+				<width>1162</width>
+				<include>Animation_ZoomInZoomOut</include>
+				<include>Animation_ZoomedByMenu</include>
+				<include>Animation_HiddenByInfo</include>
+				<include>Animation_PictureGridFloat</include>
+
+				<control type="panel" id="509">
+					<top>684</top>
+					<width>1162</width>
+					<height>166</height>
+					<onup>7000</onup>
+					<ondown>7000</ondown>
+					<scrolltime>0</scrolltime>
+					<orientation>horizontal</orientation>
+					<viewtype label="GRID 7x1">icon</viewtype>
+					<visible>Container(500).HasFiles + !Container(500).HasFolders</visible>
+
+					<itemlayout width="166" height="166">
+						<control type="image">
+							<left>8</left>
+							<top>8</top>
+							<width>150</width>
+							<height>150</height>
+							<fadetime>200</fadetime>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<visible>SubString(ListItem.Icon,Default)</visible>
+						</control>
+						<control type="image">
+							<left>2</left>
+							<top>2</top>
+							<width>162</width>
+							<height>162</height>
+							<fadetime>200</fadetime>
+							<bordersize>6</bordersize>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="6">pics/Picture_Panel.png</bordertexture>
+							<animation effect="fade" start="30" end="30" time="0" condition="true">Conditional</animation>
+							<animation effect="fade" start="100" end="30" time="200">UnFocus</animation>
+							<visible>!SubString(ListItem.Icon,Default)</visible>
+						</control>
+					</itemlayout>
+
+					<focusedlayout width="166" height="166">
+						<control type="image">
+							<left>8</left>
+							<top>8</top>
+							<width>150</width>
+							<height>150</height>
+							<fadetime>200</fadetime>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<visible>SubString(ListItem.Icon,Default)</visible>
+						</control>
+						<control type="image">
+							<left>2</left>
+							<top>2</top>
+							<width>162</width>
+							<height>162</height>
+							<fadetime>200</fadetime>
+							<bordersize>6</bordersize>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="6">pics/Picture_Panel.png</bordertexture>
+							<animation effect="fade" start="30" end="100" time="400">Focus</animation>
+							<visible>!SubString(ListItem.Icon,Default)</visible>
+						</control>
+					</focusedlayout>
+
+				</control>
+
+				<!-- Arrows -->
+
+				<control type="group">
+					<left>-50</left>
+					<top>749</top>
+
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture flipx="true">common/Arrow.png</texture>
+					</control>
+
+					<control type="image">
+						<left>1220</left>
+						<width>40</width>
+						<height>40</height>
+						<texture>common/Arrow.png</texture>
+					</control>
+
+				</control>
+
+			</control>
+
+		</control>
+
+	</include>
+
+</includes>

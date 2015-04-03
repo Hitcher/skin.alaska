@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="129">
+	<defaultcontrol always="true">10</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Menu -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+
+			<!-- Heading label -->
+
+			<control type="label" id="0">
+				<left>544</left>
+				<top>154</top>
+				<width>1254</width>
+				<height>44</height>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>Medium</textcolor>
+				<label>1021</label>
+			</control>
+
+			<!-- Left grouplist -->
+
+			<control type="grouplist" id="9000">
+				<left>80</left>
+				<top>228</top>
+				<width>360</width>
+				<height>462</height>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>10</onright>
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<!-- Browse -->
+
+				<control type="button" id="11">
+					<width>360</width>
+					<label>1024</label>
+				</control>
+
+				<!-- Add -->
+
+				<control type="button" id="13">
+					<width>360</width>
+					<label>15019</label>
+				</control>
+
+				<!-- Remove -->
+
+				<control type="button" id="14">
+					<width>360</width>
+					<label>1210</label>
+				</control>
+
+			</control>
+
+			<!-- Right list -->
+
+			<control type="list" id="10">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>462</height>
+				<onleft>9000</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>12</ondown>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="1260" height="66">
+					<control type="label">
+						<left>25</left>
+						<width>1210</width>
+						<height>66</height>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="1260" height="66">
+					<control type="image">
+						<width>1260</width>
+						<height>66</height>
+						<texture>common/Button_FO.png</texture>
+						<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(10)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>25</left>
+						<width>1210</width>
+						<height>66</height>
+						<scroll>true</scroll>
+						<aligny>center</aligny>
+						<textcolor>ButtonLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			<!-- Right list arrows -->
+
+			<control type="image">
+				<left>566</left>
+				<top>206</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up.png</texture>
+				<visible>Container(10).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>566</left>
+				<top>696</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down.png</texture>
+				<visible>Container(10).HasNext</visible>
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>544</left>
+				<top>906</top>
+				<width>1260</width>
+				<height>1</height>
+				<texture>common/Button_NF.png</texture>
+			</control>
+
+			<!-- Name Label -->
+
+			<control type="label">
+				<left>544</left>
+				<top>756</top>
+				<width>1260</width>
+				<label>1022</label>
+			</control>
+
+			<!-- Name -->
+
+			<control type="button" id="12">
+				<left>544</left>
+				<top>822</top>
+				<width>1260</width>
+				<onup>10</onup>
+				<onleft>9000</onleft>
+				<onright>noop</onright>
+				<ondown>9001</ondown>
+			</control>
+
+			<!-- Button grouplist -->
+
+			<control type="grouplist" id="9001">
+				<left>544</left>
+				<top>926</top>
+				<width>1260</width>
+				<itemgap>0</itemgap>
+				<onleft>9000</onleft>
+				<onright>noop</onright>
+				<onup>12</onup>
+				<ondown>noop</ondown>
+				<orientation>horizontal</orientation>
+
+				<!-- OK Button -->
+
+				<control type="button" id="18">
+					<width>420</width>
+					<label>186</label>
+				</control>
+
+				<!-- Cancel Button -->
+
+				<control type="button" id="19">
+					<width>420</width>
+					<label>222</label>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

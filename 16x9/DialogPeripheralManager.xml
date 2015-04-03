@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="10140">
+	<defaultcontrol always="true">20</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+
+			<!-- Heading label -->
+
+			<control type="label" id="1">
+				<left>544</left>
+				<top>154</top>
+				<width>1254</width>
+				<height>44</height>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>Medium</textcolor>
+				<label>35000</label>
+			</control>
+
+			<control type="list" id="20">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>595</height>
+				<onup>noop</onup>
+				<ondown>10</ondown>
+				<onleft>noop</onleft>
+				<onright>10</onright>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="1260" height="119">
+					<control type="label">
+						<left>20</left>
+						<top>22</top>
+						<width>1220</width>
+						<height>38</height>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<top>63</top>
+						<width>390</width>
+						<height>30</height>
+						<font>Font_Light_Caps_30</font>
+						<label>[COLOR=Medium]$LOCALIZE[35504]:[/COLOR] $INFO[ListItem.Property(Product)]</label>
+					</control>
+					<control type="label">
+						<left>430</left>
+						<top>63</top>
+						<width>390</width>
+						<height>30</height>
+						<font>Font_Light_Caps_30</font>
+						<label>[COLOR=Medium]$LOCALIZE[35503]:[/COLOR] $INFO[ListItem.Property(Vendor)]</label>
+					</control>
+					<control type="label">
+						<left>840</left>
+						<top>63</top>
+						<width>390</width>
+						<height>30</height>
+						<font>Font_Light_Caps_30</font>
+						<label>[COLOR=Medium]$LOCALIZE[35501]:[/COLOR] $INFO[ListItem.Property(Class)]</label>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="1260" height="119">
+					<control type="image">
+						<width>1260</width>
+						<height>118</height>
+						<texture>common/Button_FO.png</texture>
+						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(20)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<top>22</top>
+						<width>1220</width>
+						<height>38</height>
+						<textcolor>ButtonLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<top>63</top>
+						<width>390</width>
+						<height>30</height>
+						<font>Font_Light_Caps_30</font>
+						<textcolor>ButtonLabel</textcolor>
+						<label>[COLOR=SelectedColour]$LOCALIZE[35504]:[/COLOR] $INFO[ListItem.Property(Product)]</label>
+					</control>
+					<control type="label">
+						<left>430</left>
+						<top>63</top>
+						<width>390</width>
+						<height>30</height>
+						<font>Font_Light_Caps_30</font>
+						<textcolor>ButtonLabel</textcolor>
+						<label>[COLOR=SelectedColour]$LOCALIZE[35503]:[/COLOR] $INFO[ListItem.Property(Vendor)]</label>
+					</control>
+					<control type="label">
+						<left>840</left>
+						<top>63</top>
+						<width>390</width>
+						<height>30</height>
+						<font>Font_Light_Caps_30</font>
+						<textcolor>ButtonLabel</textcolor>
+						<label>[COLOR=SelectedColour]$LOCALIZE[35501]:[/COLOR] $INFO[ListItem.Property(Class)]</label>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			<!-- List arrows -->
+
+			<control type="image">
+				<left>566</left>
+				<top>206</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up.png</texture>
+				<visible>Container(20).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>566</left>
+				<top>828</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down.png</texture>
+				<visible>Container(20).HasNext</visible>
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>544</left>
+				<top>906</top>
+				<width>1260</width>
+				<height>1</height>
+				<texture>common/Button_NF.png</texture>
+			</control>
+
+			<!-- OK button -->
+
+			<control type="button" id="10">
+				<left>544</left>
+				<top>926</top>
+				<width>420</width>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>20</onup>
+				<ondown>noop</ondown>
+				<label>186</label>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

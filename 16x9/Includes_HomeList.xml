@@ -1,0 +1,2228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+
+	<!-- Main menu -->
+
+	<include name="HomeList">
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<visible>!Window.IsVisible(favourites)</visible>
+			<animation type="Visible">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="180" end="100" tween="cubic" easing="out" delay="200" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="0" end="100" delay="200" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="100" end="180" tween="cubic" easing="in" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="100" end="0" />
+			</animation>
+			<animation type="WindowOpen">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="180" end="100" tween="cubic" easing="out" delay="200" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="0" end="100" delay="200" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="100" end="180" tween="cubic" easing="in" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="100" end="0" />
+			</animation>
+
+			<control type="wraplist" id="300">
+				<left>-125</left>
+				<top>495</top>
+				<height>90</height>
+				<width>2130</width>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<ondown>310</ondown>
+				<viewtype>list</viewtype>
+				<orientation>horizontal</orientation>
+				<focusposition>2</focusposition>
+				<scrolltime tween="sine" easing="out">280</scrolltime>
+
+				<itemlayout width="405" height="90">
+					<control type="label">
+						<left>202</left>
+						<width>405</width>
+						<height>90</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Black_Caps_60</font>
+						<textcolor>HomeListLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" end="50" condition="true">Conditional</animation>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="550" height="90">
+					<control type="label">
+						<left>275</left>
+						<width>550</width>
+						<height>90</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Black_Caps_78</font>
+						<textcolor>HomeListLabel</textcolor>
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="50" end="100" time="280" />
+							<effect type="zoom" start="76" end="100" time="200" center="255,45" delay="80"/>
+						</animation>
+						<animation type="Conditional" condition="!Control.HasFocus(300)" reversible="false">
+							<effect type="fade" start="100" end="50" time="280" />
+						</animation>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+
+				<content>
+					<include>skinshortcuts-mainmenu</include>
+				</content>
+
+			</control>
+
+			<control type="fixedlist" id="310">
+				<left>-240</left>
+				<top>548</top>
+				<height>90</height>
+				<width>2400</width>
+				<onleft>310</onleft>
+				<onright>310</onright>
+				<onup>300</onup>
+				<ondown>320</ondown>
+				<viewtype>list</viewtype>
+				<focusposition>2</focusposition>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">1</defaultcontrol>
+				<scrolltime tween="sine" easing="out">280</scrolltime>
+				<visible allowhiddenfocus="true">Control.HasFocus(310)</visible>
+				<animation type="Visible" reversible="false">
+					<effect type="slide" start="0,-40" end="0,0" time="320" tween="cubic" easing="out" />
+					<effect type="fade" start="0" end="100" time="320" tween="sine" easing="in" />
+				</animation>
+
+				<itemlayout width="480" height="90">
+					<control type="label">
+						<left>240</left>
+						<width>480</width>
+						<height>90</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Reg_Caps_44</font>
+						<textcolor>HomeListLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" end="50" condition="true">Conditional</animation>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="480" height="90">
+					<control type="label">
+						<left>240</left>
+						<width>480</width>
+						<height>90</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Reg_Caps_44</font>
+						<textcolor>HomeListLabel</textcolor>
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="50" end="100" time="280" />
+						</animation>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+
+				<content>
+					<include>skinshortcuts-submenu</include>
+				</content>
+
+			</control>
+
+			<control type="group">
+				<animation type="Conditional" condition="!ControlGroup(5000).HasFocus | Window.IsActive(contextmenu) | Window.IsActive(shutdownmenu) | Window.IsActive(filebrowser) | Window.IsActive(DialogSelect.xml) | Window.IsActive(DialogYesNo.xml) | Window.IsActive(progressdialog) | Window.IsActive(okdialog)">
+					<effect type="zoom" time="600" center="CenterX,CenterY" start="100" end="132" tween="cubic" easing="inout" />
+				</animation>
+
+				<include>Home_List_Diffuse</include>
+
+			</control>
+
+			<!-- Widget heading -->
+			<control type="label">
+				<left>56</left>
+				<top>612</top>
+				<width>1808</width>
+				<height>90</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font_Reg_Caps_44</font>
+				<textcolor>HomeListLabel</textcolor>
+				<label>$INFO[Container(320).ListItem.Label]</label>
+				<visible>Control.HasFocus(320)</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,100" time="0" condition="StringCompare(Container(300).ListItem.Property(Widget),VideoAddons) | StringCompare(Container(300).ListItem.Property(Widget),RecentAlbums) | StringCompare(Container(300).ListItem.Property(Widget),RecommendedAlbums) | StringCompare(Container(300).ListItem.Property(Widget),RandomAlbums) | StringCompare(Container(300).ListItem.Property(Widget),MusicAddons) | StringCompare(Container(300).ListItem.Property(Widget),PictureAddons) | StringCompare(Container(300).ListItem.Property(Widget),ProgramAddons) | StringCompare(Container(300).ListItem.Property(Widget),favourites) | [StringCompare(Container(300).ListItem.Property(Widget),playlist) + !SubString(Container(300).ListItem.Property(widgetPlaylist),video)]">conditional</animation>
+			</control>
+
+			<!-- Widget label -->
+			<control type="label">
+				<left>56</left>
+				<top>612</top>
+				<width>1808</width>
+				<height>90</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font_Reg_Caps_44</font>
+				<textcolor>HomeListLabel</textcolor>
+				<label>$VAR[Widget_Heading]</label>
+				<visible>!Control.HasFocus(320)</visible>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,100" time="0" condition="StringCompare(Container(300).ListItem.Property(Widget),VideoAddons) | StringCompare(Container(300).ListItem.Property(Widget),RecentAlbums) | StringCompare(Container(300).ListItem.Property(Widget),RecommendedAlbums) | StringCompare(Container(300).ListItem.Property(Widget),RandomAlbums) | StringCompare(Container(300).ListItem.Property(Widget),MusicAddons) | StringCompare(Container(300).ListItem.Property(Widget),PictureAddons) | StringCompare(Container(300).ListItem.Property(Widget),ProgramAddons) | StringCompare(Container(300).ListItem.Property(Widget),favourites) | [StringCompare(Container(300).ListItem.Property(Widget),playlist) + !SubString(Container(300).ListItem.Property(widgetPlaylist),video)]">conditional</animation>
+			</control>
+
+			<!-- New Movies -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RecentMovies)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>208</width>
+						<height>308</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RecentMovies</include>
+				</content>
+
+			</control>
+
+			<!-- In Progress Movies -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RecommendedMovies)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>208</width>
+						<height>308</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RecommendedMovies</include>
+				</content>
+
+			</control>
+
+			<!-- Random Movies -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RandomMovies)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>208</width>
+						<height>308</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RandomMovies</include>
+				</content>
+
+			</control>
+
+			<!-- New Episodes -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RecentEpisodes)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>208</width>
+						<height>308</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RecentEpisodes</include>
+				</content>
+
+			</control>
+
+			<!-- In Progress Shows -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RecommendedEpisodes)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>208</width>
+						<height>308</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RecommendedEpisodes</include>
+				</content>
+
+			</control>
+
+			<!-- Random Episodes -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RandomEpisodes)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>208</width>
+						<height>308</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RandomEpisodes</include>
+				</content>
+
+			</control>
+
+			<!-- New Albums -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RecentAlbums)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RecentAlbums</include>
+				</content>
+
+			</control>
+
+			<!-- Recommended Albums -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RecommendedAlbums)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RecommendedAlbums</include>
+				</content>
+
+			</control>
+
+			<!-- Random Albums -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),RandomAlbums)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>RandomAlbums</include>
+				</content>
+
+			</control>
+
+			<!-- Music -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),MusicAddons)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content target="music">addons://sources/audio</content>
+
+			</control>
+
+			<!-- Pictures -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),PictureAddons)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content target="pictures">addons://sources/image</content>
+
+			</control>
+
+			<!-- Programs -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),ProgramAddons)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content target="programs">addons://sources/executable</content>
+
+			</control>
+
+			<!-- Video -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),VideoAddons)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content target="video">addons://sources/video</content>
+
+			</control>
+
+			<!-- Playlist -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),Playlist) + SubString(Container(300).ListItem.Property(widgetPlaylist),video)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>12</top>
+						<width>204</width>
+						<height>304</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>208</width>
+						<height>308</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>204</width>
+							<height>304</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>208</width>
+							<height>308</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>$INFO[Container(300).ListItem.Property(widgetPlaylist)]</content>
+
+			</control>
+
+			<!-- Playlist (music) -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),Playlist) + !SubString(Container(300).ListItem.Property(widgetPlaylist),video)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>$INFO[Container(300).ListItem.Property(widgetPlaylist)]</content>
+
+			</control>
+
+			<!-- Favourites -->
+			<control type="list" id="320">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),Favourites)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(320).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(320).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(320).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(320).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(320).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(320).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(320).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(320).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<colordiffuse>MatteDiffuse</colordiffuse>
+						<texture>common/Widget_Matte.png</texture>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>110</top>
+						<width>208</width>
+						<height>208</height>
+						<colordiffuse>PosterDiffuse</colordiffuse>
+						<texture border="3">common/Widget_Border.png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="group">
+						<visible>!Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture colordiffuse="PosterDiffuse" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(320)</visible>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture>common/Widget_Matte.png</texture>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>112</top>
+							<width>204</width>
+							<height>204</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>110</top>
+							<width>208</width>
+							<height>208</height>
+							<texture border="3">common/Widget_Border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.1.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.1.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.1.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.1.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.2.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.2.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.2.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.2.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.3.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.3.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.3.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.3.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.4.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.4.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.4.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.4.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.5.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.5.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.5.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.5.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.6.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.6.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.6.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.6.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.7.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.7.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.7.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.7.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.8.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.8.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.8.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.8.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.9.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.9.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.9.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.9.name))</visible>
+					</item>
+					<item>
+						<label>$INFO[Window(home).Property(favourite.10.name)]</label>
+						<onclick>$INFO[Window(home).Property(favourite.10.path)]</onclick>
+						<thumb>$INFO[Window(home).Property(favourite.10.thumb)]</thumb>
+						<visible>!IsEmpty(Window(home).Property(favourite.10.name))</visible>
+					</item>
+				</content>
+
+			</control>
+
+			<!-- Weather -->
+			<control type="list" id="321">
+				<left>48</left>
+				<top>678</top>
+				<width>1824</width>
+				<height>327</height>
+				<onup>300</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<visible>StringCompare(Container(300).ListItem.Property(Widget),WeatherWidget)</visible>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!Container(300).OnNext + !Container(300).OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,25" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="798,0" time="0" condition="StringCompare(Container(321).NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="684,0" time="0" condition="StringCompare(Container(321).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="570,0" time="0" condition="StringCompare(Container(321).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="456,0" time="0" condition="StringCompare(Container(321).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="342,0" time="0" condition="StringCompare(Container(321).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="228,0" time="0" condition="StringCompare(Container(321).NumItems,6)">conditional</animation>
+				<animation effect="slide" start="0,0" end="114,0" time="0" condition="StringCompare(Container(321).NumItems,7)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,0" time="0" condition="IntegerGreaterThan(Container(321).NumItems,7)">conditional</animation>
+
+				<itemlayout width="228" height="328">
+					<control type="label">
+						<left>114</left>
+						<top>12</top>
+						<width>228</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_Caps_44</font>
+						<textcolor>HomeListLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>114</left>
+						<top>74</top>
+						<width>228</width>
+						<height>33</height>
+						<align>center</align>
+						<font>Font_Reg_Caps_33</font>
+						<textcolor>HomeListLabel</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<animation effect="fade" end="50" condition="true">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="228" height="328">
+					<control type="label">
+						<left>114</left>
+						<top>12</top>
+						<width>228</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_Caps_44</font>
+						<textcolor>HomeListLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>114</left>
+						<top>74</top>
+						<width>228</width>
+						<height>33</height>
+						<align>center</align>
+						<font>Font_Reg_Caps_33</font>
+						<textcolor>HomeListLabel</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<animation effect="fade" end="50" condition="true">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>12</left>
+						<top>112</top>
+						<width>204</width>
+						<height>204</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center">scale</aspectratio>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<onclick>noop</onclick>
+						<label>$VAR[Day0]</label>
+						<label2>$INFO[Window(Weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+						<icon>$INFO[Window(Weather).Property(Day0.OutlookIcon)]</icon>
+						<visible>!IsEmpty(Window(Weather).Property(Day0.OutlookIcon))</visible>
+					</item>
+					<item>
+						<onclick>noop</onclick>
+						<label>$VAR[Day1]</label>
+						<label2>$INFO[Window(Weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+						<icon>$INFO[Window(Weather).Property(Day1.OutlookIcon)]</icon>
+						<visible>!IsEmpty(Window(Weather).Property(Day1.OutlookIcon))</visible>
+					</item>
+					<item>
+						<onclick>noop</onclick>
+						<label>$VAR[Day2]</label>
+						<label2>$INFO[Window(Weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+						<icon>$INFO[Window(Weather).Property(Day2.OutlookIcon)]</icon>
+						<visible>!IsEmpty(Window(Weather).Property(Day2.OutlookIcon))</visible>
+					</item>
+					<item>
+						<onclick>noop</onclick>
+						<label>$VAR[Day3]</label>
+						<label2>$INFO[Window(Weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+						<icon>$INFO[Window(Weather).Property(Day3.OutlookIcon)]</icon>
+						<visible>!IsEmpty(Window(Weather).Property(Day3.OutlookIcon))</visible>
+					</item>
+					<item>
+						<onclick>noop</onclick>
+						<label>$VAR[Day4]</label>
+						<label2>$INFO[Window(Weather).Property(Day4.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+						<icon>$INFO[Window(Weather).Property(Day4.OutlookIcon)]</icon>
+						<visible>!IsEmpty(Window(Weather).Property(Day4.OutlookIcon))</visible>
+					</item>
+					<item>
+						<onclick>noop</onclick>
+						<label>$VAR[Day5]</label>
+						<label2>$INFO[Window(Weather).Property(Day5.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day5.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+						<icon>$INFO[Window(Weather).Property(Day5.OutlookIcon)]</icon>
+						<visible>!IsEmpty(Window(Weather).Property(Day5.OutlookIcon))</visible>
+					</item>
+					<item>
+						<onclick>noop</onclick>
+						<label>$VAR[Day6]</label>
+						<label2>$INFO[Window(Weather).Property(Day6.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day6.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+						<icon>$INFO[Window(Weather).Property(Day6.OutlookIcon)]</icon>
+						<visible>!IsEmpty(Window(Weather).Property(Day6.OutlookIcon))</visible>
+					</item>
+					<item>
+						<onclick>noop</onclick>
+						<label>$VAR[Day7]</label>
+						<label2>$INFO[Window(Weather).Property(Day7.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day7.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+						<icon>$INFO[Window(Weather).Property(Day7.OutlookIcon)]</icon>
+						<visible>!IsEmpty(Window(Weather).Property(Day7.OutlookIcon))</visible>
+					</item>
+				</content>
+
+			</control>
+
+		</control>
+
+	</include>
+
+</includes>

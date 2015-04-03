@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overrides>
+
+	<!-- Movies -->
+	<!-- Recent movies -->
+	<widget label="New movies">RecentMovies</widget>
+	<widgetdefault labelID="movies">RecentMovies</widgetdefault>
+	<!-- Recommended movies -->
+	<widget label="In progress movies">RecommendedMovies</widget>
+	<!-- Random movies -->
+	<widget label="Random movies">RandomMovies</widget>
+
+	<!-- Episodes -->
+	<!-- Recent episodes -->
+	<widget label="New episodes">RecentEpisodes</widget>
+	<widgetdefault labelID="tvshows">RecentEpisodes</widgetdefault>
+	<!-- Recommended Recommended episodes -->
+	<widget label="In progress shows">RecommendedEpisodes</widget>
+	<!-- Random episodes -->
+	<widget label="Random episodes">RandomEpisodes</widget>
+
+	<!-- Albums -->
+	<!-- Recent albums -->
+	<widget label="New albums">RecentAlbums</widget>
+	<widgetdefault labelID="132">RecentAlbums</widgetdefault>
+	<!-- Recommended albums -->
+	<widget label="Popular albums">RecommendedAlbums</widget>
+	<!-- Random albums -->
+	<widget label="Random albums">RandomAlbums</widget>
+
+	<!-- Weather -->
+	<widget label="Weather Forecast">WeatherWidget</widget>
+	<widgetdefault labelID="weather">WeatherWidget</widgetdefault>
+	
+	<!-- Video addons -->
+	<widget label="Video addons">VideoAddons</widget>
+	<widgetdefault labelID="videos">VideoAddons</widgetdefault>
+	
+	<!-- Music addons -->
+	<widget label="Music addons">MusicAddons</widget>
+	<widgetdefault labelID="music">MusicAddons</widgetdefault>
+	
+	<!-- Pictures addons -->
+	<widget label="Pictures addons">PictureAddons</widget>
+	<widgetdefault labelID="pictures">PictureAddons</widgetdefault>
+	
+	<!-- Program addons -->
+	<widget label="Program addons">ProgramAddons</widget>
+	<widgetdefault labelID="31101">ProgramAddons</widgetdefault>
+	
+	<!-- Favourites -->
+	<widget label="Favourites">Favourites</widget>
+	<widgetdefault labelID="1036">Favourites</widgetdefault>
+	
+	<!-- Playlists -->
+	<widgetPlaylists>True</widgetPlaylists>
+
+	<!-- Backgrounds -->
+	<background label="$LOCALIZE[10006]">home\videos\</background>
+	<background label="$LOCALIZE[10005]">home\music\</background>
+	<background label="$LOCALIZE[32032]">home\dvd\</background>
+	<background label="$LOCALIZE[342]">home\movies\</background>
+	<background label="$LOCALIZE[20343]">home\tvshows\</background>
+	<background label="$LOCALIZE[132]">home\albums\</background>
+	<background label="$LOCALIZE[10002]">home\pictures\</background>
+	<background label="$LOCALIZE[12600]">home\weather\</background>
+	<background label="$LOCALIZE[10004]">home\settings\</background>
+	<background label="$LOCALIZE[13005]">home\shutdown\</background>
+	<background label="$LOCALIZE[1036]">home\favourites\</background>
+	<background label="$LOCALIZE[31101]">home\addons\</background>
+	<backgrounddefault labelID="videos" group="mainmenu">home\videos\</backgrounddefault>
+	<backgrounddefault labelID="music" group="mainmenu">home\music\</backgrounddefault>
+	<backgrounddefault labelID="dvd" group="mainmenu">home\dvd\</backgrounddefault>
+	<backgrounddefault labelID="movies" group="mainmenu">home\movies\</backgrounddefault>
+	<backgrounddefault labelID="tvshows" group="mainmenu">home\tvshows\</backgrounddefault>
+	<backgrounddefault labelID="132" group="mainmenu">home\albums\</backgrounddefault>
+	<backgrounddefault labelID="pictures" group="mainmenu">home\pictures\</backgrounddefault>
+	<backgrounddefault labelID="weather" group="mainmenu">home\weather\</backgrounddefault>
+	<backgrounddefault labelID="settings" group="mainmenu">home\settings\</backgrounddefault>
+	<backgrounddefault labelID="13005" group="mainmenu">home\shutdown\</backgrounddefault>
+	<backgrounddefault labelID="1036" group="mainmenu">home\favourites\</backgrounddefault>
+	<backgrounddefault labelID="31101" group="mainmenu">home\addons\</backgrounddefault>
+	<backgroundBrowse>True</backgroundBrowse>
+
+</overrides>

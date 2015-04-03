@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="12">
+	<backgroundcolor>0</backgroundcolor>
+	<defaultcontrol always="true">3</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$VAR[Global_HeadingLabels]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$VAR[Global_HeadingDetails]</label>
+				<include>Global_HeadingDetailVars</include>
+			</control>
+		</control>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<include>Animation_ZoomInZoomOut</include>
+
+			<!-- Left grouplist -->
+
+			<control type="grouplist" id="3">
+				<left>80</left>
+				<top>228</top>
+				<width>360</width>
+				<height>660</height>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>5</onright>
+				<onup>noop</onup>
+				<ondown>20</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>80</left>
+				<top>906</top>
+				<width>360</width>
+				<height>1</height>
+				<texture>common/Button_NF.png</texture>
+			</control>
+
+			<!-- Settings level -->
+
+			<control type="button" id="20">
+				<left>80</left>
+				<top>928</top>
+				<width>360</width>
+				<height>66</height>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>3</onup>
+				<ondown>noop</ondown>
+				<onclick>SettingsLevelChange</onclick>
+			</control>
+
+			<!-- Right grouplist -->
+
+			<control type="grouplist" id="5">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<itemgap>0</itemgap>
+				<onleft>3</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+			</control>
+
+			<!-- List arrows -->
+
+			<control type="image">
+				<left>566</left>
+				<top>206</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up.png</texture>
+				<visible>Container(5).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>566</left>
+				<top>828</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down.png</texture>
+				<visible>Container(5).HasNext</visible>
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>544</left>
+				<top>906</top>
+				<width>1260</width>
+				<height>1</height>
+				<texture>common/Button_NF.png</texture>
+			</control>
+
+			<!-- Settings description -->
+
+			<control type="textbox" id="6">
+				<left>544</left>
+				<top>928</top>
+				<width>1260</width>
+				<height>132</height>
+				<font>Font_Light_36</font>
+				<textcolor>Medium</textcolor>
+				<visible>ControlGroup(5).HasFocus</visible>
+			</control>
+
+			<!-- Settings level description -->
+
+			<control type="textbox">
+				<left>544</left>
+				<top>928</top>
+				<width>1260</width>
+				<height>132</height>
+				<label>10047</label>
+				<font>Font_Light_36</font>
+				<textcolor>Medium</textcolor>
+				<visible>Control.HasFocus(20)</visible>
+			</control>
+
+		</control>
+
+		<!-- Filter -->
+
+		<include>Global_ContextFilter</include>
+
+		<!-- Left grouplist controls -->
+
+		<control type="button" id="10">
+			<width>360</width>
+		</control>
+
+		<!-- Right grouplist controls -->
+
+		<control type="button" id="7">
+			<width>1260</width>
+		</control>
+
+		<control type="radiobutton" id="8">
+			<width>1260</width>
+			<textwidth>1120</textwidth>
+		</control>
+
+		<control type="spincontrolex" id="9">
+			<width>1260</width>
+			<textwidth>1120</textwidth>
+		</control>
+
+		<control type="image" id="11">
+			<width>1260</width>
+			<height>-1</height>
+			<texture>common/Button_NF.png</texture>
+		</control>
+
+		<control type="edit" id="12">
+			<width>1260</width>
+		</control>
+
+	</controls>
+
+</window>

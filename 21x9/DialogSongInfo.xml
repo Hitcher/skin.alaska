@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="135">
+	<defaultcontrol always="true">13</defaultcontrol>
+
+	<controls>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+
+			<control type="label">
+				<left>544</left>
+				<top>154</top>
+				<width>1600</width>
+				<label>31166</label>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>$VAR[AltListTitleF]</textcolor>
+			</control>
+
+			<control type="button" id="13">
+				<left>544</left>
+				<top>827</top>
+				<onup>IncreaseRating</onup>
+				<onup>SendClick(10)</onup>
+				<onup>ActivateWindow(songinformation)</onup>
+				<ondown>DecreaseRating</ondown>
+				<ondown>SendClick(10)</ondown>
+				<ondown>ActivateWindow(songinformation)</ondown>
+				<onback>SendClick(10)</onback>
+				<onleft>SendClick(10)</onleft>
+				<onright>SendClick(10)</onright>
+				<label>31167</label>
+				<texturenofocus>-</texturenofocus>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

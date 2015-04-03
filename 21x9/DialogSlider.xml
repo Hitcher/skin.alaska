@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="145">
+	<defaultcontrol always="true">11</defaultcontrol>
+
+	<controls>
+
+		<!-- Hidden controls -->
+
+		<control type="label" id="10">
+			<include>HiddenControl</include>
+		</control>
+
+		<control type="label" id="12">
+			<include>HiddenControl</include>
+		</control>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<left>LeftOffset</left>
+			<include>Animation_SlideDownFadeOut</include>
+
+			<!-- Heading label -->
+
+			<control type="label">
+				<left>330</left>
+				<top>20</top>
+				<width>1260</width>
+				<height>44</height>
+				<align>center</align>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>OSDButtonNF</textcolor>
+				<label>$INFO[Control.GetLabel(10)] - $INFO[Control.GetLabel(12)]</label>
+			</control>
+			
+			<!-- Slider background -->
+
+			<control type="image">
+				<left>776</left>
+				<top>86</top>
+				<width>368</width>
+				<height>31</height>
+				<texture>common/OSDButton.png</texture>
+			</control>
+			
+			<!-- Slider -->
+
+			<control type="slider" id="11">
+				<left>780</left>
+				<top>90</top>
+				<onup>Close</onup>
+				<ondown>Close</ondown>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype_512_Episode_Watchlist">
+
+		<control type="group">
+			<visible>Control.IsVisible(512)</visible>
+
+			<!-- Browser -->
+
+			<control type="group" id="5000">
+				<top>TopOffset</top>
+				<include>Animation_ZoomInZoomOut</include>
+				<include>Animation_ZoomedByMenu</include>
+
+				<control type="fixedlist" id="512">
+					<include>Poster_Values</include>
+					<top>107</top>
+					<height>773</height>
+					<onup>7000</onup>
+					<ondown>7000</ondown>
+					<preloaditems>2</preloaditems>
+					<defaultcontrol>1</defaultcontrol>
+					<orientation>horizontal</orientation>
+					<viewtype label="31120">list</viewtype>
+					<scrolltime tween="sine" easing="out">320</scrolltime>
+					<visible>SubString(Container.FolderPath,recommendedepisodes)</visible>
+
+					<itemlayout width="253" height="368">
+						<control type="image">
+							<left>2</left>
+							<top>191</top>
+							<width>243</width>
+							<height>362</height>
+							<aspectratio align="center">keep</aspectratio>
+							<texture>$INFO[ListItem.ActualIcon]</texture>
+							<include>Animation_HiddenByInfo</include>
+							<visible>SubString(ListItem.Icon,Default)</visible>
+						</control>
+						<control type="group">
+							<visible>!SubString(ListItem.Icon,Default)</visible>
+							<include>Animation_HiddenByInfo</include>
+							<control type="image">
+								<left>2</left>
+								<top>191</top>
+								<width>243</width>
+								<height>362</height>
+								<colordiffuse>MatteDiffuse</colordiffuse>
+								<texture>poster/Poster_Matte_NF.png</texture>
+							</control>
+							<control type="image">
+								<left>2</left>
+								<top>191</top>
+								<width>243</width>
+								<height>362</height>
+								<texture background="true" diffuse="poster/Poster_Matte_NF.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
+								<fadetime>200</fadetime>
+								<colordiffuse>PosterDiffuse</colordiffuse>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+							</control>
+							<control type="image">
+								<left>0</left>
+								<top>189</top>
+								<width>247</width>
+								<height>366</height>
+								<texture>poster/Poster_Frame_NF.png</texture>
+							</control>
+							<control type="image">
+								<left>2</left>
+								<top>556</top>
+								<width>243</width>
+								<height>362</height>
+								<texture background="true" flipy="true" diffuse="poster/Poster_Matte_NF_Reflect.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
+								<fadetime>200</fadetime>
+								<colordiffuse>PosterDiffuse</colordiffuse>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+							</control>
+						</control>
+					</itemlayout>
+
+					<focusedlayout width="492" height="772">
+						<control type="image">
+							<left>2</left>
+							<top>29</top>
+							<width>480</width>
+							<height>714</height>
+							<aspectratio align="center">keep</aspectratio>
+							<texture>$INFO[ListItem.ActualIcon]</texture>
+							<include>Animation_HiddenByInfo</include>
+							<visible>SubString(ListItem.Icon,Default)</visible>
+							<animation type="Focus" reversible="false">
+								<effect type="zoom" center="auto" start="51" end="100" time="600" tween="back" easing="out" />
+							</animation>
+						</control>
+						<control type="group">
+							<visible>!SubString(ListItem.Icon,Default)</visible>
+							<control type="group">
+								<visible>!Window.IsActive(movieinformation)</visible>
+								<include>Animation_PosterInfoSlide</include>
+								<animation type="Focus" reversible="false">
+									<effect type="zoom" center="247,356" start="51" end="100" time="600" delay="80" tween="back" easing="out" />
+								</animation>
+								<control type="image">
+									<left>2</left>
+									<top>29</top>
+									<width>480</width>
+									<height>714</height>
+									<texture background="true" diffuse="poster/Poster_Matte_FO.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
+									<fadetime>200</fadetime>
+									<aspectratio scalediffuse="false">stretch</aspectratio>
+								</control>
+								<control type="image">
+									<left>-27</left>
+									<top>0</top>
+									<width>538</width>
+									<height>772</height>
+									<texture>poster/Poster_Frame_FO.png</texture>
+								</control>
+							</control>
+						</control>
+					</focusedlayout>
+
+				</control>
+
+			</control>
+
+			<!-- Browser label -->
+
+			<control type="group">
+				<top>TopOffset</top>
+				<left>LeftOffset</left>
+				<include>Animation_SlideUpFadeOut</include>
+				<include>Animation_HiddenByInfo</include>
+				<include>Animation_ZoomedByMenu</include>
+
+				<!-- Browser label -->
+
+				<control type="label">
+					<left>1250</left>
+					<top>672</top>
+					<width>624</width>
+					<height>160</height>
+					<aligny>center</aligny>
+					<font>Font_Cond_72</font>
+					<textcolor>Heavy</textcolor>
+					<label>$INFO[Container(512).ListItem.TVShowTitle,, • ]$INFO[Container(512).ListItem.Property(EpisodeNo)]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>!SubString(ListItem.Icon,Default)</visible>
+				</control>
+
+			</control>
+
+		</control>
+
+	</include>
+
+</includes>
+

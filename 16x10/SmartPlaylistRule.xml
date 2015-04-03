@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="129">
+	<defaultcontrol always="true">15</defaultcontrol>
+
+	<controls>
+
+		<!-- Filter -->
+
+		<include>Global_Background</include>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+
+			<!-- Heading label -->
+
+			<control type="label" id="0">
+				<left>544</left>
+				<top>154</top>
+				<width>1254</width>
+				<height>44</height>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>Medium</textcolor>
+				<label>21421</label>
+			</control>
+
+			<!-- Control group -->
+
+			<control type="group">
+				<left>544</left>
+				<top>228</top>
+
+				<!-- Rule match label -->
+
+				<control type="label">
+					<width>1260</width>
+					<label>21422</label>
+					<textcolor>SelectedColour</textcolor>
+				</control>
+
+				<!-- Rule Field -->
+
+				<control type="spincontrolex" id="15">
+					<top>66</top>
+					<width>620</width>
+					<font>-</font>
+					<onright>16</onright>
+					<onleft>noop</onleft>
+					<onup>noop</onup>
+					<ondown>17</ondown>
+				</control>
+
+				<!-- Rule Field label -->
+
+				<control type="label">
+					<left>20</left>
+					<top>66</top>
+					<width>580</width>
+					<textcolor>ButtonLabel</textcolor>
+					<label>$INFO[Control.GetLabel(15)]</label>
+					<visible>Control.HasFocus(15)</visible>
+				</control>
+
+				<control type="label">
+					<left>20</left>
+					<top>66</top>
+					<width>580</width>
+					<label>$INFO[Control.GetLabel(15)]</label>
+					<visible>!Control.HasFocus(15)</visible>
+				</control>
+
+				<!-- Rule operator -->
+
+				<control type="spincontrolex" id="16">
+					<left>640</left>
+					<top>66</top>
+					<width>620</width>
+					<font>-</font>
+					<onright>noop</onright>
+					<onleft>15</onleft>
+					<onup>noop</onup>
+					<ondown>20</ondown>
+				</control>
+
+				<!-- Rule Field label -->
+
+				<control type="label">
+					<left>660</left>
+					<top>66</top>
+					<width>580</width>
+					<textcolor>ButtonLabel</textcolor>
+					<label>$INFO[Control.GetLabel(16)]</label>
+					<visible>Control.HasFocus(16)</visible>
+				</control>
+
+				<control type="label">
+					<left>660</left>
+					<top>66</top>
+					<width>580</width>
+					<label>$INFO[Control.GetLabel(16)]</label>
+					<visible>!Control.HasFocus(16)</visible>
+				</control>
+
+				<!-- Value Button -->
+
+				<control type="button" id="17">
+					<top>132</top>
+					<width>620</width>
+					<label>-</label>
+					<onup>15</onup>
+					<onleft>noop</onleft>
+					<onright>20</onright>
+					<ondown>9001</ondown>
+				</control>
+
+				<!-- Divider -->
+
+				<control type="image">
+					<top>197</top>
+					<width>620</width>
+					<height>1</height>
+					<texture>common/Button_NF.png</texture>
+				</control>
+
+				<!-- Browse Button -->
+
+				<control type="button" id="20">
+					<left>640</left>
+					<top>132</top>
+					<width>620</width>
+					<label>1024</label>
+					<onup>16</onup>
+					<onleft>17</onleft>
+					<onright>noop</onright>
+					<ondown>9001</ondown>
+				</control>
+
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>544</left>
+				<top>906</top>
+				<width>1260</width>
+				<height>1</height>
+				<texture>common/Button_NF.png</texture>
+			</control>
+
+			<!-- Button grouplist -->
+
+			<control type="grouplist" id="9001">
+				<left>544</left>
+				<top>926</top>
+				<width>1260</width>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>17</onup>
+				<ondown>noop</ondown>
+				<orientation>horizontal</orientation>
+
+				<!-- OK Button -->
+
+				<control type="button" id="18">
+					<width>420</width>
+					<label>186</label>
+				</control>
+
+				<!-- Cancel Button -->
+
+				<control type="button" id="19">
+					<width>420</width>
+					<label>222</label>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

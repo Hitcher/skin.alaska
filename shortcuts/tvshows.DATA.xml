@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<action>ActivateWindow(Videos,plugin://service.library.data.provider?type=recentepisodes,return)</action>
+		<label>31108</label>
+		<label2>20343</label2>
+		<defaultID>31108</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedepisodes,return)</action>
+		<label>31107</label>
+		<label2>20343</label2>
+		<defaultID>31107</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,plugin://service.library.data.provider?type=randomepisodes,return)</action>
+		<label>31175</label>
+		<label2>20343</label2>
+		<defaultID>31175</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TVShowTitles,return)</action>
+		<label>369</label>
+		<label2>20343</label2>
+		<defaultID>369</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TVShowGenres,return)</action>
+		<label>135</label>
+		<label2>20343</label2>
+		<defaultID>135</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TVShowYears,return)</action>
+		<label>652</label>
+		<label2>20343</label2>
+		<defaultID>652</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TVShowActors,return)</action>
+		<label>344</label>
+		<label2>20343</label2>
+		<defaultID>344</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+</shortcuts>

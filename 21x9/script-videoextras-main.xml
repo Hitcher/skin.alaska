@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window id="3001">
+	<backgroundcolor>0</backgroundcolor>
+	<defaultcontrol always="true">9001</defaultcontrol>
+	<!-- The following property allows TvTunes to keep playing when this window is displayed -->
+	<onload condition="!IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "TvShows")</onload>
+	<onload condition="IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "Movies")</onload>
+	<onload condition="Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
+
+	<controls>
+	
+		<control type="button" id="9001">
+			<include>HiddenControl</include>
+			<onfocus condition="Control.IsVisible(51)">SetFocus(51)</onfocus>
+			<onfocus condition="!Control.IsVisible(51)">SetFocus(9001)</onfocus>
+		</control>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<control type="group">
+			<include>Fanart</include>
+		</control>
+
+		<!-- Browser -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInZoomOut</include>
+			<include>Animation_ZoomedByMenu</include>
+			<include>Animation_HiddenByInfo</include>
+
+			<control type="fixedlist" id="51">
+				<left>389</left>
+				<top>135</top>
+				<height>748</height>
+				<width>1485</width>
+				<onup>51</onup>
+				<ondown>51</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<focusposition>4</focusposition>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="1691" height="74">
+
+					<control type="label">
+						<left>372</left>
+						<top>0</top>
+						<width>1113</width>
+						<height>74</height>
+						<aligny>center</aligny>
+						<font>Font_Black_Caps_35</font>
+						<textcolor>Heavy</textcolor>
+						<selectedcolor>Heavy</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout width="1691" height="156">
+
+					<control type="image">
+						<left>276</left>
+						<top>0</top>
+						<width>156</width>
+						<height>156</height>
+						<aspectratio align="right">keep</aspectratio>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="354,78" start="50" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="0" end="100" time="200" />
+						</animation>
+						<visible>SubString(ListItem.Icon,Default)</visible>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>432</width>
+						<height>156</height>
+						<bordersize>6</bordersize>
+						<aspectratio align="right">keep</aspectratio>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<bordertexture border="6">pics/Picture_Panel.png</bordertexture>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="354,78" start="50" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="0" end="100" time="200" />
+						</animation>
+						<visible>!SubString(ListItem.Icon,Default)</visible>
+					</control>
+
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" time="200" />
+						</animation>
+						<control type="label">
+							<left>456</left>
+							<top>-16</top>
+							<width>1029</width>
+							<height>156</height>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<font>Font_Black_Caps_42</font>
+							<textcolor>Heavy</textcolor>
+							<selectedcolor>Heavy</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="slide" end="0,16" condition="IsEmpty(ListItem.Label2)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>456</left>
+							<top>84</top>
+							<width>1029</width>
+							<height>26</height>
+							<aligny>center</aligny>
+							<font>Font_Light_Caps_30</font>
+							<textcolor>Heavy</textcolor>
+							<selectedcolor>Heavy</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</control>
+
+				</focusedlayout>
+
+			</control>
+
+		</control>
+
+		<!-- Filter -->
+
+		<include>List_Filter</include>
+
+		<control type="group">
+			<include>List_Fanart_Diffuse</include>
+		</control>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$ADDON[script.videoextras 32001]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$INFO[ListItem.Title]</label>
+				<include>Global_HeadingDetailVars</include>
+			</control>
+		</control>
+
+		<!-- Filter -->
+
+		<include>Global_ContextFilter</include>
+
+	</controls>
+
+</window>

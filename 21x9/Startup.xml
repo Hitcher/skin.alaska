@@ -1,0 +1,4 @@
+<window>
+	<onload>RunScript(script.tv.show.next.aired,silent=True)</onload>
+	<onload>ReplaceWindow($INFO[System.StartupWindow])</onload>
+</window>

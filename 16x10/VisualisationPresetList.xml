@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="122">
+	<defaultcontrol always="true">2</defaultcontrol>
+
+	<controls>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+
+			<!-- Heading label -->
+
+			<control type="label">
+				<left>544</left>
+				<top>154</top>
+				<width>1254</width>
+				<height>44</height>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>OSDButtonNF</textcolor>
+				<label>31174</label>
+			</control>
+
+			<!-- Preset List -->
+
+			<control type="list" id="2">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<onup>close</onup>
+				<ondown>close</ondown>
+				<onleft>close</onleft>
+				<onright>close</onright>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="1260" height="66">
+					<control type="label">
+						<left>20</left>
+						<width>1220</width>
+						<height>66</height>
+						<textcolor>OSDButtonNF</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="1260" height="66">
+					<control type="image">
+						<width>1260</width>
+						<height>66</height>
+						<texture>common/OSDButton.png</texture>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>1220</width>
+						<height>66</height>
+						<scroll>true</scroll>
+						<aligny>center</aligny>
+						<textcolor>OSDLabelFO</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			<!-- List arrows -->
+
+			<control type="image">
+				<left>566</left>
+				<top>206</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up_OSD.png</texture>
+				<visible>Container(2).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>566</left>
+				<top>828</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down_OSD.png</texture>
+				<visible>Container(2).HasNext</visible>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

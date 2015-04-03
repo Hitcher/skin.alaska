@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+	<defaultcontrol>150</defaultcontrol>
+
+	<controls>
+
+		<!-- Menu -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+
+			<!-- Service Logo -->
+
+			<control type="image" id="110">
+				<left>80</left>
+				<top>154</top>
+				<width>250</width>
+				<height>40</height>
+				<aspectratio>keep</aspectratio>
+			</control>
+
+			<!-- Heading label -->
+
+			<control type="label" id="100">
+				<left>544</left>
+				<top>154</top>
+				<width>1254</width>
+				<height>44</height>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>OSDLabelNF</textcolor>
+			</control>
+
+			<!-- Left heading -->
+
+			<control type="label">
+				<left>80</left>
+				<top>228</top>
+				<width>360</width>
+				<height>66</height>
+				<label>24018</label>
+				<textcolor>OSDLabelNF</textcolor>
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>80</left>
+				<top>298</top>
+				<width>360</width>
+				<height>1</height>
+				<texture>common/OSDButton.png</texture>
+			</control>
+
+			<!-- Left list -->
+
+			<control type="list" id="150">
+				<left>80</left>
+				<top>337</top>
+				<width>360</width>
+				<height>528</height>
+				<onleft>noop</onleft>
+				<onright>120</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<viewtype label="535">list</viewtype>
+				
+				<itemlayout width="360" height="66">
+					<control type="label">
+						<left>20</left>
+						<width>320</width>
+						<height>66</height>
+						<textcolor>OSDLabelNF</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="360" height="66">
+					<control type="image">
+						<width>360</width>
+						<height>66</height>
+						<texture>common/OSDButton.png</texture>
+						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(150)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>320</width>
+						<height>66</height>
+						<textcolor>OSDLabelFO</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			<!-- Video label -->
+
+			<control type="label">
+				<left>544</left>
+				<top>228</top>
+				<width>840</width>
+				<height>66</height>
+				<label>$INFO[Player.Filename]</label>
+				<textcolor>OSDLabelNF</textcolor>
+				<haspath>true</haspath>
+			</control>
+
+			<!-- Number label -->
+
+			<control type="label" id="140">
+				<left>1404</left>
+				<top>228</top>
+				<width>400</width>
+				<height>66</height>
+				<align>right</align>
+				<textcolor>OSDLabelNF</textcolor>
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>544</left>
+				<top>298</top>
+				<width>1260</width>
+				<height>1</height>
+				<texture>common/OSDButton.png</texture>
+			</control>
+
+			<!-- List -->
+
+			<control type="list" id="120">
+				<left>544</left>
+				<top>337</top>
+				<width>1260</width>
+				<height>528</height>
+				<onleft>150</onleft>
+				<onright>160</onright>
+				<onup>noop</onup>
+				<ondown>160</ondown>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="1260" height="66">
+					<control type="image">
+						<left>9</left>
+						<top>9</top>
+						<width>48</width>
+						<height>48</height>
+						<texture>$INFO[ListItem.Thumb,flags/language/,.png]</texture>
+					</control>
+					<control type="label">
+						<left>86</left>
+						<width>180</width>
+						<height>66</height>
+						<textcolor>OSDLabelNF</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>286</left>
+						<top>20</top>
+						<width>47</width>
+						<height>27</height>
+						<texture>flags/ClosedCaption.png</texture>
+						<colordiffuse>StarRating</colordiffuse>
+						<visible>ListItem.Property(hearing_imp)</visible>
+					</control>
+					<control type="image">
+						<left>353</left>
+						<top>20</top>
+						<width>89</width>
+						<height>27</height>
+						<texture>flags/Sync.png</texture>
+						<colordiffuse>StarRating</colordiffuse>
+						<visible>ListItem.Property(sync)</visible>
+					</control>
+					<control type="label">
+						<left>462</left>
+						<width>576</width>
+						<height>66</height>
+						<textcolor>OSDLabelNF</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+					<control type="image">
+						<left>1058</left>
+						<top>17</top>
+						<width>182</width>
+						<height>33</height>
+						<colordiffuse>StarRating</colordiffuse>
+						<texture>rating$INFO[ListItem.ActualIcon].png</texture>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="1260" height="66">
+					<control type="image">
+						<width>1260</width>
+						<height>66</height>
+						<texture>common/OSDButton.png</texture>
+						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(120)">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>9</left>
+						<top>9</top>
+						<width>48</width>
+						<height>48</height>
+						<texture>$INFO[ListItem.Thumb,flags/language/,.png]</texture>
+					</control>
+					<control type="label">
+						<left>86</left>
+						<width>180</width>
+						<height>66</height>
+						<textcolor>OSDLabelFO</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>286</left>
+						<top>20</top>
+						<width>47</width>
+						<height>27</height>
+						<texture>flags/ClosedCaption.png</texture>
+						<colordiffuse>StarRating</colordiffuse>
+						<visible>ListItem.Property(hearing_imp)</visible>
+					</control>
+					<control type="image">
+						<left>353</left>
+						<top>20</top>
+						<width>89</width>
+						<height>27</height>
+						<texture>flags/Sync.png</texture>
+						<colordiffuse>StarRating</colordiffuse>
+						<visible>ListItem.Property(sync)</visible>
+					</control>
+					<control type="label">
+						<left>462</left>
+						<width>576</width>
+						<height>66</height>
+						<textcolor>OSDLabelFO</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+					<control type="image">
+						<left>1058</left>
+						<top>17</top>
+						<width>182</width>
+						<height>33</height>
+						<colordiffuse>StarRating</colordiffuse>
+						<texture>rating$INFO[ListItem.ActualIcon].png</texture>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			<!-- List arrows -->
+
+			<control type="image">
+				<left>566</left>
+				<top>315</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up_OSD.png</texture>
+				<visible>Container(120).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>566</left>
+				<top>871</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down_OSD.png</texture>
+				<visible>Container(120).HasNext</visible>
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>544</left>
+				<top>906</top>
+				<width>1260</width>
+				<height>1</height>
+				<texture>common/OSDButton.png</texture>
+			</control>
+
+			<!-- Manual search button -->
+
+			<control type="button" id="160">
+				<left>544</left>
+				<top>926</top>
+				<width>600</width>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>120</onup>
+				<ondown>noop</ondown>
+				<label>24120</label>
+				<textcolor>OSDLabelNF</textcolor>
+				<focusedcolor>OSDLabelFO</focusedcolor>
+				<texturefocus>common/OSDButton.png</texturefocus>
+			</control>
+
+			<control type="grouplist">
+				<left>1150</left>
+				<top>926</top>
+				<width>654</width>
+				<height>66</height>
+				<itemgap>10</itemgap>
+				<align>right</align>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+
+				<!-- Notification icon -->
+
+				<control type="image">
+					<top>11</top>
+					<width>44</width>
+					<height>44</height>
+					<texture>common/Overlay_New.png</texture>
+				</control>
+
+				<!-- Notification -->
+
+				<control type="label">
+					<top>0</top>
+					<width>auto</width>
+					<align>right</align>
+					<label>31168</label>
+					<textcolor>OSDLabelNF</textcolor>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

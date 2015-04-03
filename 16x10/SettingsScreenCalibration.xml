@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="11">
+	<defaultcontrol always="true">8</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+
+	<controls>
+
+		<!-- Video window -->
+
+		<control type="videowindow" id="20">
+			<include>Dimensions_Fullscreen</include>
+		</control>
+
+		<!-- Top left mover -->
+
+		<control type="mover" id="8">
+			<width>128</width>
+			<height>128</height>
+			<texturefocus>calibrate/CalibrateTopLeft.png</texturefocus>
+			<texturenofocus>-</texturenofocus>
+		</control>
+
+		<!-- Bottom right mover -->
+
+		<control type="mover" id="9">
+			<width>128</width>
+			<height>128</height>
+			<texturefocus>calibrate/CalibrateBottomRight.png</texturefocus>
+			<texturenofocus>-</texturenofocus>
+		</control>
+
+		<!-- Subtitle position mover -->
+
+		<control type="mover" id="10">
+			<width>384</width>
+			<height>128</height>
+			<texturefocus>calibrate/CalibrateSubTitles.png</texturefocus>
+			<texturenofocus>-</texturenofocus>
+		</control>
+
+		<!-- Pixel aspect ratio box -->
+
+		<control type="resize" id="11">
+			<width>500</width>
+			<height>500</height>
+			<texturefocus>calibrate/CalibratePixelRatio.png</texturefocus>
+			<texturenofocus>-</texturenofocus>
+		</control>
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+
+			<!-- Coordinates label -->
+
+			<control type="label" id="2">
+				<top>60</top>
+				<width>1920</width>
+				<align>center</align>
+				<textcolor>White</textcolor>
+			</control>
+
+			<!-- Help information -->
+
+			<control type="label" id="3">
+				<top>140</top>
+				<width>1920</width>
+				<align>center</align>
+				<textcolor>White</textcolor>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

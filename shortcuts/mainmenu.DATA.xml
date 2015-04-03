@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<label>10006</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>videos</defaultID>
+		<icon>homeicons/videosicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,root)</action>
+	</shortcut>
+	<shortcut>
+		<label>10005</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>music</defaultID>
+		<icon>homeicons/musicicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Music,root)</action>
+	</shortcut>
+	<shortcut>
+		<label>342</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>movies</defaultID>
+		<icon>homeicons/moviesicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,MovieTitles,return)</action>
+		<visible>Library.HasContent(movies)</visible>
+	</shortcut>
+	<shortcut>
+		<label>20343</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>tvshows</defaultID>
+		<icon>homeicons/tvshowsicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,TVShowTitles,return)</action>
+		<visible>Library.HasContent(tvshows)</visible>
+	</shortcut>
+	<shortcut>
+		<label>132</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>albums</defaultID>
+		<icon>homeicons/albumsicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(MusicLibrary,Albums,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>10002</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>pictures</defaultID>
+		<icon>homeicons/picturesicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Pictures)</action>
+	</shortcut>
+	<shortcut>
+		<label>12600</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>weather</defaultID>
+		<icon>homeicons/weathericon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Weather)</action>
+	</shortcut>
+	<shortcut>
+		<label>10004</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>settings</defaultID>
+		<icon>homeicons/settingsicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Settings)</action>
+	</shortcut>
+	<shortcut>
+		<label>13005</label>
+		<label2>XBMC Command</label2>
+		<defaultID>13005</defaultID>
+		<icon>homeicons/shutdownicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(shutdownmenu)</action>
+	</shortcut>
+	<shortcut>
+		<label>1036</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>1036</defaultID>
+		<icon>homeicons/favouritesicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Favourites)</action>
+	</shortcut>
+	<shortcut>
+		<label>31101</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>31101</defaultID>
+		<icon>homeicons/addonsicon.png</icon>
+		<thumb />
+		<action>ActivateWindow(Programs,Addons,return)</action>
+	</shortcut>
+</shortcuts>

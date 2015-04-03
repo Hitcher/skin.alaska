@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+
+	<!-- Main menu -->
+
+	<include name="HomeIcon">
+	
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<visible>!Window.IsVisible(favourites)</visible>
+			<animation type="Visible">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="180" end="100" tween="cubic" easing="out" delay="600" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="0" end="100" delay="600" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="100" end="180" tween="cubic" easing="in" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="100" end="0" />
+			</animation>
+			<animation type="WindowOpen">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="180" end="100" tween="cubic" easing="out" delay="600" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="0" end="100" delay="600" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="100" end="180" tween="cubic" easing="in" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="100" end="0" />
+			</animation>
+			
+			<control type="label">
+				<left>-480</left>
+				<top>518</top>
+				<width>2880</width>
+				<align>center</align>
+				<aligny>top</aligny>
+				<label>$INFO[Container(300).ListItem.Label]</label>
+				<font>Font_MainMenu</font>
+				<textcolor>HomeIconLabel</textcolor>
+			</control>
+
+			<control type="wraplist" id="300">
+				<left>-196</left>
+				<top>195</top>
+				<height>750</height>
+				<width>2312</width>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<orientation>horizontal</orientation>
+				<focusposition>2</focusposition>
+				<scrolltime tween="sine" easing="out">280</scrolltime>
+				
+				<itemlayout width="450" height="512">
+					<control type="image">
+						<width>256</width>
+						<height>256</height>
+						<left>97</left>
+						<top>136</top>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+				</itemlayout>
+				
+				<focusedlayout width="512" height="512">
+					<control type="image">
+						<width>512</width>
+						<height>512</height>
+						<left>0</left>
+						<top>0</top>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="256,256" tween="back" easing="out" time="500" start="50" end="100" />
+						</animation>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+				</focusedlayout>
+
+				<content>
+					<include>skinshortcuts-mainmenu</include>
+				</content>
+				
+			</control>
+
+		</control>
+
+		<include>Home_Icon_Diffuse</include>
+
+	</include>
+
+</includes>

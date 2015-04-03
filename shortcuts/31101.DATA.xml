@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<label>10001</label>
+		<label2>Custom shortcut</label2>
+		<defaultID>programs</defaultID>
+		<icon>DefaultProgram.png</icon>
+		<thumb />
+		<action>ActivateWindow(Programs,return)</action>
+	</shortcut>
+</shortcuts>

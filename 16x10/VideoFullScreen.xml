@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="2005">
+	<onload condition="Window.IsVisible(51)">Dialog.Close(51)</onload>
+	<defaultcontrol>-</defaultcontrol>
+
+	<controls>
+
+		<control type="group">
+			<left>0</left>
+			<top>0</top>
+			<include>Animation_SlideDownFadeOut</include>
+			<animation effect="slide" end="0,104" time="400" tween="cubic" easing="out" condition="Window.IsVisible(seekbar) | Window.IsVisible(fullscreeninfo)">Conditional</animation>
+
+			<!-- Background -->
+
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>FullWidth</width>
+				<height>220</height>
+				<texture>osd/OSDBack.png</texture>
+			</control>
+
+			<!-- Row 1 label -->
+
+			<control type="label" id="10">
+				<left>30</left>
+				<top>20</top>
+				<width>1860</width>
+				<height>68</height>
+				<font>Font_Reg_32</font>
+				<textcolor>Medium</textcolor>
+				<label>-</label>
+			</control>
+
+			<!-- Row 2 label -->
+
+			<control type="label" id="11">
+				<left>30</left>
+				<top>80</top>
+				<width>1860</width>
+				<height>68</height>
+				<font>Font_Reg_32</font>
+				<textcolor>Medium</textcolor>
+				<label>-</label>
+			</control>
+
+			<!-- Row 3 label -->
+
+			<control type="label" id="12">
+				<left>30</left>
+				<top>140</top>
+				<width>1860</width>
+				<height>68</height>
+				<font>Font_Reg_32</font>
+				<textcolor>Medium</textcolor>
+				<label>-</label>
+			</control>
+
+		</control>
+
+		<!-- Buffering label -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+
+			<control type="label" id="24">
+				<left>0</left>
+				<top>360</top>
+				<width>FullWidth</width>
+				<height>360</height>
+				<align>center</align>
+				<font>Font_Black_Caps_360</font>
+				<textcolor>OSDStatus</textcolor>
+				<label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+				<include>Animation_CommonFade</include>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

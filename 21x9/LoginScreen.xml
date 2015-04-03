@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="29">
+	<backgroundcolor>0</backgroundcolor>
+	<defaultcontrol always="true">52</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Browser -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+
+			<control type="fixedlist" id="52">
+				<left>525</left>
+				<top>135</top>
+				<height>748</height>
+				<width>1330</width>
+				<onup>52</onup>
+				<ondown>52</ondown>
+				<onleft>ActivateWindow(shutdownmenu)</onleft>
+				<onright>ActivateWindow(shutdownmenu)</onright>
+				<focusposition>4</focusposition>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="1328" height="74">
+					<control type="label">
+						<left>136</left>
+						<top>4</top>
+						<width>1245</width>
+						<height>38</height>
+						<aligny>center</aligny>
+						<font>Font_Black_Caps_35</font>
+						<textcolor>Heavy</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>136</left>
+						<top>39</top>
+						<width>1245</width>
+						<height>26</height>
+						<aligny>center</aligny>
+						<font>Font_Light_Caps_26</font>
+						<textcolor>Heavy</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="1242" height="156">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>156</width>
+						<height>156</height>
+						<texture>DefaultUser.png</texture>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="78,78" start="50" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="0" end="100" time="200" />
+						</animation>
+						<visible>SubString(ListItem.Icon,unknown-user)</visible>
+					</control>
+					<control type="group">
+						<visible>!SubString(ListItem.Icon,unknown-user)</visible>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="78,78" start="50" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="0" end="100" time="200" />
+						</animation>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>156</width>
+							<height>156</height>
+							<texture>list/List_Frame_Song.png</texture>
+						</control>
+						<control type="image">
+							<left>19</left>
+							<top>19</top>
+							<width>118</width>
+							<height>118</height>
+							<texture diffuse="list/List_Matte_Song.png">$INFO[ListItem.Icon]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</control>
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" time="200" />
+						</animation>
+						<control type="label">
+							<left>180</left>
+							<top>44</top>
+							<width>1150</width>
+							<height>35</height>
+							<aligny>center</aligny>
+							<font>Font_Black_Caps_35</font>
+							<textcolor>Heavy</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>180</left>
+							<top>79</top>
+							<width>1150</width>
+							<height>30</height>
+							<aligny>center</aligny>
+							<font>Font_Light_Caps_30</font>
+							<textcolor>Heavy</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+		</control>
+
+		<!-- Filter -->
+
+		<include>List_Filter</include>
+
+		<control type="group">
+			<include>List_Fanart_Diffuse</include>
+			<visible>!Skin.HasSetting(Disable_Music_Fanart) + Window.IsVisible(musiclibrary)</visible>
+		</control>
+
+		<!-- XBMC logo -->
+
+		<control type="image">
+			<left>40</left>
+			<top>40</top>
+			<width>297</width>
+			<height>80</height>
+			<texture>xbmc-logo.png</texture>
+		<colordiffuse>MediaFlags</colordiffuse>
+		</control>
+
+	</controls>
+
+</window>

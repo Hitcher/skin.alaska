@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="56">
+	<backgroundcolor>0</backgroundcolor>
+	<defaultcontrol always="true">1</defaultcontrol>
+	<onunload condition="Skin.HasSetting(HomeHorizontal)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=0)</onunload>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$VAR[Global_HeadingLabels]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$VAR[Global_HeadingDetails]</label>
+				<include>Global_HeadingDetailVars</include>
+			</control>
+		</control>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<include>Animation_ZoomInZoomOut</include>
+			<visible>!Window.IsVisible(script-skinshortcuts.xml)</visible>
+			<animation type="Visible">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="50" end="100" tween="cubic" easing="out" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="0" end="100" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="zoom" time="400" center="CenterX,CenterY" start="100" end="50" tween="cubic" easing="in" />
+				<effect type="fade" time="400" center="CenterX,CenterY" start="100" end="0" />
+			</animation>
+
+			<!-- Left grouplist -->
+
+			<control type="grouplist" id="1">
+				<left>80</left>
+				<top>228</top>
+				<width>360</width>
+				<height>462</height>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright condition="Control.HasFocus(10)">100</onright>
+				<onright condition="Control.HasFocus(11)">110</onright>
+				<onright condition="Control.HasFocus(12)">120</onright>
+				<onright condition="Control.HasFocus(13)">130</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+
+				<!-- Home -->
+				<control type="button" id="12">
+					<label>Home</label>
+					<onclick>SetFocus(120)</onclick>
+					<width>360</width>
+					<animation effect="fade" start="100" end="0" condition="ControlGroup(120).HasFocus()">Conditional</animation>
+				</control>
+
+				<!-- Fanart -->
+				<control type="button" id="10">
+					<label>Backgrounds</label>
+					<onclick>SetFocus(100)</onclick>
+					<width>360</width>
+					<animation effect="fade" start="100" end="0" condition="ControlGroup(100).HasFocus()">Conditional</animation>
+				</control>
+
+				<!-- View -->
+				<control type="button" id="11">
+					<label>View Settings</label>
+					<onclick>SetFocus(110)</onclick>
+					<width>360</width>
+					<animation effect="fade" start="100" end="0" condition="ControlGroup(110).HasFocus()">Conditional</animation>
+				</control>
+
+				<!-- Debug -->
+				<control type="button" id="13">
+					<label>31033</label>
+					<onclick>SetFocus(130)</onclick>
+					<width>360</width>
+					<animation effect="fade" start="100" end="0" condition="ControlGroup(130).HasFocus()">Conditional</animation>
+				</control>
+
+			</control>
+
+			<control type="grouplist" id="1000">
+				<left>80</left>
+				<top>228</top>
+				<width>360</width>
+				<height>462</height>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
+
+				<control type="button" id="12">
+					<!-- Home -->
+					<label>Home Items</label>
+					<onclick>noop</onclick>
+					<width>360</width>
+					<textcolor>ButtonLabel</textcolor>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>common/Button_NF.png</texturenofocus>
+					<animation effect="fade" start="100" end="0" condition="!ControlGroup(120).HasFocus()">Conditional</animation>
+				</control>
+
+				<control type="button" id="10">
+					<!-- Fanart -->
+					<label>Backgrounds</label>
+					<onclick>SetFocus(110)</onclick>
+					<width>360</width>
+					<textcolor>ButtonLabel</textcolor>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>common/Button_NF.png</texturenofocus>
+					<animation effect="fade" start="100" end="0" condition="!ControlGroup(100).HasFocus()">Conditional</animation>
+				</control>
+
+				<control type="button" id="11">
+					<!-- View -->
+					<label>View Settings</label>
+					<onclick>noop</onclick>
+					<width>360</width>
+					<textcolor>ButtonLabel</textcolor>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>common/Button_NF.png</texturenofocus>
+					<animation effect="fade" start="100" end="0" condition="!ControlGroup(110).HasFocus()">Conditional</animation>
+				</control>
+
+				<control type="button" id="13">
+					<!-- Debug -->
+					<label>31033</label>
+					<onclick>-)</onclick>
+					<width>360</width>
+					<textcolor>ButtonLabel</textcolor>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>common/Button_NF.png</texturenofocus>
+					<animation effect="fade" start="100" end="0" condition="!ControlGroup(130).HasFocus()">Conditional</animation>
+				</control>
+
+			</control>
+
+			<!-- Right grouplists -->
+
+			<control type="grouplist" id="100">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<itemgap>0</itemgap>
+				<onleft>1</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible>Control.HasFocus(10) | ControlGroup(100).HasFocus()</visible>
+
+				<control type="togglebutton" id="101">
+					<!-- Background image -->
+					<width>1260</width>
+					<label>Set Background image</label>
+					<altlabel>Background image</altlabel>
+					<onclick>Skin.Reset(Background_Image)</onclick>
+					<onclick>Skin.SetImage(Background_Image)</onclick>
+					<usealttexture>!IsEmpty(Skin.String(Background_Image))</usealttexture>
+				</control>
+
+				<control type="radiobutton" id="102">
+					<!-- Movie Fanart -->
+					<width>1260</width>
+					<label>Disable Movie Fanart</label>
+					<onclick>Skin.ToggleSetting(Disable_Movie_Fanart)</onclick>
+					<selected>Skin.HasSetting(Disable_Movie_Fanart)</selected>
+				</control>
+
+				<control type="radiobutton" id="103">
+					<!-- TV Fanart -->
+					<width>1260</width>
+					<label>Disable TV Fanart</label>
+					<onclick>Skin.ToggleSetting(Disable_TV_Fanart)</onclick>
+					<selected>Skin.HasSetting(Disable_TV_Fanart)</selected>
+				</control>
+
+				<control type="radiobutton" id="104">
+					<!-- Music Fanart -->
+					<width>1260</width>
+					<label>Disable Music Fanart</label>
+					<onclick>Skin.ToggleSetting(Disable_Music_Fanart)</onclick>
+					<selected>Skin.HasSetting(Disable_Music_Fanart)</selected>
+				</control>
+
+				<control type="radiobutton" id="105">
+					<!-- Addon Fanart -->
+					<width>1260</width>
+					<label>Disable Addon Fanart</label>
+					<onclick>Skin.ToggleSetting(Disable_Addon_Fanart)</onclick>
+					<selected>Skin.HasSetting(Disable_Addon_Fanart)</selected>
+				</control>
+
+			</control>
+
+			<control type="group">
+				<visible>Control.HasFocus(10) | ControlGroup(100).HasFocus()</visible>
+
+				<control type="label">
+					<left>984</left>
+					<top>228</top>
+					<width>800</width>
+					<height>66</height>
+					<align>right</align>
+					<haspath>true</haspath>
+					<font>Font_Reg_44</font>
+					<textcolor>ButtonLabel</textcolor>
+					<label>$INFO[Skin.String(Background_Image)]</label>
+					<visible>Control.Hasfocus(101)</visible>
+				</control>
+
+				<control type="label">
+					<left>984</left>
+					<top>228</top>
+					<width>800</width>
+					<height>66</height>
+					<align>right</align>
+					<haspath>true</haspath>
+					<font>Font_Reg_44</font>
+					<textcolor>Light</textcolor>
+					<label>$INFO[Skin.String(Background_Image)]</label>
+					<visible>!Control.Hasfocus(101)</visible>
+				</control>
+
+			</control>
+
+			<control type="grouplist" id="110">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<itemgap>0</itemgap>
+				<onleft>1</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible>Control.HasFocus(11) | ControlGroup(110).HasFocus()</visible>
+
+				<control type="radiobutton" id="111">
+					<!-- Hide Watched Status -->
+					<width>1260</width>
+					<label>Hide Watched Status</label>
+					<onclick>Skin.ToggleSetting(HideWatchedOverlays)</onclick>
+					<selected>Skin.HasSetting(HideWatchedOverlays)</selected>
+				</control>
+
+				<control type="radiobutton" id="112">
+					<!-- Hide Resume Status -->
+					<width>1260</width>
+					<label>Hide Resume Status</label>
+					<onclick>Skin.ToggleSetting(HideResumeOverlays)</onclick>
+					<selected>Skin.HasSetting(HideResumeOverlays)</selected>
+				</control>
+
+				<control type="radiobutton" id="113">
+					<!-- RSS Home Only -->
+					<width>1260</width>
+					<label>Disable Global RSS</label>
+					<onclick>Skin.ToggleSetting(Disable_Global_RSS)</onclick>
+					<selected>Skin.HasSetting(Disable_Global_RSS)</selected>
+				</control>
+
+				<control type="radiobutton" id="114">
+					<!-- Swap Studio flag for Rating -->
+					<width>1260</width>
+					<label>Swap Studio flag for Rating</label>
+					<onclick>Skin.ToggleSetting(SwapStudio_Rating)</onclick>
+					<selected>Skin.HasSetting(SwapStudio_Rating)</selected>
+				</control>
+
+			</control>
+
+			<control type="grouplist" id="120">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<itemgap>0</itemgap>
+				<onleft>1</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible>Control.HasFocus(12) | ControlGroup(120).HasFocus()</visible>
+
+				<control type="list" id="1201">
+					<width>1260</width>
+					<height>66</height>
+					<itemgap>0</itemgap>
+					<onleft>1</onleft>
+					<onright>noop</onright>
+					<onup>noop</onup>
+					<ondown>120</ondown>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+
+					<itemlayout width="1260" height="66">
+						<control type="label">
+							<left>20</left>
+							<width>1220</width>
+							<height>66</height>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="1260" height="66">
+						<control type="image">
+							<width>1260</width>
+							<height>66</height>
+							<texture>common/Button_FO.png</texture>
+							<visible>Control.HasFocus(1201)</visible>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1220</width>
+							<height>66</height>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>Light</textcolor>
+							<visible>!Control.HasFocus(1201)</visible>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1220</width>
+							<height>66</height>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>ButtonLabel</textcolor>
+							<visible>Control.HasFocus(1201)</visible>
+						</control>
+					</focusedlayout>
+
+					<content>
+						<item>
+							<label>Default layout</label>
+							<onclick>Skin.SetBool(HomeIcon)</onclick>
+							<visible>!Skin.HasSetting(HomeIcon) + !Skin.HasSetting(HomeHorizontal)</visible>
+						</item>
+						<item>
+							<label>Icon layout</label>
+							<onclick>Skin.Reset(HomeIcon)</onclick>
+							<onclick>Skin.SetBool(HomeHorizontal)</onclick>
+							<visible>Skin.HasSetting(HomeIcon)</visible>
+						</item>
+						<item>
+							<label>Horizontal layout</label>
+							<onclick>Skin.Reset(HomeHorizontal)</onclick>
+							<visible>Skin.HasSetting(HomeHorizontal)</visible>
+						</item>
+
+					</content>
+
+				</control>
+
+				<control type="button" id="1292">
+					<!-- Custom Menu Button -->
+					<width>1260</width>
+					<label>Customise Home Menus</label>
+					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+				</control>
+
+			</control>
+
+			<control type="grouplist" id="130">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<itemgap>0</itemgap>
+				<onleft>1</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible>Control.HasFocus(13) | ControlGroup(130).HasFocus()</visible>
+
+				<control type="radiobutton" id="131">
+					<!-- Enable Debug Grid -->
+					<width>1260</width>
+					<label>31034</label>
+					<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
+					<selected>Skin.HasSetting(DebugGrid)</selected>
+				</control>
+
+				<control type="radiobutton" id="132">
+					<!-- Disable Debug Info -->
+					<width>1260</width>
+					<label>31035</label>
+					<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
+					<selected>Skin.HasSetting(DebugInfo)</selected>
+				</control>
+
+			</control>
+
+			<!-- List arrows -->
+
+			<control type="image">
+				<left>566</left>
+				<top>206</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up.png</texture>
+				<visible>Control.IsVisible(120) + Container(120).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>566</left>
+				<top>828</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down.png</texture>
+				<visible>Control.IsVisible(120) + Container(120).HasNext</visible>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

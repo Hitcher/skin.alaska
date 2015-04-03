@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="6">
+	<defaultcontrol always="true">500</defaultcontrol>
+	<views>500</views>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$VAR[Global_HeadingLabels]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$VAR[Global_HeadingDetails]</label>
+				<include>Global_HeadingDetailVars</include>
+			</control>
+		</control>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<include>Animation_ZoomInZoomOut</include>
+
+			<!-- Left grouplist -->
+
+			<control type="grouplist" id="9000">
+				<left>80</left>
+				<top>228</top>
+				<width>360</width>
+				<height>462</height>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>500</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<!-- Sort -->
+				<control type="button" id="3">
+					<width>360</width>
+				</control>
+
+				<!-- Ascending -->
+				<control type="togglebutton" id="4">
+					<width>360</width>
+					<label>584</label>
+					<altlabel>585</altlabel>
+				</control>
+
+				<!-- Shuffle -->
+				<control type="radiobutton" id="20">
+					<width>360</width>
+					<label>191</label>
+				</control>
+
+				<!-- Save -->
+				<control type="button" id="21">
+					<width>360</width>
+					<label>190</label>
+				</control>
+
+				<control type="button" id="22">
+					<!-- Clear -->
+					<width>360</width>
+					<label>192</label>
+					<onclick>ReplaceWindow(music)</onclick>
+				</control>
+
+				<!-- Play -->
+				<control type="button" id="23">
+					<width>360</width>
+					<label>208</label>
+				</control>
+
+				<!-- Open Player Controls -->
+				<control type="button" id="98">
+					<width>360</width>
+					<label>31015</label>
+					<onclick>ActivateWindow(playercontrols)</onclick>
+					<visible>Player.HasMedia</visible>
+				</control>
+
+			</control>
+
+			<!-- List -->
+
+			<control type="list" id="500">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<onleft>9000</onleft>
+				<onright>noop</onright>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="1260" height="66">
+					<control type="label">
+						<left>20</left>
+						<width>1220</width>
+						<height>66</height>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="1260" height="66">
+					<control type="image">
+						<width>1260</width>
+						<height>66</height>
+						<texture>common/Button_FO.png</texture>
+						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(500)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>1220</width>
+						<height>66</height>
+						<scroll>true</scroll>
+						<aligny>center</aligny>
+						<textcolor>ButtonLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			<!-- List arrows -->
+
+			<control type="image">
+				<left>566</left>
+				<top>206</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up.png</texture>
+				<visible>Container(500).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>566</left>
+				<top>828</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down.png</texture>
+				<visible>Container(500).HasNext</visible>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

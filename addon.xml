@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+	id="skin.alaska"
+	version="0.9.3"
+	name="Alaska"
+	provider-name="Hitcher">
+	<requires>
+		<import addon="xbmc.gui" version="5.0.1"/>
+		<import addon="script.favourites" version="5.0.2"/>
+		<import addon="script.skinshortcuts" version="0.4.0"/>
+		<import addon="service.skin.widgets" version="0.0.27"/>
+		<import addon="script.tv.show.next.aired" version="6.0.3"/>
+	</requires>
+	<extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1.00" debugging="false">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="16x9" />
+		<res width="1920" height="1200" aspect="16:10" folder="16x10" />
+		<res width="2560" height="1080" aspect="21:9" folder="21x9" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Alaska in 1080p</summary>
+		<disclaimer lang="en">Not for mouse or touchscreen</disclaimer>
+		<description lang="en">Built by Hitcher[CR]Original design by Duncan Harris[CR]Special thanks to 'Black for the use of his icons</description>
+	</extension>
+</addon>

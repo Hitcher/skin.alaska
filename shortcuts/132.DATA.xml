@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<action>ActivateWindow(Music,plugin://service.library.data.provider?type=recentalbums,return)</action>
+		<label>31104</label>
+		<label2>Albums</label2>
+		<defaultID>31104</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Music,plugin://service.library.data.provider?type=recommendedalbums,return)</action>
+		<label>31159</label>
+		<label2>Albums</label2>
+		<defaultID>31159</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Music,plugin://service.library.data.provider?type=randomalbums,return)</action>
+		<label>31177</label>
+		<label2>Albums</label2>
+		<defaultID>31177</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+</shortcuts>

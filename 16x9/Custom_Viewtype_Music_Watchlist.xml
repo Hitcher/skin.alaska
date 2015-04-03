@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="53">
+	<backgroundcolor>0</backgroundcolor>
+	<defaultcontrol>51</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<fadetime>400</fadetime>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<texture background="true">$INFO[Container(51).ListItem.Property(Fanart)]</texture>
+			<include>Animation_CommonFade</include>
+			<visible>!Skin.HasSetting(Disable_Music_Fanart)</visible>
+		</control>
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInZoomOut</include>
+			<include>Animation_ZoomedByMenu</include>
+
+			<!-- List View -->
+
+			<control type="fixedlist" id="51">
+				<left>389</left>
+				<top>135</top>
+				<height>748</height>
+				<width>1485</width>
+				<onup>51</onup>
+				<ondown>51</ondown>
+				<onleft>7000</onleft>
+				<onright>7000</onright>
+				<focusposition>4</focusposition>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible>IsEmpty(Skin.String(Music_Watchlist))</visible>
+
+				<itemlayout width="1691" height="74">
+
+					<control type="label">
+						<left>372</left>
+						<top>0</top>
+						<width>1113</width>
+						<height>74</height>
+						<aligny>center</aligny>
+						<font>Font_Black_Caps_35</font>
+						<textcolor>Heavy</textcolor>
+						<selectedcolor>Heavy</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="12" time="200" condition="Window.IsVisible(songinformation)">Conditional</animation>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout width="1691" height="156">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>432</width>
+						<height>156</height>
+						<bordersize>6</bordersize>
+						<aspectratio align="right">keep</aspectratio>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<bordertexture border="6">pics/Picture_Panel.png</bordertexture>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="354,78" start="50" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="0" end="100" time="200" />
+						</animation>
+					</control>
+
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" time="200" />
+						</animation>
+						<control type="label">
+							<left>456</left>
+							<top>-16</top>
+							<width>1029</width>
+							<height>156</height>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<font>Font_Black_Caps_42</font>
+							<textcolor>Heavy</textcolor>
+							<selectedcolor>Heavy</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="slide" end="0,16" condition="IsEmpty(ListItem.Label2)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>456</left>
+							<top>84</top>
+							<width>1029</width>
+							<height>26</height>
+							<aligny>center</aligny>
+							<font>Font_Light_Caps_30</font>
+							<textcolor>Heavy</textcolor>
+							<selectedcolor>Heavy</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>Music_Watchlist</include>
+				</content>
+
+			</control>
+
+		</control>
+
+		<!-- Filter -->
+
+		<include>List_Filter</include>
+
+		<control type="group">
+			<include>Music_Watchlist_Fanart_Diffuse</include>
+			<visible>!Skin.HasSetting(Disable_Music_Fanart)</visible>
+		</control>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$VAR[Global_HeadingLabels]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$VAR[Global_WidgetDetails]</label>
+				<include>Global_HeadingDetailVars</include>
+				<visible>Window.IsVisible(51) | Window.IsVisible(52) | Window.IsVisible(53)</visible>
+			</control>
+		</control>
+
+		<!-- Filter -->
+
+		<include>Global_ContextFilter</include>
+
+		<!-- Menu -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu7000</include>
+
+			<control type="fixedlist" id="7000">
+				<left>-480</left>
+				<top>432</top>
+				<width>3520</width>
+				<height>524</height>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>SetFocus(51)</onup>
+				<ondown>SetFocus(51)</ondown>
+				<viewtype>list</viewtype>
+				<focusposition>4</focusposition>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">1</defaultcontrol>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible allowhiddenfocus="true">Control.HasFocus(7000) + !Window.IsActive(shutdownmenu) + !Window.IsActive(DialogYesNo.xml) + !Window.IsActive(progressdialog) + !Window.IsActive(okdialog)</visible>
+				<itemlayout width="300" height="524">
+					<control type="label">
+						<left>0</left>
+						<top>22</top>
+						<width>280</width>
+						<height>30</height>
+						<info>ListItem.Label</info>
+						<font>Font_Reg_Caps_Bold_28</font>
+						<textcolor>Light</textcolor>
+					</control>
+					<control type="textbox">
+						<left>0</left>
+						<top>40</top>
+						<width>280</width>
+						<height>108</height>
+						<info>ListItem.Label2</info>
+						<font>Font_Black_Caps_44</font>
+						<autoscroll>false</autoscroll>
+						<textcolor>Light</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="620" height="524">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="240,60" start="60" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="40" end="100" time="200" />
+						</animation>
+						<control type="label">
+							<left>240</left>
+							<width>400</width>
+							<height>44</height>
+							<align>center</align>
+							<info>ListItem.Label</info>
+							<font>Font_Reg_Caps_Bold_44</font>
+							<textcolor>MedLight</textcolor>
+						</control>
+						<control type="textbox">
+							<left>-10</left>
+							<top>32</top>
+							<width>500</width>
+							<height>188</height>
+							<align>center</align>
+							<info>ListItem.Label2</info>
+							<font>Font_Black_Caps_76</font>
+							<autoscroll>false</autoscroll>
+							<textcolor>Medium</textcolor>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<!-- Fanart -->
+					<item id="2">
+						<onclick>Skin.ToggleSetting(Disable_Music_Fanart)</onclick>
+						<label>20445</label>
+						<label2>351</label2>
+						<visible>Skin.HasSetting(Disable_Music_Fanart)</visible>
+					</item>
+					<item id="2">
+						<onclick>Skin.ToggleSetting(Disable_Music_Fanart)</onclick>
+						<label>20445</label>
+						<label2>16041</label2>
+						<visible>!Skin.HasSetting(Disable_Music_Fanart)</visible>
+					</item>
+				</content>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

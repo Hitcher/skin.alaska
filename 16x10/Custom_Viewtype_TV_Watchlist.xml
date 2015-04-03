@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="51">
+	<backgroundcolor>0</backgroundcolor>
+	<defaultcontrol>51</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<fadetime>400</fadetime>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<texture background="true">$INFO[Container(51).ListItem.Property(Fanart)]</texture>
+			<include>Animation_CommonFade</include>
+			<visible>!Skin.HasSetting(Disable_TV_Fanart)</visible>
+		</control>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$VAR[Global_HeadingLabels]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$VAR[Global_WidgetDetails]</label>
+				<include>Global_HeadingDetailVars</include>
+				<visible>Window.IsVisible(51) | Window.IsVisible(52) | Window.IsVisible(53)</visible>
+			</control>
+		</control>
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInZoomOut</include>
+			<include>Animation_ZoomedByMenu</include>
+
+			<!-- Poster View -->
+
+			<control type="fixedlist" id="51">
+				<include>Poster_Values</include>
+				<top>107</top>
+				<height>773</height>
+				<onup>7000</onup>
+				<ondown>7000</ondown>
+				<preloaditems>2</preloaditems>
+				<defaultcontrol>1</defaultcontrol>
+				<orientation>horizontal</orientation>
+				<viewtype label="31120">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible>IsEmpty(Skin.String(TV_Watchlist))</visible>
+
+				<itemlayout width="253" height="368">
+					<control type="image">
+						<left>2</left>
+						<top>191</top>
+						<width>243</width>
+						<height>362</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>DefaultVideo.png</texture>
+						<include>Animation_HiddenByInfo</include>
+						<visible>IsEmpty(ListItem.ActualIcon)</visible>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(ListItem.ActualIcon)</visible>
+						<control type="image">
+							<left>2</left>
+							<top>191</top>
+							<width>243</width>
+							<height>362</height>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+							<texture>poster/Poster_Matte_NF.png</texture>
+						</control>
+						<control type="image">
+							<left>2</left>
+							<top>191</top>
+							<width>243</width>
+							<height>362</height>
+							<texture background="true" diffuse="poster/Poster_Matte_NF.png">$INFO[ListItem.ActualIcon]</texture>
+							<fadetime>200</fadetime>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>189</top>
+							<width>247</width>
+							<height>366</height>
+							<texture>poster/Poster_Frame_NF.png</texture>
+						</control>
+						<control type="image">
+							<left>2</left>
+							<top>556</top>
+							<width>243</width>
+							<height>362</height>
+							<texture background="true" flipy="true" diffuse="poster/Poster_Matte_NF_Reflect.png">$INFO[ListItem.ActualIcon]</texture>
+							<fadetime>200</fadetime>
+							<colordiffuse>PosterDiffuse</colordiffuse>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="492" height="772">
+					<control type="image">
+						<left>2</left>
+						<top>29</top>
+						<width>480</width>
+						<height>714</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>DefaultVideo.png</texture>
+						<visible>IsEmpty(ListItem.ActualIcon)</visible>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="auto" start="51" end="100" time="600" tween="back" easing="out" />
+						</animation>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(ListItem.ActualIcon)</visible>
+						<control type="group">
+							<animation type="Focus" reversible="false">
+								<effect type="zoom" center="247,356" start="51" end="100" time="600" delay="80" tween="back" easing="out" />
+							</animation>
+							<control type="image">
+								<left>2</left>
+								<top>29</top>
+								<width>480</width>
+								<height>714</height>
+								<texture background="true" diffuse="poster/Poster_Matte_FO.png">$INFO[ListItem.ActualIcon]</texture>
+								<fadetime>200</fadetime>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+							</control>
+							<control type="image">
+								<left>-27</left>
+								<top>0</top>
+								<width>538</width>
+								<height>772</height>
+								<texture>poster/Poster_Frame_FO.png</texture>
+							</control>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>TV_Watchlist</include>
+				</content>
+
+			</control>
+
+			<!-- Landscape View -->
+
+			<control type="fixedlist" id="51">
+				<include>Fanart_Values</include>
+				<top>352</top>
+				<height>750</height>
+				<onup>7000</onup>
+				<ondown>7000</ondown>
+				<onleft>51</onleft>
+				<onright>51</onright>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<defaultcontrol>1</defaultcontrol>
+				<orientation>horizontal</orientation>
+				<viewtype label="31123">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible>StringCompare(Skin.String(TV_Watchlist),landscape)</visible>
+
+				<itemlayout width="422" height="235">
+					<control type="image">
+						<left>10</left>
+						<top>20</top>
+						<width>404</width>
+						<height>228</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>DefaultVideo.png</texture>
+						<include>Animation_HiddenByInfo</include>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(ListItem.Thumb)</visible>
+						<control type="image">
+							<left>6</left>
+							<top>16</top>
+							<width>412</width>
+							<height>236</height>
+							<texture>landscape/Landscape_Frame_Shadow_NF.png</texture>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>20</top>
+							<width>404</width>
+							<height>228</height>
+							<texture>landscape/Landscape_Matte_NF.png</texture>
+							<colordiffuse>MatteDiffuse</colordiffuse>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>20</top>
+							<width>404</width>
+							<height>228</height>
+							<texture background="true" diffuse="landscape/Landscape_Matte_NF.png">$INFO[ListItem.Thumb]</texture>
+							<fadetime>200</fadetime>
+							<colordiffuse>LandscapeDiffuse</colordiffuse>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>20</top>
+							<width>404</width>
+							<height>228</height>
+							<texture>landscape/Landscape_Frame_NF.png</texture>
+						</control>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="458" height="266">
+					<control type="image">
+						<left>14</left>
+						<top>12</top>
+						<width>429</width>
+						<height>242</height>
+						<fadetime>200</fadetime>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>DefaultVideo.png</texture>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="auto" start="50" end="100" time="400" tween="back" easing="out" />
+						</animation>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(ListItem.Thumb)</visible>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="auto" start="50" end="100" time="400" tween="back" easing="out" />
+						</animation>
+						<control type="image">
+							<left>14</left>
+							<top>12</top>
+							<width>429</width>
+							<height>242</height>
+							<texture background="true" diffuse="landscape/Landscape_Matte_FO.png">$INFO[ListItem.Thumb]</texture>
+							<fadetime>200</fadetime>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+						</control>
+						<control type="image">
+							<left>2</left>
+							<top>0</top>
+							<width>453</width>
+							<height>266</height>
+							<texture>landscape/Landscape_Frame_FO.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>TV_Watchlist</include>
+				</content>
+
+			</control>
+
+		</control>
+
+		<!-- Browser label -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_SlideUpFadeOut</include>
+			<include>Animation_ZoomedByMenu</include>
+
+			<control type="label">
+				<left>1250</left>
+				<top>672</top>
+				<width>624</width>
+				<height>160</height>
+				<aligny>center</aligny>
+				<font>Font_Cond_72</font>
+				<textcolor>Heavy</textcolor>
+				<label>$INFO[Container(51).ListItem.Label2,, • ]$INFO[Container(51).ListItem.Property(EpisodeNo)]</label>
+				<wrapmultiline>true</wrapmultiline>
+				<visible>IsEmpty(Skin.String(TV_Watchlist))</visible>
+			</control>
+
+			<control type="group">
+				<left>746</left>
+				<top>646</top>
+				<animation effect="fade" time="200" start="0" end="100">Visible</animation>
+				<visible>StringCompare(Skin.String(TV_Watchlist),landscape) + !Container(51).OnNext + !Container(51).OnPrevious</visible>
+
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>1110</width>
+					<height>48</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_Bold_48</font>
+					<textcolor>Heavy</textcolor>
+					<label>$INFO[Container(51).ListItem.Label]</label>
+				</control>
+
+				<control type="grouplist">
+					<left>0</left>
+					<top>52</top>
+					<width>1110</width>
+					<height>200</height>
+					<itemgap>2</itemgap>
+
+					<control type="grouplist">
+						<width>1110</width>
+						<height>40</height>
+						<itemgap>6</itemgap>
+						<orientation>horizontal</orientation>
+						<usecontrolcoords>true</usecontrolcoords>
+						<control type="label">
+							<height>40</height>
+							<width>auto</width>
+							<aligny>bottom</aligny>
+							<font>Font_Light_Caps_36</font>
+							<textcolor>Heavy</textcolor>
+							<label>$LOCALIZE[31125]:</label>
+						</control>
+						<control type="label">
+							<height>36</height>
+							<width>auto</width>
+							<aligny>bottom</aligny>
+							<font>Font_Reg_36</font>
+							<textcolor>Heavy</textcolor>
+							<label>$INFO[Container(51).ListItem.Label2]</label>
+						</control>
+					</control>
+
+					<control type="grouplist">
+						<width>1110</width>
+						<height>40</height>
+						<itemgap>6</itemgap>
+						<orientation>horizontal</orientation>
+						<usecontrolcoords>true</usecontrolcoords>
+						<control type="label">
+							<height>40</height>
+							<width>auto</width>
+							<aligny>bottom</aligny>
+							<font>Font_Light_Caps_36</font>
+							<textcolor>Heavy</textcolor>
+							<label>$LOCALIZE[20359]:</label>
+						</control>
+						<control type="label">
+							<height>36</height>
+							<width>auto</width>
+							<aligny>bottom</aligny>
+							<font>Font_Reg_Caps_36</font>
+							<textcolor>Heavy</textcolor>
+							<label>$INFO[Container(51).ListItem.Property(EpisodeNo)]</label>
+						</control>
+					</control>
+
+				</control>
+
+			</control>
+
+			<!-- Media flags -->
+
+			<control type="grouplist">
+				<right>66</right>
+				<top>822</top>
+				<width>608</width>
+				<height>91</height>
+				<itemgap>24</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+
+				<!-- Studio flag -->
+
+				<control type="group">
+					<width>134</width>
+					<height>91</height>
+					<visible>!Skin.HasSetting(SwapStudio_Rating)</visible>
+					<control type="image">
+						<top>10</top>
+						<width>109</width>
+						<height>70</height>
+						<aspectratio aligny="center">keep</aspectratio>
+						<colordiffuse>MediaFlags</colordiffuse>
+						<texture fallback="flags/default.png">$INFO[Container(51).ListItem.Property(Studio),special://skin/extras/studio/,.png]</texture>
+					</control>
+				</control>
+
+				<!-- Rating flag -->
+
+				<control type="group">
+					<width>134</width>
+					<height>91</height>
+					<visible>Skin.HasSetting(SwapStudio_Rating)</visible>
+					<control type="image">
+						<include>MediaFlagsVars</include>
+						<texture>flags/rating.png</texture>
+					</control>
+					<control type="label">
+						<width>134</width>
+						<height>91</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label fallback="?">$INFO[Container(51).ListItem.Property(Rating)]</label>
+						<textcolor>MediaFlags</textcolor>
+						<font>Font_Cond_64</font>
+					</control>
+				</control>
+
+				<!-- Source flag -->
+
+				<control type="image">
+					<include>MediaFlagsVars</include>
+					<texture>$VAR[Video_Widget_Source].png</texture>
+				</control>
+
+				<!-- Resolution flag -->
+
+				<control type="image">
+					<include>MediaFlagsVars</include>
+					<texture fallback="flags/resolution/default.png">$INFO[Container(51).ListItem.Property(VideoResolution),flags/resolution/,.png]</texture>
+				</control>
+
+				<!-- Audio flag -->
+
+				<control type="group">
+					<width>134</width>
+					<height>91</height>
+					<control type="image">
+						<include>MediaFlagsVars</include>
+						<texture fallback="flags/defaultsound.png">$INFO[Container(51).ListItem.Property(AudioCodec),flags/audio/,.png]</texture>
+					</control>
+					<control type="image">
+						<include>MediaFlagsVars</include>
+						<texture>$INFO[Container(51).ListItem.Property(AudioChannels),flags/audio/,ch.png]</texture>
+					</control>
+				</control>
+
+			</control>
+
+		</control>
+
+		<!-- Filter -->
+
+		<include>Global_ContextFilter</include>
+
+		<!-- Menu -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu7000</include>
+
+			<control type="fixedlist" id="7000">
+				<left>-480</left>
+				<top>432</top>
+				<width>3520</width>
+				<height>524</height>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>SetFocus(51)</onup>
+				<ondown>SetFocus(51)</ondown>
+				<viewtype>list</viewtype>
+				<focusposition>4</focusposition>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">1</defaultcontrol>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible allowhiddenfocus="true">Control.HasFocus(7000) + !Window.IsActive(shutdownmenu) + !Window.IsActive(DialogYesNo.xml) + !Window.IsActive(progressdialog) + !Window.IsActive(okdialog)</visible>
+				<itemlayout width="300" height="524">
+					<control type="label">
+						<left>0</left>
+						<top>22</top>
+						<width>280</width>
+						<height>30</height>
+						<info>ListItem.Label</info>
+						<font>Font_Reg_Caps_Bold_28</font>
+						<textcolor>Light</textcolor>
+					</control>
+					<control type="textbox">
+						<left>0</left>
+						<top>40</top>
+						<width>280</width>
+						<height>108</height>
+						<info>ListItem.Label2</info>
+						<font>Font_Black_Caps_44</font>
+						<autoscroll>false</autoscroll>
+						<textcolor>Light</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="620" height="524">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="240,60" start="60" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="40" end="100" time="200" />
+						</animation>
+						<control type="label">
+							<left>240</left>
+							<width>400</width>
+							<height>44</height>
+							<align>center</align>
+							<info>ListItem.Label</info>
+							<font>Font_Reg_Caps_Bold_44</font>
+							<textcolor>MedLight</textcolor>
+						</control>
+						<control type="textbox">
+							<left>-10</left>
+							<top>32</top>
+							<width>500</width>
+							<height>188</height>
+							<align>center</align>
+							<info>ListItem.Label2</info>
+							<font>Font_Black_Caps_76</font>
+							<autoscroll>false</autoscroll>
+							<textcolor>Medium</textcolor>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<!-- Viewmode -->
+					<item id="1">
+						<onclick>Skin.SetString(TV_Watchlist,landscape)</onclick>
+						<label>31119</label>
+						<label2>31120</label2>
+						<visible>IsEmpty(Skin.String(TV_Watchlist))</visible>
+					</item>
+					<item id="1">
+						<onclick>Skin.Reset(TV_Watchlist)</onclick>
+						<label>31119</label>
+						<label2>31123</label2>
+						<visible>StringCompare(Skin.String(TV_Watchlist),landscape)</visible>
+					</item>
+					<!-- Fanart -->
+					<item id="2">
+						<onclick>Skin.ToggleSetting(Disable_TV_Fanart)</onclick>
+						<label>20445</label>
+						<label2>351</label2>
+						<visible>Skin.HasSetting(Disable_TV_Fanart)</visible>
+					</item>
+					<item id="2">
+						<onclick>Skin.ToggleSetting(Disable_TV_Fanart)</onclick>
+						<label>20445</label>
+						<label2>16041</label2>
+						<visible>!Skin.HasSetting(Disable_TV_Fanart)</visible>
+					</item>
+				</content>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<label>7</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>7</defaultID>
+		<icon>DefaultFolder.png</icon>
+		<thumb />
+		<action>ActivateWindow(FileManager)</action>
+	</shortcut>
+	<shortcut>
+		<label>13200</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>13200</defaultID>
+		<icon>UnknownUser.png</icon>
+		<thumb />
+		<action>ActivateWindow(Profiles)</action>
+	</shortcut>
+	<shortcut>
+		<label>10007</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>10007</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(SystemInfo)</action>
+	</shortcut>
+</shortcuts>

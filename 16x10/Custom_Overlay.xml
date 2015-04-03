@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="50">
+	<zorder>100</zorder>
+	<visible>!Window.IsVisible(startup)</visible>
+	<controls>
+
+		<control type="group">
+			<visible>[!Window.IsVisible(3000) | [Window.IsVisible(3000) + Window.IsVisible(script-videoextras-main.xml)]] + !Window.IsVisible(startup) + !Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation) + !Window.IsVisible(screencalibration) + !Window.IsVisible(screensaver) + !Window.IsVisible(slideshow) + !Window.IsVisible(karaoke)</visible>
+
+			<!-- Global Date/Time -->
+
+			<control type="group">
+				<right>46</right>
+				<width>400</width>
+				<visible>!Window.IsActive(extendedprogressdialog) + !Window.IsActive(infodialog) + !Window.IsActive(busydialog) + !Window.IsActive(volumebar) + !Window.IsActive(mutebug) + !Window.IsActive(karaokeselector)</visible>
+				<animation type="Visible" reversible="false">
+					<effect type="slide" start="0,-180" end="0,0" time="400" delay="400" tween="cubic" easing="out" />
+					<effect type="fade" start="0" end="100" time="400" delay="400" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="200" />
+					<effect type="slide" start="0,0" end="0,-180" time="0" delay="200" />
+				</animation>
+				<control type="label">
+					<top>36</top>
+					<right>0</right>
+					<width>400</width>
+					<height>60</height>
+					<font>Font_Black_Caps_60</font>
+					<textcolor>Light</textcolor>
+					<info>System.Time</info>
+					<align>right</align>
+				</control>
+				<control type="label">
+					<top>90</top>
+					<right>0</right>
+					<width>400</width>
+					<height>36</height>
+					<font>Font_Light_Caps_36</font>
+					<textcolor>Light</textcolor>
+					<label>$INFO[System.Date(d)] $INFO[System.Date(MMM)] $INFO[System.Date(yyyy)]</label>
+					<align>right</align>
+				</control>
+			</control>
+
+			<!-- Global Now Playing Music -->
+
+			<control type="group">
+				<left>29</left>
+				<bottom>70</bottom>
+				<height>278</height>
+				<visible>Player.HasAudio + !SubString(Window(videolibrary).Property(TvTunesIsAlive),True)</visible>
+				<animation type="Conditional" condition="!system.getbool(lookandfeel.enablerssfeeds) | [!Window.IsActive(home) + Skin.HasSetting(Disable_Global_RSS)]">
+					<effect type="slide" start="0,0" end="0,45" time="200" tween="cubic" easing="inout" delay="200" />
+				</animation>
+				<animation type="Conditional" condition="Window.IsVisible(playercontrols) + [!system.getbool(lookandfeel.enablerssfeeds) | [!Window.IsActive(home) + Skin.HasSetting(Disable_Global_RSS)]]">
+					<effect type="slide" start="0,0" end="0,-45" time="400" tween="cubic" easing="inout" />
+				</animation>
+				<animation type="Conditional" condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(systeminfo) | Window.IsVisible(filemanager) | Window.IsVisible(skinsettings) | Window.IsVisible(addonsettings) | Window.IsVisible(mediasource) | Window.IsVisible(filebrowser) | Window.IsVisible(networksetup) | Window.IsVisible(selectdialog) | Window.IsVisible(numericinput) | Window.IsVisible(virtualkeyboard) | Window.IsVisible(peripherals) | Window.IsVisible(peripheralsettings) | Window.IsVisible(pictureinfo) | Window.IsVisible(loginscreen) | Window.IsVisible(profiles) | Window.IsVisible(profilesettings) | Window.IsVisible(locksettings) | Window.IsVisible(contentsettings) | Window.IsVisible(smartplaylisteditor)">
+					<effect type="fade" start="100" end="0" time="200" />
+				</animation>
+				<animation type="Visible">
+					<effect type="slide" start="-300,0" end="0,0" time="600" delay="800" tween="cubic" easing="out" />
+					<effect type="fade" start="0" end="100" time="600" delay="800" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="400" />
+				</animation>
+				<control type="image">
+					<width>278</width>
+					<height>278</height>
+					<texture>$INFO[MusicPlayer.Cover]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					<bordertexture border="16">common/Now_Playing_Border.png</bordertexture>
+					<bordersize>16</bordersize>
+				</control>
+				<control type="label">
+					<left>280</left>
+					<top>169</top>
+					<width>1600</width>
+					<height>48</height>
+					<font>Font_Light_Caps_48</font>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<textcolor>Medium</textcolor>
+					<animation effect="slide" end="0,39" condition="IsEmpty(MusicPlayer.Artist) + IsEmpty(MusicPlayer.Album)">Conditional</animation>
+				</control>
+				<control type="grouplist">
+					<left>280</left>
+					<top>213</top>
+					<width>1600</width>
+					<height>48</height>
+					<itemgap>0</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<width>auto</width>
+						<height>48</height>
+						<font>Font_Black_36</font>
+						<label>$INFO[MusicPlayer.Artist,,  ]</label>
+						<textcolor>Medium</textcolor>
+					</control>
+					<control type="label">
+						<top>6</top>
+						<width>auto</width>
+						<height>36</height>
+						<font>Font_Light_36</font>
+						<label>$INFO[MusicPlayer.Album]</label>
+						<textcolor>Medium</textcolor>
+					</control>
+				</control>
+			</control>
+
+			<!-- Global Now Playing Video -->
+
+			<control type="group">
+				<left>29</left>
+				<bottom>70</bottom>
+				<height>278</height>
+				<visible>Player.HasVideo + !VideoPlayer.IsFullscreen</visible>
+				<animation type="Conditional" condition="!system.getbool(lookandfeel.enablerssfeeds) | [!Window.IsActive(home) + Skin.HasSetting(Disable_Global_RSS)]">
+					<effect type="slide" start="0,0" end="0,45" time="200" tween="cubic" easing="inout" delay="200" />
+				</animation>
+				<animation type="Conditional" condition="Window.IsVisible(playercontrols) + [!system.getbool(lookandfeel.enablerssfeeds) | [!Window.IsActive(home) + Skin.HasSetting(Disable_Global_RSS)]]">
+					<effect type="slide" start="0,0" end="0,-45" time="400" tween="cubic" easing="inout" />
+				</animation>
+				<animation type="Conditional" condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(systeminfo) | Window.IsVisible(filemanager) | Window.IsVisible(skinsettings) | Window.IsVisible(addonsettings) | Window.IsVisible(mediasource) | Window.IsVisible(filebrowser) | Window.IsVisible(networksetup) | Window.IsVisible(selectdialog) | Window.IsVisible(numericinput) | Window.IsVisible(virtualkeyboard) | Window.IsVisible(peripherals) | Window.IsVisible(peripheralsettings) | Window.IsVisible(pictureinfo) | Window.IsVisible(loginscreen) | Window.IsVisible(profiles) | Window.IsVisible(profilesettings) | Window.IsVisible(locksettings) | Window.IsVisible(contentsettings) | Window.IsVisible(smartplaylisteditor)">
+					<effect type="fade" start="100" end="0" time="200" />
+				</animation>
+				<animation type="Visible">
+					<effect type="slide" start="-300,0" end="0,0" time="600" delay="800" tween="cubic" easing="out" />
+					<effect type="fade" start="0" end="100" time="600" delay="800" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="400" />
+				</animation>
+				<control type="image">
+					<top>108</top>
+					<width>278</width>
+					<height>170</height>
+					<texture border="16">common/Now_Playing_Border.png</texture>
+				</control>
+				<control type="videowindow">
+					<left>16</left>
+					<bottom>16</bottom>
+					<width>246</width>
+					<height>138</height>
+					<visible>![Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(systeminfo) | Window.IsVisible(filemanager) | Window.IsVisible(skinsettings) | Window.IsVisible(addonsettings) | Window.IsVisible(mediasource) | Window.IsVisible(filebrowser) | Window.IsVisible(networksetup) | Window.IsVisible(selectdialog) | Window.IsVisible(numericinput) | Window.IsVisible(virtualkeyboard) | Window.IsVisible(peripherals) | Window.IsVisible(peripheralsettings) | Window.IsVisible(pictureinfo) | Window.IsVisible(loginscreen) | Window.IsVisible(profiles) | Window.IsVisible(profilesettings) | Window.IsVisible(locksettings) | Window.IsVisible(contentsettings) | Window.IsVisible(smartplaylisteditor)]</visible>
+				</control>
+				<control type="label">
+					<left>16</left>
+					<top>168</top>
+					<width>246</width>
+					<height>60</height>
+					<align>center</align>
+					<font>Font_Black_Caps_53</font>
+					<textcolor>Medium</textcolor>
+					<label>$VAR[Player_Status]</label>
+					<include>Animation_CommonFade</include>
+				</control>
+				<control type="label">
+					<left>280</left>
+					<top>169</top>
+					<width>1600</width>
+					<height>48</height>
+					<font>Font_Light_Caps_48</font>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<textcolor>Medium</textcolor>
+					<animation effect="slide" end="0,39" condition="IsEmpty(VideoPlayer.TVShowTitle) + IsEmpty(VideoPlayer.Episode)">Conditional</animation>
+				</control>
+				<control type="grouplist">
+					<left>280</left>
+					<top>213</top>
+					<width>1600</width>
+					<height>48</height>
+					<itemgap>0</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<width>auto</width>
+						<height>48</height>
+						<font>Font_Black_36</font>
+						<label>$INFO[VideoPlayer.TVShowTitle,,  ]</label>
+						<textcolor>Medium</textcolor>
+					</control>
+					<control type="label">
+						<top>6</top>
+						<width>auto</width>
+						<height>36</height>
+						<font>Font_Light_36</font>
+						<label>$LOCALIZE[20359]$INFO[VideoPlayer.Season, ,x]$INFO[VideoPlayer.Episode]</label>
+						<textcolor>Medium</textcolor>
+						<visible>!IsEmpty(VideoPlayer.Episode)</visible>
+					</control>
+				</control>
+			</control>
+
+			<!-- Global RSS -->
+
+			<control type="rss" id="1">
+				<left>0</left>
+				<bottom>27</bottom>
+				<width>FullWidth</width>
+				<height>36</height>
+				<font>Font_Thin_36</font>
+				<textcolor>Medium</textcolor>
+				<headlinecolor>Medium</headlinecolor>
+				<titlecolor>Medium</titlecolor>
+				<urlset>1</urlset>
+				<visible>Window.IsActive(home) | [!Window.IsActive(home) + !Skin.HasSetting(Disable_Global_RSS)]</visible>
+				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(playercontrols) | Window.IsVisible(skinsettings) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(filemanager) | Window.IsVisible(smartplaylisteditor)">Conditional</animation>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

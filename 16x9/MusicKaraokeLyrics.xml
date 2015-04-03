@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="2009">
+
+	<controls>
+
+		<!-- Karaoke visualisation -->
+
+		<control type="karvisualisation" id="1">
+			<include>Dimensions_Fullscreen</include>
+			<visible>false</visible>
+		</control>
+
+		<!-- Karaoke background -->
+
+		<control type="image" id="2">
+			<include>Dimensions_Fullscreen</include>
+			<visible>false</visible>
+		</control>
+
+	</controls>
+
+</window>

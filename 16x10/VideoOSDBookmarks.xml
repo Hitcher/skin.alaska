@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="125">
+	<defaultcontrol always="true">2</defaultcontrol>
+
+	<controls>
+
+		<control type="group">
+			<left>0</left>
+			<bottom>0</bottom>
+			<height>360</height>
+			<include>Animation_SlideUpFadeOut</include>
+
+			<!-- Background -->
+
+			<control type="image">
+				<left>0</left>
+				<top>180</top>
+				<width>FullWidth</width>
+				<height>180</height>
+				<texture>osd/OSDBack.png</texture>
+			</control>
+
+			<control type="fixedlist" id="11">
+				<include>Bookmark_Values</include>
+				<height>280</height>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<ondown>2</ondown>
+				<onup>noop</onup>
+				<orientation>horizontal</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout height="274" width="300">
+
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>274</width>
+						<height>210</height>
+						<bordersize>6</bordersize>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<bordertexture border="6">pics/Picture_Panel.png</bordertexture>
+						<animation effect="fade" start="75" end="75" time="0" condition="true">Conditional</animation>
+					</control>
+
+					<control type="label">
+						<left>150</left>
+						<top>222</top>
+						<width>280</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_36</font>
+						<textcolor>MedLight</textcolor>
+						<info>ListItem.Label</info>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout height="274" width="300">
+
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>280</width>
+						<height>210</height>
+						<bordersize>6</bordersize>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<bordertexture border="6">pics/Picture_Panel.png</bordertexture>
+					</control>
+
+					<control type="label">
+						<left>150</left>
+						<top>222</top>
+						<width>280</width>
+						<height>44</height>
+						<align>center</align>
+						<font>Font_Reg_36</font>
+						<textcolor>Medium</textcolor>
+						<info>ListItem.Label</info>
+					</control>
+
+				</focusedlayout>
+
+			</control>
+
+			<control type="group">
+				<left>LeftOffset</left>
+
+				<control type="grouplist" id="9000">
+					<top>284</top>
+					<width>1920</width>
+					<height>66</height>
+					<align>center</align>
+					<orientation>horizontal</orientation>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<onup>11</onup>
+					<ondown>close</ondown>
+
+					<!-- Create Bookmark button -->
+
+					<control type="button" id="2">
+						<!-- Create Bookmark button -->
+						<label>294</label>
+						<width>480</width>
+						<textcolor>MedLight</textcolor>
+					</control>
+
+					<!-- Clear Bookmark button -->
+
+					<control type="button" id="3">
+						<label>296</label>
+						<width>480</width>
+						<textcolor>MedLight</textcolor>
+					</control>
+
+					<!-- Use current for episode thumb -->
+
+					<control type="button" id="4">
+						<label>20406</label>
+						<width>480</width>
+						<textcolor>MedLight</textcolor>
+						<visible>Control.Enabled(4)</visible>
+					</control>
+
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

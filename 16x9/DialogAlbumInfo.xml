@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="2001">
+	<defaultcontrol always="true">9000</defaultcontrol>
+
+	<controls>
+
+		<!-- Info -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_CommonFade</include>
+			<include>Animation_ZoomedByMenu</include>
+
+			<!-- Hidden control button -->
+
+			<control type="button" id="9000">
+				<include>HiddenControl</include>
+				<onup>7000</onup>
+				<ondown>7000</ondown>
+				<onleft>7000</onleft>
+				<onright>7000</onright>
+			</control>
+
+			<!-- Info Lines -->
+
+			<control type="image">
+				<left>0</left>
+				<top>282</top>
+				<width>FullWidth</width>
+				<height>339</height>
+				<texture>dialogs/Music_Info_Lines.png</texture>
+			</control>
+
+			<control type="group">
+				<visible>Container.Content(Albums)</visible>
+				<left>892</left>
+				<top>198</top>
+
+				<!-- Album -->
+
+				<control type="label">
+					<width>996</width>
+					<height>72</height>
+					<aligny>center</aligny>
+					<font>Font_Cond_72</font>
+					<textcolor>Heavy</textcolor>
+					<label>$INFO[Listitem.Album]</label>
+				</control>
+
+				<control type="grouplist">
+					<left>0</left>
+					<top>87</top>
+					<width>992</width>
+					<height>110</height>
+					<itemgap>0</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+
+					<!-- Year -->
+
+					<control type="label">
+						<left>0</left>
+						<top>18</top>
+						<width min="0" max="300">auto</width>
+						<height>72</height>
+						<aligny>center</aligny>
+						<font>Font_Reg_Caps_72</font>
+						<textcolor>MedLight</textcolor>
+						<label>$INFO[ListItem.Year]</label>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>55</width>
+						<height>110</height>
+						<texture>dialogs/Video_Info_Line.png</texture>
+						<visible>!IsEmpty(ListItem.StarRating)</visible>
+					</control>
+
+					<!-- Rating flags -->
+
+					<control type="image">
+						<left>0</left>
+						<top>26</top>
+						<width>314</width>
+						<height>57</height>
+						<colordiffuse>StarRating</colordiffuse>
+						<texture>$INFO[ListItem.StarRating]</texture>
+						<visible>!IsEmpty(ListItem.StarRating)</visible>
+					</control>
+
+				</control>
+
+				<!-- Divider -->
+
+				<control type="image">
+					<left>146</left>
+					<top>199</top>
+					<width>55</width>
+					<height>222</height>
+					<texture>dialogs/Video_Info_Line.png</texture>
+				</control>
+
+				<!-- Artist -->
+
+				<control type="label">
+					<left>0</left>
+					<top>217</top>
+					<width>225</width>
+					<height>26</height>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<aligny>center</aligny>
+					<label>$LOCALIZE[557]:</label>
+				</control>
+
+				<control type="label">
+					<left>204</left>
+					<top>212</top>
+					<width>780</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Artist]</label>
+				</control>
+
+				<!-- Genre -->
+
+				<control type="label">
+					<left>0</left>
+					<top>257</top>
+					<width>225</width>
+					<height>26</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<label>$LOCALIZE[515]:</label>
+				</control>
+
+				<control type="label">
+					<left>204</left>
+					<top>252</top>
+					<width>780</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Genre]</label>
+				</control>
+
+				<!-- Mood -->
+
+				<control type="label">
+					<left>0</left>
+					<top>297</top>
+					<width>225</width>
+					<height>26</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<label>$LOCALIZE[175]:</label>
+				</control>
+
+				<control type="label">
+					<left>204</left>
+					<top>292</top>
+					<width>780</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Property(Album_Mood)]</label>
+				</control>
+
+				<!-- Style -->
+
+				<control type="label">
+					<left>0</left>
+					<top>337</top>
+					<width>225</width>
+					<height>26</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<label>$LOCALIZE[176]:</label>
+				</control>
+
+				<control type="label">
+					<left>204</left>
+					<top>332</top>
+					<width>780</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Property(Album_Style)]</label>
+				</control>
+
+				<!-- Theme -->
+
+				<control type="label">
+					<left>0</left>
+					<top>377</top>
+					<width>225</width>
+					<height>26</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<label>$LOCALIZE[21895]:</label>
+				</control>
+
+				<control type="label">
+					<left>204</left>
+					<top>372</top>
+					<width>780</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Property(Album_Theme)]</label>
+				</control>
+
+				<!-- Description -->
+
+				<control type="textbox" id="4">
+					<left>0</left>
+					<top>439</top>
+					<width>866</width>
+					<height>160</height>
+					<font>Font_Reg_36</font>
+					<textcolor>Heavy</textcolor>
+					<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+
+			</control>
+
+			<control type="group">
+				<visible>!Container.Content(Albums)</visible>
+				<left>892</left>
+				<top>198</top>
+
+				<!-- Artist -->
+
+				<control type="label">
+					<width>996</width>
+					<height>72</height>
+					<aligny>center</aligny>
+					<font>Font_Cond_72</font>
+					<textcolor>Heavy</textcolor>
+					<label>$INFO[Listitem.Artist]</label>
+				</control>
+
+				<control type="grouplist">
+					<left>0</left>
+					<top>87</top>
+					<width>992</width>
+					<height>110</height>
+					<itemgap>0</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+
+					<!-- Formed -->
+
+					<control type="label">
+						<left>0</left>
+						<top>18</top>
+						<width>992</width>
+						<height>72</height>
+						<aligny>center</aligny>
+						<font>Font_Reg_Caps_72</font>
+						<textcolor>MedLight</textcolor>
+						<label fallback="161">$INFO[ListItem.Property(Artist_Formed)]</label>
+					</control>
+
+				</control>
+
+				<!-- Divider -->
+
+				<control type="image">
+					<left>160</left>
+					<top>199</top>
+					<width>55</width>
+					<height>222</height>
+					<texture>dialogs/Video_Info_Line.png</texture>
+				</control>
+
+				<!-- Genre -->
+
+				<control type="label">
+					<left>0</left>
+					<top>217</top>
+					<width>225</width>
+					<height>26</height>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<aligny>center</aligny>
+					<label>$LOCALIZE[515]:</label>
+				</control>
+
+				<control type="label">
+					<left>218</left>
+					<top>212</top>
+					<width>766</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Genre]</label>
+				</control>
+
+				<!-- Mood -->
+
+				<control type="label">
+					<left>0</left>
+					<top>257</top>
+					<width>225</width>
+					<height>26</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<label>$LOCALIZE[175]:</label>
+				</control>
+
+				<control type="label">
+					<left>218</left>
+					<top>252</top>
+					<width>766</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Property(Artist_Mood)]</label>
+				</control>
+
+				<!-- Style -->
+
+				<control type="label">
+					<left>0</left>
+					<top>297</top>
+					<width>225</width>
+					<height>26</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<label>$LOCALIZE[176]:</label>
+				</control>
+
+				<control type="label">
+					<left>218</left>
+					<top>292</top>
+					<width>766</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Property(Artist_Style)]</label>
+				</control>
+
+				<!-- Instrument -->
+
+				<control type="label">
+					<left>0</left>
+					<top>337</top>
+					<width>225</width>
+					<height>26</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<label>$LOCALIZE[21892]:</label>
+				</control>
+
+				<control type="label">
+					<left>218</left>
+					<top>332</top>
+					<width>766</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label fallback="161">$INFO[ListItem.Property(Artist_Instrument)]</label>
+				</control>
+
+				<!-- Years Active -->
+
+				<control type="label">
+					<left>0</left>
+					<top>377</top>
+					<width>225</width>
+					<height>26</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_26</font>
+					<textcolor>MedLight</textcolor>
+					<label>$LOCALIZE[21898]:</label>
+				</control>
+
+				<control type="label">
+					<left>218</left>
+					<top>372</top>
+					<width>766</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
+					<visible>!IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+				</control>
+
+				<control type="label">
+					<left>218</left>
+					<top>372</top>
+					<width>766</width>
+					<height>33</height>
+					<aligny>center</aligny>
+					<font>Font_Reg_Caps_33</font>
+					<textcolor>Heavy</textcolor>
+					<label>161</label>
+					<visible>IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+				</control>
+
+				<!-- Description -->
+
+				<control type="textbox" id="4">
+					<left>0</left>
+					<top>439</top>
+					<width>866</width>
+					<height>160</height>
+					<font>Font_Reg_36</font>
+					<textcolor>Heavy</textcolor>
+					<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+
+			</control>
+
+		</control>
+
+		<!-- Image -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomedByMenu</include>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="400" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<control type="image">
+				<left>380</left>
+				<top>214</top>
+				<width>480</width>
+				<height>480</height>
+				<bordersize>26</bordersize>
+				<texture diffuse="wall/Wall_Matte.png" fallback="DefaultAlbum.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Container.Content(Albums)</visible>
+			</control>
+			<control type="image">
+				<left>380</left>
+				<top>214</top>
+				<width>480</width>
+				<height>480</height>
+				<bordersize>26</bordersize>
+				<texture diffuse="wall/Wall_Matte.png" fallback="DefaultArtist.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>!Container.Content(Albums)</visible>
+			</control>
+			<control type="image">
+				<left>380</left>
+				<top>214</top>
+				<width>480</width>
+				<height>480</height>
+				<texture border="20">wall/Wall_Frame_FO.png</texture>
+			</control>
+		</control>
+
+		<!-- Filter -->
+
+		<include>Global_ContextFilter</include>
+
+		<!-- Menu -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu7000</include>
+
+			<control type="fixedlist" id="7000">
+				<left>-480</left>
+				<top>432</top>
+				<width>3520</width>
+				<height>524</height>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<viewtype>list</viewtype>
+				<focusposition>4</focusposition>
+				<orientation>horizontal</orientation>
+				<defaultcontrol always="true">1</defaultcontrol>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+				<visible allowhiddenfocus="true">Control.HasFocus(7000) + !Window.IsActive(shutdownmenu) + !Window.IsActive(DialogYesNo.xml) + !Window.IsActive(progressdialog) + !Window.IsActive(okdialog)</visible>
+				<itemlayout width="300" height="524">
+					<control type="label">
+						<left>0</left>
+						<top>22</top>
+						<width>280</width>
+						<height>30</height>
+						<info>ListItem.Label</info>
+						<font>Font_Reg_Caps_Bold_28</font>
+						<textcolor>Light</textcolor>
+					</control>
+					<control type="textbox">
+						<left>0</left>
+						<top>40</top>
+						<width>280</width>
+						<height>108</height>
+						<info>ListItem.Label2</info>
+						<font>Font_Black_Caps_44</font>
+						<autoscroll>false</autoscroll>
+						<textcolor>Light</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="620" height="524">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="240,60" start="60" end="100" time="200" tween="cubic" easing="out" />
+							<effect type="fade" start="40" end="100" time="200" />
+						</animation>
+						<control type="label">
+							<left>240</left>
+							<width>400</width>
+							<height>44</height>
+							<align>center</align>
+							<info>ListItem.Label</info>
+							<font>Font_Reg_Caps_Bold_44</font>
+							<textcolor>MedLight</textcolor>
+						</control>
+						<control type="textbox">
+							<left>-10</left>
+							<top>32</top>
+							<width>500</width>
+							<height>188</height>
+							<align>center</align>
+							<info>ListItem.Label2</info>
+							<font>Font_Black_Caps_76</font>
+							<autoscroll>false</autoscroll>
+							<textcolor>Medium</textcolor>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<!-- Refresh -->
+					<item id="1">
+						<onclick>SendClick(6)</onclick>
+						<label>184</label>
+						<label2>31149</label2>
+						<visible>Control.IsEnabled(6)</visible>
+					</item>
+					<!-- Thumb -->
+					<item id="2">
+						<onclick>Up</onclick>
+						<onclick>SendClick(10)</onclick>
+						<label>31150</label>
+						<label2>31165</label2>
+						<visible>Control.IsEnabled(10)</visible>
+					</item>
+					<!-- Fanart -->
+					<item id="3">
+						<onclick>Up</onclick>
+						<onclick>SendClick(12)</onclick>
+						<label>31150</label>
+						<label2>20445</label2>
+						<visible>Control.IsEnabled(12)</visible>
+					</item>
+				</content>
+			</control>
+
+		</control>
+
+		<!-- Hidden buttons for Menu -->
+
+		<control type="button" id="6">
+			<include>HiddenControl</include>
+		</control>
+
+		<control type="button" id="10">
+			<include>HiddenControl</include>
+		</control>
+
+		<control type="button" id="12">
+			<include>HiddenControl</include>
+		</control>
+
+	</controls>
+
+</window>

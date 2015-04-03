@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<label>32032</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>dvd</defaultID>
+		<icon>DefaultDVDFull.png</icon>
+		<thumb />
+		<action>XBMC.PlayDVD()</action>
+	</shortcut>
+	<shortcut>
+		<label>32033</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>32033</defaultID>
+		<icon>DefaultDVDFull.png</icon>
+		<thumb />
+		<action>EjectTray()</action>
+	</shortcut>
+	<shortcut>
+		<label>744</label>
+		<label2>Videos</label2>
+		<defaultID>744</defaultID>
+		<icon>DefaultFolder.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,Files,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>1037</label>
+		<label2>Videos</label2>
+		<defaultID>1037</defaultID>
+		<icon>DefaultAddonVideo.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,Addons,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>20389</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>musicvideos</defaultID>
+		<icon>DefaultMusicVideos.png</icon>
+		<thumb />
+		<action>ActivateWindow(MusicLibrary,MusicVideos,return)</action>
+	</shortcut>
+</shortcuts>

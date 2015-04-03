@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="34">
+	<defaultcontrol always="true">2</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$VAR[Global_HeadingLabels]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$VAR[Global_HeadingDetails]</label>
+				<include>Global_HeadingDetailVars</include>
+			</control>
+		</control>
+
+		<!-- Menu -->
+
+		<control type="group" id="5000">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+
+			<!-- Image -->
+
+			<control type="image">
+				<left>40</left>
+				<top>228</top>
+				<width>360</width>
+				<height>720</height>
+				<bordersize>6</bordersize>
+				<aspectratio align="left" aligny="top">keep</aspectratio>
+				<texture>DefaultUser.png</texture>
+				<visible>IsEmpty(Container(2).ListItem.Icon)</visible>
+			</control>
+
+			<control type="image">
+				<left>40</left>
+				<top>228</top>
+				<width>360</width>
+				<height>720</height>
+				<bordersize>6</bordersize>
+				<aspectratio align="left" aligny="top">keep</aspectratio>
+				<bordertexture border="6">pics/Picture_Panel.png</bordertexture>
+				<texture>$INFO[Container(2).ListItem.Icon]</texture>
+				<visible>!IsEmpty(Container(2).ListItem.Icon)</visible>
+			</control>
+
+			<!-- List -->
+
+			<control type="list" id="2">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<onleft>noop</onleft>
+				<onright>9001</onright>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+
+				<itemlayout width="1260" height="66">
+					<control type="label">
+						<left>20</left>
+						<width>1220</width>
+						<height>66</height>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="1260" height="66">
+					<control type="image">
+						<width>1260</width>
+						<height>66</height>
+						<texture>common/Button_FO.png</texture>
+						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(2)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>1220</width>
+						<height>66</height>
+						<scroll>true</scroll>
+						<aligny>center</aligny>
+						<textcolor>ButtonLabel</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>544</left>
+				<top>906</top>
+				<width>1260</width>
+				<height>1</height>
+				<texture>common/Button_NF.png</texture>
+			</control>
+
+			<!-- Button grouplist -->
+
+			<control type="grouplist" id="9001">
+				<left>544</left>
+				<top>926</top>
+				<width>1260</width>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>2</onup>
+				<ondown>noop</ondown>
+				<orientation>horizontal</orientation>
+
+				<!-- Login button -->
+
+				<control type="radiobutton" id="4">
+					<width>420</width>
+					<label>20096</label>
+				</control>
+
+				<!-- Auto-login button -->
+
+				<control type="button" id="5">
+					<width>840</width>
+					<label>$LOCALIZE[33084]: $INFO[System.ProfileAutoLogin]</label>
+					<enable>!System.HasLoginScreen</enable>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

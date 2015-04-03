@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="10140">
+	<defaultcontrol always="true">9</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+
+		<include>Global_Background</include>
+
+		<!-- Heading -->
+
+		<control type="group">
+			<left>46</left>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<label>$VAR[Global_HeadingLabels]</label>
+				<include>Global_HeadingSectionVars</include>
+			</control>
+			<control type="label">
+				<label>$VAR[Global_HeadingDetails]</label>
+				<include>Global_HeadingDetailVars</include>
+			</control>
+		</control>
+
+		<!-- Menu -->
+
+		<control type="group">
+			<top>TopOffset</top>
+			<left>LeftOffset</left>
+			<include>Animation_ZoomInMenu</include>
+
+			<!-- Heading label -->
+
+			<control type="label" id="20">
+				<left>544</left>
+				<top>154</top>
+				<width>1254</width>
+				<height>44</height>
+				<font>Font_Reg_Caps_Bold_44</font>
+				<textcolor>Medium</textcolor>
+			</control>
+
+			<!-- Left grouplist -->
+
+			<control type="grouplist" id="9">
+				<left>80</left>
+				<top>228</top>
+				<width>360</width>
+				<height>462</height>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>2</onright>
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+			</control>
+
+			<!-- List arrows -->
+
+			<control type="image">
+				<left>102</left>
+				<top>206</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up.png</texture>
+				<visible>Container(9).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>102</left>
+				<top>696</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down.png</texture>
+				<visible>Container(9).HasNext</visible>
+			</control>
+
+			<!-- Right grouplist -->
+
+			<control type="grouplist" id="2">
+				<left>544</left>
+				<top>228</top>
+				<width>1260</width>
+				<height>594</height>
+				<itemgap>0</itemgap>
+				<onleft>9</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">320</scrolltime>
+			</control>
+
+			<!-- List arrows -->
+
+			<control type="image">
+				<left>566</left>
+				<top>206</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Up.png</texture>
+				<visible>Container(2).HasPrevious</visible>
+			</control>
+
+			<control type="image">
+				<left>566</left>
+				<top>828</top>
+				<width>32</width>
+				<height>16</height>
+				<texture>common/Scroll_Down.png</texture>
+				<visible>Container(2).HasNext</visible>
+			</control>
+
+			<!-- Left grouplist controls -->
+
+			<control type="button" id="13">
+				<width>360</width>
+			</control>
+
+			<!-- Right grouplist controls -->
+
+			<control type="button" id="3">
+				<left>330</left>
+				<top>0</top>
+				<width>1260</width>
+				<height>66</height>
+			</control>
+
+			<control type="radiobutton" id="4">
+				<left>330</left>
+				<top>0</top>
+				<width>1260</width>
+				<height>66</height>
+				<textwidth>1120</textwidth>
+			</control>
+
+			<control type="spincontrolex" id="5">
+				<left>330</left>
+				<top>0</top>
+				<width>1260</width>
+				<height>66</height>
+				<textwidth>1120</textwidth>
+			</control>
+
+			<control type="label" id="7">
+				<textcolor>MedLight</textcolor>
+			</control>
+
+			<control type="image" id="6">
+				<left>330</left>
+				<width>1260</width>
+				<height>-1</height>
+				<texture>common/Button_NF.png</texture>
+			</control>
+
+			<control type="sliderex" id="8">
+			</control>
+
+			<!-- Divider -->
+
+			<control type="image">
+				<left>544</left>
+				<top>906</top>
+				<width>1260</width>
+				<height>1</height>
+				<texture>common/Button_NF.png</texture>
+			</control>
+
+			<!-- Button grouplist -->
+
+			<control type="grouplist" id="9001">
+				<left>544</left>
+				<top>926</top>
+				<width>1260</width>
+				<itemgap>0</itemgap>
+				<onleft>9</onleft>
+				<onright>noop</onright>
+				<onup>2</onup>
+				<ondown>noop</ondown>
+				<orientation>horizontal</orientation>
+
+				<!-- OK Button -->
+
+				<control type="button" id="10">
+					<width>420</width>
+					<label>186</label>
+				</control>
+
+				<!-- Cancel Button -->
+
+				<control type="button" id="11">
+					<width>420</width>
+					<label>222</label>
+				</control>
+
+				<!-- Defaults Button -->
+
+				<control type="button" id="12">
+					<width>420</width>
+					<label>409</label>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>
